@@ -8,6 +8,7 @@ import { Demo } from "@/components/Demo";
 import { Pricing } from "@/components/Pricing";
 import { Footer } from "@/components/Footer";
 import { FloatingCTA } from "@/components/FloatingCTA";
+import { FloatingChat } from "@/components/FloatingChat";
 
 const Index = () => {
   return (
@@ -21,6 +22,7 @@ const Index = () => {
       <Pricing />
       <Footer />
       <FloatingCTA />
+      <FloatingChat />
     </div>
   );
 };
