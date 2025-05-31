@@ -1,5 +1,5 @@
 
-import { Bot, MessageCircle, FileText, Calendar, Database, Repeat } from "lucide-react";
+import { Bot, MessageCircle, FileText, Calendar, Database, Repeat, Target, Users } from "lucide-react";
 
 const steps = [
   {
@@ -31,6 +31,16 @@ const steps = [
     icon: Repeat,
     title: "Follow-up inteligente + campanhas automatizadas",
     description: "Campanhas segmentadas e follow-ups baseados no comportamento do lead"
+  },
+  {
+    icon: Target,
+    title: "Remarketing automático",
+    description: "Reconecta automaticamente com leads que demonstraram interesse mas não finalizaram a compra"
+  },
+  {
+    icon: Users,
+    title: "Nutrição de leads frios e inativos",
+    description: "Reativa leads dormentes com campanhas personalizadas e conteúdo relevante"
   }
 ];
 
@@ -43,18 +53,18 @@ export const HowItWorks = () => {
             Como funciona a Auttus
           </h2>
           <p className="text-lg sm:text-xl text-gray-600 max-w-3xl mx-auto px-4">
-            Em apenas 6 etapas simples, transforme completamente sua operação de vendas
+            Em apenas 8 etapas simples, transforme completamente sua operação de vendas
           </p>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
           {steps.map((step, index) => {
             const IconComponent = step.icon;
             return (
               <div 
                 key={index}
                 className="relative group animate-slide-up"
-                style={{ animationDelay: `${index * 0.2}s` }}
+                style={{ animationDelay: `${index * 0.1}s` }}
               >
                 <div className="bg-white rounded-xl p-4 sm:p-6 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 border border-gray-100 h-full">
                   {/* Step Number */}
