@@ -42,7 +42,7 @@ export const Hero = () => {
             {/* CTA Button */}
             <Button 
               size="lg" 
-              className="w-full sm:w-auto bg-auttus-orange hover:bg-orange-600 text-white font-semibold px-6 sm:px-8 py-3 sm:py-4 text-base sm:text-lg rounded-lg transition-all duration-300 transform hover:scale-105 animate-pulse-soft mb-8 sm:mb-12"
+              className="w-full sm:w-auto bg-auttus-orange hover:bg-orange-600 text-white font-semibold px-6 sm:px-8 py-3 sm:py-4 text-base sm:text-lg rounded-lg transition-all duration-300 transform hover:scale-105 mb-8 sm:mb-12"
             >
               Solicite sua demonstração gratuita
               <ArrowRight className="ml-2 h-4 w-4 sm:h-5 sm:w-5" />
