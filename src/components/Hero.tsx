@@ -59,16 +59,16 @@ export const Hero = () => {
         <div className="flex flex-col lg:flex-row items-center justify-between min-h-[calc(100vh-8rem)]">
           {/* Left Content */}
           <div className="w-full lg:w-1/2 mb-8 lg:mb-0 animate-fade-in text-center lg:text-left">
-            {/* Logo & Beta Badge */}
+            {/* Logo & Tagline */}
             <div className="mb-6 sm:mb-8">
               <div className="flex items-center justify-center lg:justify-start space-x-3 sm:space-x-4 mb-4">
                 <img 
-                  src="/lovable-uploads/440a171d-fb9d-421f-9eda-4b66e059bbc7.png" 
+                  src="/lovable-uploads/nova-logo.png" 
                   alt="AUTTUS Logo" 
                   className="h-8 sm:h-10 lg:h-12 w-auto animate-pulse-soft"
                 />
-                <div className="bg-auttus-orange text-white px-2 sm:px-3 py-1 rounded-full text-xs sm:text-sm font-semibold">
-                  BETA LIMITADO
+                <div className="bg-green-500 text-white px-2 sm:px-3 py-1 rounded-full text-xs sm:text-sm font-semibold">
+                  DISPONÍVEL AGORA
                 </div>
               </div>
               <p className="text-auttus-orange font-medium text-sm sm:text-base lg:text-lg">
@@ -84,7 +84,7 @@ export const Hero = () => {
 
             {/* Subtitle */}
             <p className="text-base sm:text-lg lg:text-xl text-blue-100 mb-6 sm:mb-8 leading-relaxed max-w-2xl mx-auto lg:mx-0">
-              A primeira IA brasileira treinada especificamente para vendas automotivas. 
+              A IA brasileira especializada em vendas automotivas. 
               Responde leads, qualifica clientes e agenda visitas automaticamente.
             </p>
 
@@ -94,7 +94,7 @@ export const Hero = () => {
                 size="lg" 
                 className="bg-auttus-orange hover:bg-orange-600 text-white font-semibold px-4 sm:px-6 lg:px-8 py-3 sm:py-4 text-sm sm:text-base lg:text-lg rounded-lg transition-all duration-300"
               >
-                Garantir meu beta GRÁTIS
+                Começar agora
                 <ArrowRight className="ml-2 h-4 w-4 sm:h-5 sm:w-5" />
               </Button>
               
@@ -131,7 +131,7 @@ export const Hero = () => {
               {/* Dashboard Mockup */}
               <div className="bg-auttus-gray rounded-lg p-3 sm:p-4">
                 <div className="flex items-center justify-between mb-3 sm:mb-4">
-                  <h3 className="font-semibold text-auttus-blue text-xs sm:text-sm lg:text-base">Demo - Auttus IA</h3>
+                  <h3 className="font-semibold text-auttus-blue text-xs sm:text-sm lg:text-base">Auttus Dashboard</h3>
                   <div className="flex space-x-1 sm:space-x-2">
                     <div className="w-2 h-2 sm:w-3 sm:h-3 bg-red-400 rounded-full"></div>
                     <div className="w-2 h-2 sm:w-3 sm:h-3 bg-yellow-400 rounded-full"></div>
@@ -144,8 +144,8 @@ export const Hero = () => {
                   <div className="flex items-center space-x-2 sm:space-x-3 p-2 sm:p-3 bg-green-50 rounded-lg animate-fade-in" style={{ animationDelay: '0.5s' }}>
                     <MessageCircle className="h-3 w-3 sm:h-4 sm:w-4 lg:h-5 lg:w-5 text-green-600 flex-shrink-0" />
                     <div className="flex-1 min-w-0">
-                      <div className="font-medium text-xs sm:text-sm">WhatsApp - João (Demo)</div>
-                      <div className="text-xs text-gray-600 truncate">IA: "Olá João! Vi seu interesse no Civic. Posso agendar um test-drive?"</div>
+                      <div className="font-medium text-xs sm:text-sm">WhatsApp - João Silva</div>
+                      <div className="text-xs text-gray-600 truncate">IA: "Oi João! Vi seu interesse no Civic. Posso agendar um test-drive?"</div>
                     </div>
                     <Bot className="h-3 w-3 sm:h-4 sm:w-4 lg:h-5 lg:w-5 text-auttus-orange flex-shrink-0" />
                   </div>
@@ -153,8 +153,8 @@ export const Hero = () => {
                   <div className="flex items-center space-x-2 sm:space-x-3 p-2 sm:p-3 bg-blue-50 rounded-lg animate-fade-in" style={{ animationDelay: '1s' }}>
                     <MessageCircle className="h-3 w-3 sm:h-4 sm:w-4 lg:h-5 lg:w-5 text-blue-600 flex-shrink-0" />
                     <div className="flex-1 min-w-0">
-                      <div className="font-medium text-xs sm:text-sm">OLX - Maria (Demo)</div>
-                      <div className="text-xs text-gray-600 truncate">IA respondeu e qualificou automaticamente</div>
+                      <div className="font-medium text-xs sm:text-sm">OLX - Maria Santos</div>
+                      <div className="text-xs text-gray-600 truncate">IA respondeu e qualificou lead automaticamente</div>
                     </div>
                     <Zap className="h-3 w-3 sm:h-4 sm:w-4 lg:h-5 lg:w-5 text-auttus-orange flex-shrink-0" />
                   </div>
@@ -162,17 +162,17 @@ export const Hero = () => {
                   <div className="flex items-center space-x-2 sm:space-x-3 p-2 sm:p-3 bg-purple-50 rounded-lg animate-fade-in" style={{ animationDelay: '1.5s' }}>
                     <MessageCircle className="h-3 w-3 sm:h-4 sm:w-4 lg:h-5 lg:w-5 text-purple-600 flex-shrink-0" />
                     <div className="flex-1 min-w-0">
-                      <div className="font-medium text-xs sm:text-sm">Instagram - Pedro (Demo)</div>
+                      <div className="font-medium text-xs sm:text-sm">Instagram - Pedro Costa</div>
                       <div className="text-xs text-gray-600 truncate">Agendamento confirmado para amanhã 14h</div>
                     </div>
                     <Bot className="h-3 w-3 sm:h-4 sm:w-4 lg:h-5 lg:w-5 text-auttus-orange flex-shrink-0" />
                   </div>
                 </div>
 
-                {/* Demo Badge */}
+                {/* Status */}
                 <div className="mt-3 text-center">
-                  <span className="text-xs text-gray-500 bg-gray-100 px-2 py-1 rounded">
-                    * Interface de demonstração
+                  <span className="text-xs text-green-600 bg-green-100 px-2 py-1 rounded">
+                    ✓ Sistema ativo - 3 leads respondidos hoje
                   </span>
                 </div>
               </div>

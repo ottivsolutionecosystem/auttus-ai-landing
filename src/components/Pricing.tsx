@@ -4,60 +4,63 @@ import { Button } from "@/components/ui/button";
 
 const plans = [
   {
-    name: "Beta Gratuito",
-    price: "R$ 0",
-    period: "/60 dias",
-    description: "Acesso completo durante o beta",
-    icon: Rocket,
-    features: [
-      "Omnichannel completo",
-      "CRM integrado",
-      "IA treinada para carros",
-      "Até 1.000 conversas/mês",
-      "Setup personalizado",
-      "Suporte prioritário",
-      "Sem compromisso"
-    ],
-    popular: true,
-    buttonText: "Garantir vaga no beta",
-    badge: "BETA",
-    originalPrice: "R$ 497"
-  },
-  {
     name: "Starter",
-    price: "R$ 297",
+    price: "R$ 197",
     period: "/mês",
-    description: "Perfeito para começar (após o beta)",
+    description: "Perfeito para começar",
     icon: Zap,
     features: [
-      "Tudo do Beta",
-      "Até 2.000 conversas/mês",
-      "Integrações básicas",
-      "Relatórios essenciais",
-      "Suporte por email"
+      "Omnichannel básico",
+      "Até 1.000 conversas/mês",
+      "IA treinada para carros",
+      "CRM integrado",
+      "Suporte por email",
+      "Relatórios básicos"
     ],
     popular: false,
-    buttonText: "Reservar para depois",
-    comingSoon: true
+    buttonText: "Começar agora",
+    setupIncluded: false
   },
   {
-    name: "Pro",
-    price: "R$ 597",
+    name: "Professional",
+    price: "R$ 397",
     period: "/mês",
-    description: "Para operações maiores (após o beta)",
+    description: "Mais popular entre revendas",
     icon: Crown,
     features: [
       "Tudo do Starter",
-      "Campanhas automatizadas",
-      "Follow-up inteligente",
+      "Até 5.000 conversas/mês",
+      "Follow-up automático",
+      "Campanhas personalizadas",
+      "Integrações avançadas",
+      "Relatórios detalhados",
+      "Suporte prioritário",
+      "Setup personalizado GRÁTIS"
+    ],
+    popular: true,
+    buttonText: "Escolher Professional",
+    badge: "MAIS POPULAR",
+    setupIncluded: true
+  },
+  {
+    name: "Enterprise",
+    price: "R$ 697",
+    period: "/mês",
+    description: "Para grandes operações",
+    icon: Rocket,
+    features: [
+      "Tudo do Professional",
       "Conversas ilimitadas",
       "API personalizada",
-      "Relatórios avançados",
-      "Suporte prioritário"
+      "Múltiplas lojas",
+      "Treinamento da equipe",
+      "Gerente de conta dedicado",
+      "SLA garantido",
+      "Customizações exclusivas"
     ],
     popular: false,
-    buttonText: "Reservar para depois",
-    comingSoon: true
+    buttonText: "Falar com especialista",
+    setupIncluded: true
   }
 ];
 
@@ -67,11 +70,11 @@ export const Pricing = () => {
       <div className="container mx-auto px-4 sm:px-6">
         <div className="text-center mb-12 sm:mb-16 animate-fade-in">
           <h2 className="text-3xl sm:text-4xl font-bold text-auttus-blue mb-4">
-            Comece gratuitamente no beta
+            Escolha o plano ideal para você
           </h2>
           <p className="text-lg sm:text-xl text-gray-600 max-w-3xl mx-auto px-4">
-            Teste todas as funcionalidades por 60 dias sem pagar nada. 
-            Veja os preços que teremos após o lançamento oficial.
+            Planos flexíveis que se adaptam ao tamanho da sua operação. 
+            Comece hoje mesmo e veja a diferença na primeira semana.
           </p>
         </div>
 
@@ -85,37 +88,26 @@ export const Pricing = () => {
                   plan.popular 
                     ? 'transform lg:scale-105 border-2 border-auttus-orange' 
                     : 'border border-gray-200'
-                } bg-white rounded-2xl p-6 sm:p-8 shadow-lg hover:shadow-xl transition-all duration-300 h-full flex flex-col ${
-                  plan.comingSoon ? 'opacity-75' : ''
-                }`}
+                } bg-white rounded-2xl p-6 sm:p-8 shadow-lg hover:shadow-xl transition-all duration-300 h-full flex flex-col`}
                 style={{ animationDelay: `${index * 0.2}s` }}
               >
                 {/* Popular Badge */}
                 {plan.popular && (
                   <div className="absolute -top-3 left-1/2 transform -translate-x-1/2">
                     <div className="bg-auttus-orange text-white px-3 sm:px-4 py-1 rounded-full text-xs sm:text-sm font-semibold">
-                      ACESSO ANTECIPADO
+                      {plan.badge}
                     </div>
                   </div>
                 )}
 
-                {/* Coming Soon Badge */}
-                {plan.comingSoon && (
-                  <div className="absolute -top-3 left-1/2 transform -translate-x-1/2">
-                    <div className="bg-gray-500 text-white px-3 sm:px-4 py-1 rounded-full text-xs sm:text-sm font-semibold">
-                      Após o Beta
-                    </div>
-                  </div>
-                )}
-
-                {/* Icon & Badge */}
+                {/* Icon */}
                 <div className="flex items-center justify-between mb-4">
                   <div className={`${plan.popular ? 'bg-auttus-orange' : 'bg-auttus-blue'} rounded-lg p-2 sm:p-3 w-fit`}>
                     <IconComponent className="h-6 w-6 sm:h-8 sm:w-8 text-white" />
                   </div>
-                  {plan.badge && (
+                  {plan.setupIncluded && (
                     <div className="bg-green-100 text-green-800 px-2 py-1 rounded text-xs font-semibold">
-                      {plan.badge}
+                      Setup Grátis
                     </div>
                   )}
                 </div>
@@ -126,16 +118,11 @@ export const Pricing = () => {
 
                 {/* Price */}
                 <div className="mb-6 sm:mb-8">
-                  {plan.originalPrice && plan.popular && (
-                    <div className="text-sm text-gray-500 line-through mb-1">
-                      {plan.originalPrice}
-                    </div>
-                  )}
                   <span className="text-3xl sm:text-4xl font-bold text-auttus-blue">{plan.price}</span>
                   <span className="text-gray-500 text-sm sm:text-base">{plan.period}</span>
                   {plan.popular && (
                     <div className="text-green-600 text-sm font-semibold mt-1">
-                      💰 Economia de 100% durante o beta
+                      💰 Setup personalizado incluso
                     </div>
                   )}
                 </div>
@@ -155,13 +142,8 @@ export const Pricing = () => {
                   className={`w-full ${
                     plan.popular 
                       ? 'bg-auttus-orange hover:bg-orange-600' 
-                      : plan.comingSoon
-                      ? 'bg-gray-400 hover:bg-gray-500'
                       : 'bg-auttus-blue hover:bg-blue-800'
-                  } text-white font-semibold py-2 sm:py-3 rounded-lg transition-all duration-300 ${
-                    !plan.comingSoon ? 'transform hover:scale-105' : ''
-                  } text-sm sm:text-base`}
-                  disabled={plan.comingSoon}
+                  } text-white font-semibold py-2 sm:py-3 rounded-lg transition-all duration-300 transform hover:scale-105 text-sm sm:text-base`}
                 >
                   {plan.buttonText}
                 </Button>
@@ -178,8 +160,8 @@ export const Pricing = () => {
               🎯 Dúvidas sobre qual plano escolher?
             </h3>
             <p className="text-gray-600 mb-6">
-              Comece pelo beta gratuito e nossa equipe te ajuda a escolher 
-              o melhor plano quando ele acabar.
+              Nossa equipe analisa sua operação e recomenda 
+              o plano perfeito para suas necessidades.
             </p>
             <Button 
               variant="outline" 

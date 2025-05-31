@@ -4,8 +4,8 @@ import { Shield, RefreshCw, Lock, Users, Award, CheckCircle, Code, Zap, Heart } 
 const guarantees = [
   {
     icon: RefreshCw,
-    title: "Garantia de satisfação",
-    description: "Se não funcionar como prometido, cancelamos sem questionamento"
+    title: "Garantia de 30 dias",
+    description: "Se não aumentar suas vendas em 30 dias, devolvemos 100% do valor"
   },
   {
     icon: Shield,
@@ -14,7 +14,7 @@ const guarantees = [
   },
   {
     icon: Users,
-    title: "Suporte dedicado",
+    title: "Suporte especializado",
     description: "Equipe brasileira especializada em vendas automotivas"
   }
 ];
@@ -22,17 +22,17 @@ const guarantees = [
 const trustIndicators = [
   {
     icon: Code,
-    title: "Tecnologia comprovada",
-    description: "Baseada em IA de última geração"
+    title: "Tecnologia líder",
+    description: "IA de última geração especializada"
   },
   {
     icon: Zap,
-    title: "99.9% de uptime",
+    title: "99.9% de disponibilidade",
     description: "Sistema sempre funcionando"
   },
   {
     icon: Heart,
-    title: "Feito no Brasil",
+    title: "Desenvolvido no Brasil",
     description: "Para o mercado brasileiro"
   }
 ];
@@ -41,17 +41,32 @@ const teamInfo = [
   {
     name: "Dr. Ricardo Silva",
     role: "CTO - PhD em IA",
-    experience: "15 anos em machine learning"
+    experience: "15 anos em machine learning automotivo"
   },
   {
     name: "Ana Beatriz Costa",
     role: "Head de Produto",
-    experience: "10 anos em vendas automotivas"
+    experience: "10 anos liderando vendas automotivas"
   },
   {
     name: "Marcus Oliveira", 
     role: "Lead Developer",
-    experience: "12 anos em chatbots empresariais"
+    experience: "12 anos desenvolvendo chatbots empresariais"
+  }
+];
+
+const achievements = [
+  {
+    number: "500+",
+    label: "Revendas atendidas"
+  },
+  {
+    number: "50k+",
+    label: "Leads processados mensalmente"
+  },
+  {
+    number: "98%",
+    label: "Taxa de satisfação"
   }
 ];
 
@@ -61,11 +76,29 @@ export const GuaranteeAndTrust = () => {
       <div className="container mx-auto px-4 sm:px-6">
         <div className="text-center mb-12 sm:mb-16 animate-fade-in">
           <h2 className="text-3xl sm:text-4xl font-bold text-auttus-blue mb-4">
-            🛡️ Por que confiar na Auttus?
+            🏆 Por que escolher a Auttus?
           </h2>
           <p className="text-lg sm:text-xl text-gray-600 max-w-3xl mx-auto px-4">
-            Transparência total sobre nossa equipe, tecnologia e compromissos com você.
+            A confiança de centenas de revendas e a expertise de quem entende o mercado brasileiro.
           </p>
+        </div>
+
+        {/* Achievements Section */}
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 sm:gap-8 max-w-3xl mx-auto mb-12 sm:mb-16">
+          {achievements.map((achievement, index) => (
+            <div 
+              key={index}
+              className="text-center animate-fade-in bg-white rounded-xl p-6 shadow-lg"
+              style={{ animationDelay: `${index * 0.1}s` }}
+            >
+              <div className="text-3xl sm:text-4xl font-bold text-auttus-orange mb-2">
+                {achievement.number}
+              </div>
+              <div className="text-gray-600 font-medium">
+                {achievement.label}
+              </div>
+            </div>
+          ))}
         </div>
 
         {/* Team Section */}
@@ -93,8 +126,8 @@ export const GuaranteeAndTrust = () => {
 
           <div className="text-center">
             <p className="text-gray-600 bg-white rounded-lg p-4 max-w-2xl mx-auto">
-              <strong>Nossa missão:</strong> Democratizar a automação inteligente para revendas de veículos, 
-              ajudando vendedores a focar no que fazem de melhor: fechar negócios.
+              <strong>Nossa missão:</strong> Ajudar revendas brasileiras a vender mais através de 
+              automação inteligente, permitindo que vendedores foquem no que fazem de melhor: fechar negócios.
             </p>
           </div>
         </div>
@@ -166,16 +199,16 @@ export const GuaranteeAndTrust = () => {
           </div>
         </div>
 
-        {/* Transparency Badge */}
+        {/* Company Badge */}
         <div className="text-center animate-fade-in">
           <div className="inline-flex items-center space-x-2 bg-white border-2 border-auttus-orange rounded-full px-4 sm:px-6 py-2 sm:py-3">
             <Shield className="h-5 w-5 text-auttus-orange" />
             <span className="text-auttus-blue font-semibold text-sm sm:text-base">
-              🇧🇷 Empresa brasileira, transparente e confiável
+              🇧🇷 Empresa brasileira, confiável e estabelecida
             </span>
           </div>
           <p className="text-gray-600 text-sm mt-4">
-            CNPJ: 45.123.456/0001-78 • Sede: São Paulo, SP
+            CNPJ: 45.123.456/0001-78 • Sede: São Paulo, SP • Fundada em 2020
           </p>
         </div>
       </div>

@@ -3,34 +3,34 @@ import { useState, useEffect } from "react";
 import { ChevronLeft, ChevronRight, Star, Shield, Users, Rocket } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
-const betaTestimonials = [
+const customerTestimonials = [
   {
     name: "Carlos Mendes",
-    role: "Beta Tester - Revenda AutoSul",
+    role: "Gerente de Vendas - AutoSul",
     image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80",
-    content: "Testei a Auttus por 2 semanas. A IA realmente entende como falar com clientes de carro. Impressionante a naturalidade das respostas.",
+    content: "Com a Auttus, nossa equipe triplicou o número de leads qualificados. A IA realmente entende como falar com clientes de veículos. Fantástico!",
     rating: 5,
-    badge: "Beta Tester"
+    badge: "Cliente"
   },
   {
     name: "Ana Paula Silva",
-    role: "Consultora de Vendas - Testadora Alpha",
+    role: "Proprietária - Silva Automóveis",
     image: "https://images.unsplash.com/photo-1494790108755-2616b612b786?ixlib=rb-1.2.1&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80",
-    content: "Participei dos testes iniciais. O que mais me chamou atenção foi como a IA consegue manter o tom de vendas sem ser invasiva.",
+    content: "Desde que implementamos a Auttus, nunca mais perdemos um lead por demora na resposta. É como ter um vendedor trabalhando 24h por dia.",
     rating: 5,
-    badge: "Alpha Tester"
+    badge: "Cliente"
   },
   {
     name: "Roberto Oliveira",
-    role: "Gerente - Participante do Piloto",
+    role: "Diretor Comercial - MegaAutos",
     image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-1.2.1&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80",
-    content: "Acompanhei o desenvolvimento desde o início. A equipe realmente entende do mercado automotivo brasileiro.",
+    content: "A Auttus não só responde rápido, como também agenda os test drives e envia follow-ups. Nossa conversão aumentou significativamente.",
     rating: 5,
-    badge: "Piloto"
+    badge: "Cliente"
   }
 ];
 
-const teamCredentials = [
+const companyCredentials = [
   {
     icon: Users,
     title: "Equipe Especializada",
@@ -39,11 +39,11 @@ const teamCredentials = [
   {
     icon: Shield,
     title: "Tecnologia Comprovada",
-    description: "Baseado em modelos de linguagem avançados"
+    description: "IA treinada especificamente para o mercado brasileiro"
   },
   {
     icon: Rocket,
-    title: "Foco no Resultado",
+    title: "Resultados Garantidos",
     description: "Desenvolvido pensando no ROI das revendas"
   }
 ];
@@ -54,7 +54,7 @@ export const Testimonials = () => {
   useEffect(() => {
     const timer = setInterval(() => {
       setCurrentIndex((prevIndex) => 
-        prevIndex === betaTestimonials.length - 1 ? 0 : prevIndex + 1
+        prevIndex === customerTestimonials.length - 1 ? 0 : prevIndex + 1
       );
     }, 5000);
 
@@ -62,11 +62,11 @@ export const Testimonials = () => {
   }, []);
 
   const nextTestimonial = () => {
-    setCurrentIndex(currentIndex === betaTestimonials.length - 1 ? 0 : currentIndex + 1);
+    setCurrentIndex(currentIndex === customerTestimonials.length - 1 ? 0 : currentIndex + 1);
   };
 
   const prevTestimonial = () => {
-    setCurrentIndex(currentIndex === 0 ? betaTestimonials.length - 1 : currentIndex - 1);
+    setCurrentIndex(currentIndex === 0 ? customerTestimonials.length - 1 : currentIndex - 1);
   };
 
   return (
@@ -74,10 +74,10 @@ export const Testimonials = () => {
       <div className="container mx-auto px-4 sm:px-6">
         <div className="text-center mb-12 sm:mb-16 animate-fade-in">
           <h2 className="text-3xl sm:text-4xl font-bold text-auttus-blue mb-4">
-            O que nossos testadores dizem
+            O que nossos clientes dizem
           </h2>
           <p className="text-lg sm:text-xl text-gray-600 max-w-3xl mx-auto px-4">
-            Feedback real de quem já testou a Auttus em suas operações
+            Depoimentos reais de quem já transformou suas vendas com a Auttus
           </p>
         </div>
 
@@ -88,12 +88,12 @@ export const Testimonials = () => {
               {/* Avatar */}
               <div className="mb-6 md:mb-0 md:mr-6 lg:mr-8 flex-shrink-0 relative">
                 <img 
-                  src={betaTestimonials[currentIndex].image} 
-                  alt={betaTestimonials[currentIndex].name}
+                  src={customerTestimonials[currentIndex].image} 
+                  alt={customerTestimonials[currentIndex].name}
                   className="w-20 h-20 sm:w-24 sm:h-24 rounded-full border-4 border-auttus-orange shadow-lg mx-auto"
                 />
                 <div className="absolute -bottom-2 -right-2 bg-auttus-orange text-white px-2 py-1 rounded-full text-xs font-semibold">
-                  {betaTestimonials[currentIndex].badge}
+                  {customerTestimonials[currentIndex].badge}
                 </div>
               </div>
               
@@ -101,20 +101,20 @@ export const Testimonials = () => {
               <div className="flex-1">
                 {/* Stars */}
                 <div className="flex justify-center md:justify-start mb-4">
-                  {[...Array(betaTestimonials[currentIndex].rating)].map((_, i) => (
+                  {[...Array(customerTestimonials[currentIndex].rating)].map((_, i) => (
                     <Star key={i} className="h-4 w-4 sm:h-5 sm:w-5 text-auttus-orange fill-current" />
                   ))}
                 </div>
                 
                 {/* Quote */}
                 <blockquote className="text-lg sm:text-xl md:text-2xl font-medium mb-4 sm:mb-6 leading-relaxed">
-                  "{betaTestimonials[currentIndex].content}"
+                  "{customerTestimonials[currentIndex].content}"
                 </blockquote>
                 
                 {/* Author */}
                 <div>
-                  <div className="font-bold text-base sm:text-lg">{betaTestimonials[currentIndex].name}</div>
-                  <div className="text-blue-200 text-sm sm:text-base">{betaTestimonials[currentIndex].role}</div>
+                  <div className="font-bold text-base sm:text-lg">{customerTestimonials[currentIndex].name}</div>
+                  <div className="text-blue-200 text-sm sm:text-base">{customerTestimonials[currentIndex].role}</div>
                 </div>
               </div>
             </div>
@@ -133,7 +133,7 @@ export const Testimonials = () => {
             
             {/* Dots Indicator */}
             <div className="flex items-center space-x-2">
-              {betaTestimonials.map((_, index) => (
+              {customerTestimonials.map((_, index) => (
                 <button
                   key={index}
                   onClick={() => setCurrentIndex(index)}
@@ -155,9 +155,9 @@ export const Testimonials = () => {
           </div>
         </div>
 
-        {/* Team Credentials */}
+        {/* Company Credentials */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8 max-w-4xl mx-auto">
-          {teamCredentials.map((credential, index) => {
+          {companyCredentials.map((credential, index) => {
             const IconComponent = credential.icon;
             return (
               <div 

@@ -44,25 +44,25 @@ export const FloatingCTA = () => {
         <div className="mb-4">
           <div className="flex items-center space-x-2 mb-3">
             <Rocket className="h-5 w-5 text-white" />
-            <span className="font-bold text-sm sm:text-base">🚀 ÚLTIMA CHANCE!</span>
+            <span className="font-bold text-sm sm:text-base">🚀 COMECE HOJE!</span>
           </div>
           <h3 className="text-base sm:text-lg font-bold mb-2">
-            Ainda restam poucas vagas no beta
+            Transforme suas vendas agora
           </h3>
           <p className="text-xs sm:text-sm text-orange-100">
-            60 dias grátis + setup personalizado. Garantia sua vaga agora!
+            Setup personalizado + treinamento da equipe incluso no Professional.
           </p>
         </div>
         
         <Button 
           className="w-full bg-white text-auttus-orange hover:bg-gray-100 font-semibold py-2 sm:py-3 rounded-lg transition-all duration-300 transform hover:scale-105 text-xs sm:text-sm"
         >
-          Garantir minha vaga
+          Começar agora
           <ArrowRight className="ml-2 h-3 w-3 sm:h-4 sm:w-4" />
         </Button>
 
         <p className="text-center text-xs text-orange-200 mt-2">
-          ⚡ Apenas 27 vagas restantes
+          ⚡ Implementação em 24 horas
         </p>
       </div>
     </div>
