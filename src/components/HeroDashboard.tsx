@@ -59,11 +59,11 @@ export const HeroDashboard = () => {
   }, [activeStep]);
 
   return (
-    <div className="w-full lg:w-1/2 relative lg:pl-8 xl:pl-12">
-      <div className="relative bg-white rounded-2xl shadow-xl p-4 sm:p-6 lg:p-8 hover:shadow-2xl transition-shadow duration-300 max-w-md sm:max-w-lg mx-auto lg:max-w-none">
+    <div className="w-full lg:w-1/2 relative lg:pl-8 xl:pl-12 flex-shrink-0">
+      <div className="relative bg-white rounded-2xl shadow-xl p-4 sm:p-6 lg:p-8 transition-shadow duration-300 max-w-md sm:max-w-lg mx-auto lg:max-w-none h-auto min-h-[400px]">
         
         {/* Dashboard Mockup */}
-        <div className="bg-auttus-gray rounded-xl p-4 sm:p-6">
+        <div className="bg-auttus-gray rounded-xl p-4 sm:p-6 h-full">
           <div className="flex items-center justify-between mb-4 sm:mb-6">
             <h3 className="font-semibold text-auttus-blue text-sm sm:text-base lg:text-lg">
               Auttus Dashboard
@@ -75,14 +75,14 @@ export const HeroDashboard = () => {
             </div>
           </div>
           
-          {/* Chat Messages */}
-          <div className="space-y-3 sm:space-y-4">
+          {/* Chat Messages - altura fixa para evitar mudanças de layout */}
+          <div className="space-y-3 sm:space-y-4 h-72 overflow-hidden">
             {messages.map((message, index) => (
               <div 
                 key={index}
                 className={`flex items-center space-x-3 p-3 sm:p-4 rounded-xl transition-all duration-500 ${
                   index === activeStep 
-                    ? `bg-${message.color}-100 border-l-4 border-${message.color}-500 scale-105` 
+                    ? `bg-${message.color}-100 border-l-4 border-${message.color}-500` 
                     : index < activeStep 
                       ? `bg-${message.color}-50 opacity-80` 
                       : 'bg-gray-50 opacity-40'
@@ -95,7 +95,7 @@ export const HeroDashboard = () => {
                   <div className="font-medium text-sm sm:text-base">
                     {message.platform}
                   </div>
-                  <div className="text-xs sm:text-sm text-gray-600">
+                  <div className="text-xs sm:text-sm text-gray-600 h-8 flex items-center">
                     {index === activeStep && showTyping ? (
                       <span>
                         {typingText}
@@ -113,8 +113,8 @@ export const HeroDashboard = () => {
             ))}
           </div>
 
-          {/* Status */}
-          <div className="mt-4 sm:mt-6 text-center">
+          {/* Status - posição fixa */}
+          <div className="mt-4 sm:mt-6 text-center h-12 flex items-center justify-center">
             <span className={`text-xs sm:text-sm px-3 py-2 rounded-lg font-medium transition-all duration-300 ${
               activeStep === messages.length 
                 ? 'text-green-600 bg-green-100 animate-pulse' 
@@ -130,9 +130,9 @@ export const HeroDashboard = () => {
         </div>
       </div>
       
-      {/* Elementos decorativos com indicadores de atividade */}
+      {/* Elementos decorativos com posicionamento absoluto fixo */}
       <div className={`absolute -top-4 -right-4 sm:-top-6 sm:-right-6 bg-auttus-orange text-white p-3 sm:p-4 rounded-full shadow-lg transition-all duration-300 ${
-        activeStep < messages.length ? 'animate-pulse scale-110' : 'opacity-90'
+        activeStep < messages.length ? 'animate-pulse' : 'opacity-90'
       }`}>
         <Bot className="h-5 w-5 sm:h-6 sm:w-6 lg:h-8 lg:w-8" />
       </div>
