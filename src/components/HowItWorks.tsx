@@ -5,42 +5,42 @@ const steps = [
   {
     icon: MessageCircle,
     title: "Integração com canais de atendimento",
-    description: "Conecte WhatsApp, OLX, Instagram, Facebook e Webmotors em uma única plataforma"
+    description: "Conecte WhatsApp, OLX, Instagram, Facebook e Webmotors em uma única plataforma automatizada"
   },
   {
     icon: Bot,
     title: "Captação e resposta automática com IA",
-    description: "Nossa IA responde leads instantaneamente com linguagem natural e personalizada"
+    description: "Nossa IA responde leads instantaneamente com linguagem natural. Sem intervenção humana necessária"
   },
   {
     icon: FileText,
-    title: "Qualificação do lead e envio de proposta",
-    description: "IA qualifica automaticamente e envia propostas personalizadas baseadas no perfil"
+    title: "Qualificação automática e envio de proposta",
+    description: "IA qualifica e envia propostas personalizadas automaticamente. Vendedor não precisa se preocupar"
   },
   {
     icon: Calendar,
     title: "Agendamento automático com lembrete",
-    description: "Sistema agenda visitas e test drives, enviando lembretes automáticos"
+    description: "Sistema agenda visitas e test drives automaticamente. Vendedor recebe apenas os compromissos confirmados"
   },
   {
     icon: Database,
-    title: "Registro completo no CRM com lead score",
-    description: "Todas as informações são organizadas no CRM com pontuação inteligente"
+    title: "CRM alimentado automaticamente pela IA",
+    description: "Todas as informações são organizadas no CRM automaticamente com lead score. Zero trabalho manual"
   },
   {
     icon: Repeat,
-    title: "Follow-up inteligente + campanhas automatizadas",
-    description: "Campanhas segmentadas e follow-ups baseados no comportamento do lead"
+    title: "Follow-up inteligente totalmente automatizado",
+    description: "Campanhas e follow-ups acontecem sozinhos. Vendedor só é acionado para leads prontos para fechar"
   },
   {
     icon: Target,
-    title: "Remarketing automático",
-    description: "Reconecta automaticamente com leads que demonstraram interesse mas não finalizaram a compra"
+    title: "Remarketing automático sem esforço",
+    description: "Reconecta automaticamente com leads interessados. Vendedor recebe apenas leads re-engajados"
   },
   {
     icon: Users,
-    title: "Nutrição de leads frios e inativos",
-    description: "Reativa leads dormentes com campanhas personalizadas e conteúdo relevante"
+    title: "Nutrição automática de leads frios",
+    description: "Reativa leads dormentes automaticamente. Vendedor só atende quando há interesse real de compra"
   }
 ];
 
@@ -52,8 +52,8 @@ export const HowItWorks = () => {
           <h2 className="text-3xl sm:text-4xl font-bold text-auttus-blue mb-4">
             Como funciona a Auttus
           </h2>
-          <p className="text-lg sm:text-xl text-gray-600 max-w-3xl mx-auto px-4">
-            Em apenas 8 etapas simples, transforme completamente sua operação de vendas
+          <p className="text-lg sm:text-xl text-gray-600 max-w-4xl mx-auto px-4">
+            <span className="text-auttus-orange font-semibold">Seu vendedor só precisa fechar vendas.</span> A IA faz todo o resto: atende, qualifica, agenda e alimenta o CRM automaticamente
           </p>
         </div>
 
