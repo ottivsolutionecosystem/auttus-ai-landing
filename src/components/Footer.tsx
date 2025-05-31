@@ -10,7 +10,7 @@ export const Footer = () => {
           <div className="sm:col-span-2 text-center sm:text-left">
             <div className="flex items-center justify-center sm:justify-start mb-4">
               <img 
-                src="/lovable-uploads/440a171d-fb9d-421f-9eda-4b66e059bbc7.png" 
+                src="/lovable-uploads/f42b87c0-a166-4e1e-b7e1-7bb50c4fb40b.png" 
                 alt="AUTTUS Logo" 
                 className="h-8 sm:h-10 w-auto animate-float"
               />

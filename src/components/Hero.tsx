@@ -1,6 +1,6 @@
 
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Bot, Zap, MessageCircle, Car, Play } from "lucide-react";
+import { ArrowRight, Bot, Zap, MessageCircle, Car, Play, CheckCircle } from "lucide-react";
 import { useEffect, useState } from "react";
 
 export const Hero = () => {
@@ -55,123 +55,140 @@ export const Hero = () => {
         </div>
       </div>
 
-      <div className="relative z-10 container mx-auto px-4 sm:px-6 lg:px-8 pt-12 sm:pt-16 lg:pt-20 pb-8 sm:pb-12 lg:pb-16">
-        <div className="flex flex-col lg:flex-row items-center justify-between min-h-[calc(100vh-8rem)]">
+      <div className="relative z-10 container mx-auto px-4 sm:px-6 lg:px-8 pt-8 sm:pt-12 lg:pt-16 pb-8 sm:pb-12 lg:pb-16">
+        <div className="flex flex-col lg:flex-row items-center justify-between min-h-[calc(100vh-6rem)]">
           {/* Left Content */}
           <div className="w-full lg:w-1/2 mb-8 lg:mb-0 animate-fade-in text-center lg:text-left">
-            {/* Logo & Tagline */}
+            {/* Logo & Status */}
             <div className="mb-6 sm:mb-8">
               <div className="flex items-center justify-center lg:justify-start space-x-3 sm:space-x-4 mb-4">
                 <img 
-                  src="/lovable-uploads/nova-logo.png" 
+                  src="/lovable-uploads/f42b87c0-a166-4e1e-b7e1-7bb50c4fb40b.png" 
                   alt="AUTTUS Logo" 
-                  className="h-8 sm:h-10 lg:h-12 w-auto animate-pulse-soft"
+                  className="h-10 sm:h-12 lg:h-16 w-auto"
                 />
-                <div className="bg-green-500 text-white px-2 sm:px-3 py-1 rounded-full text-xs sm:text-sm font-semibold">
-                  DISPONÍVEL AGORA
+                <div className="bg-green-500 text-white px-3 sm:px-4 py-1 sm:py-2 rounded-full text-xs sm:text-sm font-semibold flex items-center space-x-1">
+                  <CheckCircle className="h-3 w-3 sm:h-4 sm:w-4" />
+                  <span>ATIVO NO MERCADO</span>
                 </div>
               </div>
               <p className="text-auttus-orange font-medium text-sm sm:text-base lg:text-lg">
-                Responda leads em segundos, não horas
+                Seja um dos primeiros a usar a revolução em vendas automotivas
               </p>
             </div>
 
             {/* Main Title */}
-            <h2 className="text-2xl sm:text-3xl lg:text-4xl xl:text-5xl font-bold text-white mb-4 sm:mb-6 leading-tight">
+            <h1 className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-bold text-white mb-4 sm:mb-6 leading-tight">
               Pare de perder vendas por{" "}
               <span className="text-auttus-orange">demora na resposta</span>
-            </h2>
+            </h1>
 
             {/* Subtitle */}
-            <p className="text-base sm:text-lg lg:text-xl text-blue-100 mb-6 sm:mb-8 leading-relaxed max-w-2xl mx-auto lg:mx-0">
+            <p className="text-lg sm:text-xl lg:text-2xl text-blue-100 mb-6 sm:mb-8 leading-relaxed max-w-2xl mx-auto lg:mx-0">
               A IA brasileira especializada em vendas automotivas. 
               Responde leads, qualifica clientes e agenda visitas automaticamente.
             </p>
 
+            {/* Value Props */}
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-6 lg:gap-8 mb-8 sm:mb-10 max-w-2xl mx-auto lg:mx-0">
+              <div className="text-center lg:text-left bg-white/10 rounded-xl p-4 backdrop-blur-sm">
+                <div className="text-2xl sm:text-3xl lg:text-4xl font-bold text-auttus-orange mb-1">Instantâneo</div>
+                <div className="text-blue-200 text-sm sm:text-base">Resposta em segundos</div>
+              </div>
+              <div className="text-center lg:text-left bg-white/10 rounded-xl p-4 backdrop-blur-sm">
+                <div className="text-2xl sm:text-3xl lg:text-4xl font-bold text-auttus-orange mb-1">24/7</div>
+                <div className="text-blue-200 text-sm sm:text-base">Nunca para de vender</div>
+              </div>
+              <div className="text-center lg:text-left bg-white/10 rounded-xl p-4 backdrop-blur-sm">
+                <div className="text-2xl sm:text-3xl lg:text-4xl font-bold text-auttus-orange mb-1">IA Nacional</div>
+                <div className="text-blue-200 text-sm sm:text-base">Entende seu cliente</div>
+              </div>
+            </div>
+
             {/* CTA Buttons */}
-            <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center lg:justify-start mb-6 sm:mb-8">
+            <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center lg:justify-start mb-6 sm:mb-8">
               <Button 
                 size="lg" 
-                className="bg-auttus-orange hover:bg-orange-600 text-white font-semibold px-4 sm:px-6 lg:px-8 py-3 sm:py-4 text-sm sm:text-base lg:text-lg rounded-lg transition-all duration-300"
+                className="bg-auttus-orange hover:bg-orange-600 text-white font-semibold px-6 sm:px-8 lg:px-10 py-4 sm:py-5 text-base sm:text-lg lg:text-xl rounded-xl transition-all duration-300 shadow-2xl transform hover:scale-105"
               >
                 Começar agora
-                <ArrowRight className="ml-2 h-4 w-4 sm:h-5 sm:w-5" />
+                <ArrowRight className="ml-2 h-5 w-5 sm:h-6 sm:w-6" />
               </Button>
               
               <Button 
                 variant="outline"
                 size="lg" 
-                className="border-white text-white hover:bg-white hover:text-auttus-blue font-semibold px-4 sm:px-6 lg:px-8 py-3 sm:py-4 text-sm sm:text-base lg:text-lg rounded-lg transition-all duration-300"
+                className="border-2 border-white text-white hover:bg-white hover:text-auttus-blue font-semibold px-6 sm:px-8 lg:px-10 py-4 sm:py-5 text-base sm:text-lg lg:text-xl rounded-xl transition-all duration-300 backdrop-blur-sm"
               >
-                <Play className="mr-2 h-4 w-4 sm:h-5 sm:w-5" />
+                <Play className="mr-2 h-5 w-5 sm:h-6 sm:w-6" />
                 Ver demonstração
               </Button>
             </div>
 
-            {/* Value Props */}
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-6 lg:gap-8 max-w-lg sm:max-w-none mx-auto lg:mx-0">
-              <div className="text-center lg:text-left">
-                <div className="text-xl sm:text-2xl lg:text-3xl font-bold text-auttus-orange">Instantâneo</div>
-                <div className="text-blue-200 text-xs sm:text-sm">Resposta em segundos</div>
+            {/* Social Proof */}
+            <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start space-y-2 sm:space-y-0 sm:space-x-6 text-blue-200">
+              <div className="flex items-center space-x-2">
+                <CheckCircle className="h-4 w-4 sm:h-5 sm:w-5 text-green-400" />
+                <span className="text-sm sm:text-base">Setup em 24h</span>
               </div>
-              <div className="text-center lg:text-left">
-                <div className="text-xl sm:text-2xl lg:text-3xl font-bold text-auttus-orange">24/7</div>
-                <div className="text-blue-200 text-xs sm:text-sm">Nunca para de vender</div>
+              <div className="flex items-center space-x-2">
+                <CheckCircle className="h-4 w-4 sm:h-5 sm:w-5 text-green-400" />
+                <span className="text-sm sm:text-base">Suporte dedicado</span>
               </div>
-              <div className="text-center lg:text-left">
-                <div className="text-xl sm:text-2xl lg:text-3xl font-bold text-auttus-orange">IA Brasileira</div>
-                <div className="text-blue-200 text-xs sm:text-sm">Entende seu cliente</div>
+              <div className="flex items-center space-x-2">
+                <CheckCircle className="h-4 w-4 sm:h-5 sm:w-5 text-green-400" />
+                <span className="text-sm sm:text-base">Garantia de resultado</span>
               </div>
             </div>
           </div>
 
           {/* Right Content - Mockup */}
-          <div className="w-full lg:w-1/2 relative animate-slide-up lg:pl-4 xl:pl-8">
-            <div className="relative bg-white rounded-2xl shadow-2xl p-3 sm:p-4 lg:p-6 transform rotate-1 hover:rotate-0 transition-transform duration-500 max-w-sm sm:max-w-md mx-auto lg:max-w-none">
+          <div className="w-full lg:w-1/2 relative animate-slide-up lg:pl-8 xl:pl-12">
+            <div className="relative bg-white rounded-2xl shadow-2xl p-4 sm:p-6 lg:p-8 transform rotate-1 hover:rotate-0 transition-transform duration-500 max-w-md sm:max-w-lg mx-auto lg:max-w-none">
               {/* Dashboard Mockup */}
-              <div className="bg-auttus-gray rounded-lg p-3 sm:p-4">
-                <div className="flex items-center justify-between mb-3 sm:mb-4">
-                  <h3 className="font-semibold text-auttus-blue text-xs sm:text-sm lg:text-base">Auttus Dashboard</h3>
-                  <div className="flex space-x-1 sm:space-x-2">
-                    <div className="w-2 h-2 sm:w-3 sm:h-3 bg-red-400 rounded-full"></div>
-                    <div className="w-2 h-2 sm:w-3 sm:h-3 bg-yellow-400 rounded-full"></div>
-                    <div className="w-2 h-2 sm:w-3 sm:h-3 bg-green-400 rounded-full"></div>
+              <div className="bg-auttus-gray rounded-xl p-4 sm:p-6">
+                <div className="flex items-center justify-between mb-4 sm:mb-6">
+                  <h3 className="font-semibold text-auttus-blue text-sm sm:text-base lg:text-lg">Auttus Dashboard</h3>
+                  <div className="flex space-x-2">
+                    <div className="w-3 h-3 bg-red-400 rounded-full"></div>
+                    <div className="w-3 h-3 bg-yellow-400 rounded-full"></div>
+                    <div className="w-3 h-3 bg-green-400 rounded-full"></div>
                   </div>
                 </div>
                 
                 {/* Chat Messages */}
-                <div className="space-y-2 sm:space-y-3">
-                  <div className="flex items-center space-x-2 sm:space-x-3 p-2 sm:p-3 bg-green-50 rounded-lg animate-fade-in" style={{ animationDelay: '0.5s' }}>
-                    <MessageCircle className="h-3 w-3 sm:h-4 sm:w-4 lg:h-5 lg:w-5 text-green-600 flex-shrink-0" />
+                <div className="space-y-3 sm:space-y-4">
+                  <div className="flex items-center space-x-3 p-3 sm:p-4 bg-green-50 rounded-xl animate-fade-in" style={{ animationDelay: '0.5s' }}>
+                    <MessageCircle className="h-4 w-4 sm:h-5 sm:w-5 lg:h-6 lg:w-6 text-green-600 flex-shrink-0" />
                     <div className="flex-1 min-w-0">
-                      <div className="font-medium text-xs sm:text-sm">WhatsApp - João Silva</div>
-                      <div className="text-xs text-gray-600 truncate">IA: "Oi João! Vi seu interesse no Civic. Posso agendar um test-drive?"</div>
+                      <div className="font-medium text-sm sm:text-base">WhatsApp - João Silva</div>
+                      <div className="text-xs sm:text-sm text-gray-600">IA: "Oi João! Vi seu interesse no Civic. Posso agendar um test-drive?"</div>
                     </div>
-                    <Bot className="h-3 w-3 sm:h-4 sm:w-4 lg:h-5 lg:w-5 text-auttus-orange flex-shrink-0" />
+                    <Bot className="h-4 w-4 sm:h-5 sm:w-5 lg:h-6 lg:w-6 text-auttus-orange flex-shrink-0" />
                   </div>
                   
-                  <div className="flex items-center space-x-2 sm:space-x-3 p-2 sm:p-3 bg-blue-50 rounded-lg animate-fade-in" style={{ animationDelay: '1s' }}>
-                    <MessageCircle className="h-3 w-3 sm:h-4 sm:w-4 lg:h-5 lg:w-5 text-blue-600 flex-shrink-0" />
+                  <div className="flex items-center space-x-3 p-3 sm:p-4 bg-blue-50 rounded-xl animate-fade-in" style={{ animationDelay: '1s' }}>
+                    <MessageCircle className="h-4 w-4 sm:h-5 sm:w-5 lg:h-6 lg:w-6 text-blue-600 flex-shrink-0" />
                     <div className="flex-1 min-w-0">
-                      <div className="font-medium text-xs sm:text-sm">OLX - Maria Santos</div>
-                      <div className="text-xs text-gray-600 truncate">IA respondeu e qualificou lead automaticamente</div>
+                      <div className="font-medium text-sm sm:text-base">OLX - Maria Santos</div>
+                      <div className="text-xs sm:text-sm text-gray-600">IA respondeu e qualificou lead automaticamente</div>
                     </div>
-                    <Zap className="h-3 w-3 sm:h-4 sm:w-4 lg:h-5 lg:w-5 text-auttus-orange flex-shrink-0" />
+                    <Zap className="h-4 w-4 sm:h-5 sm:w-5 lg:h-6 lg:w-6 text-auttus-orange flex-shrink-0" />
                   </div>
                   
-                  <div className="flex items-center space-x-2 sm:space-x-3 p-2 sm:p-3 bg-purple-50 rounded-lg animate-fade-in" style={{ animationDelay: '1.5s' }}>
-                    <MessageCircle className="h-3 w-3 sm:h-4 sm:w-4 lg:h-5 lg:w-5 text-purple-600 flex-shrink-0" />
+                  <div className="flex items-center space-x-3 p-3 sm:p-4 bg-purple-50 rounded-xl animate-fade-in" style={{ animationDelay: '1.5s' }}>
+                    <MessageCircle className="h-4 w-4 sm:h-5 sm:w-5 lg:h-6 lg:w-6 text-purple-600 flex-shrink-0" />
                     <div className="flex-1 min-w-0">
-                      <div className="font-medium text-xs sm:text-sm">Instagram - Pedro Costa</div>
-                      <div className="text-xs text-gray-600 truncate">Agendamento confirmado para amanhã 14h</div>
+                      <div className="font-medium text-sm sm:text-base">Instagram - Pedro Costa</div>
+                      <div className="text-xs sm:text-sm text-gray-600">Agendamento confirmado para amanhã 14h</div>
                     </div>
-                    <Bot className="h-3 w-3 sm:h-4 sm:w-4 lg:h-5 lg:w-5 text-auttus-orange flex-shrink-0" />
+                    <Bot className="h-4 w-4 sm:h-5 sm:w-5 lg:h-6 lg:w-6 text-auttus-orange flex-shrink-0" />
                   </div>
                 </div>
 
                 {/* Status */}
-                <div className="mt-3 text-center">
-                  <span className="text-xs text-green-600 bg-green-100 px-2 py-1 rounded">
+                <div className="mt-4 sm:mt-6 text-center">
+                  <span className="text-xs sm:text-sm text-green-600 bg-green-100 px-3 py-2 rounded-lg font-medium">
                     ✓ Sistema ativo - 3 leads respondidos hoje
                   </span>
                 </div>
@@ -179,11 +196,11 @@ export const Hero = () => {
             </div>
             
             {/* Floating Elements */}
-            <div className="absolute -top-2 -right-2 sm:-top-4 sm:-right-4 bg-auttus-orange text-white p-2 sm:p-3 rounded-full animate-float">
-              <Bot className="h-3 w-3 sm:h-4 sm:w-4 lg:h-6 lg:w-6" />
+            <div className="absolute -top-4 -right-4 sm:-top-6 sm:-right-6 bg-auttus-orange text-white p-3 sm:p-4 rounded-full animate-float shadow-lg">
+              <Bot className="h-5 w-5 sm:h-6 sm:w-6 lg:h-8 lg:w-8" />
             </div>
-            <div className="absolute -bottom-2 -left-2 sm:-bottom-4 sm:-left-4 bg-green-500 text-white p-2 sm:p-3 rounded-full animate-float" style={{ animationDelay: '1s' }}>
-              <Zap className="h-3 w-3 sm:h-4 sm:w-4 lg:h-6 lg:w-6" />
+            <div className="absolute -bottom-4 -left-4 sm:-bottom-6 sm:-left-6 bg-green-500 text-white p-3 sm:p-4 rounded-full animate-float shadow-lg" style={{ animationDelay: '1s' }}>
+              <Zap className="h-5 w-5 sm:h-6 sm:w-6 lg:h-8 lg:w-8" />
             </div>
           </div>
         </div>
