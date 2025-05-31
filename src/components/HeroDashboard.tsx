@@ -4,7 +4,7 @@ import { Bot, Zap, MessageCircle } from "lucide-react";
 export const HeroDashboard = () => {
   return (
     <div className="w-full lg:w-1/2 relative animate-fade-in lg:pl-8 xl:pl-12">
-      <div className="relative bg-white rounded-2xl shadow-xl p-4 sm:p-6 lg:p-8 hover:shadow-2xl transition-all duration-700 max-w-md sm:max-w-lg mx-auto lg:max-w-none">
+      <div className="relative bg-white rounded-2xl shadow-xl p-4 sm:p-6 lg:p-8 hover:shadow-2xl transition-shadow duration-300 max-w-md sm:max-w-lg mx-auto lg:max-w-none">
         
         {/* Dashboard Mockup */}
         <div className="bg-auttus-gray rounded-xl p-4 sm:p-6">
@@ -21,7 +21,7 @@ export const HeroDashboard = () => {
           
           {/* Chat Messages */}
           <div className="space-y-3 sm:space-y-4">
-            <div className="flex items-center space-x-3 p-3 sm:p-4 bg-green-50 rounded-xl hover:bg-green-100 transition-colors duration-500">
+            <div className="flex items-center space-x-3 p-3 sm:p-4 bg-green-50 rounded-xl hover:bg-green-100 transition-colors duration-300">
               <MessageCircle className="h-4 w-4 sm:h-5 sm:w-5 lg:h-6 lg:w-6 text-green-600 flex-shrink-0" />
               <div className="flex-1 min-w-0">
                 <div className="font-medium text-sm sm:text-base">
@@ -34,7 +34,7 @@ export const HeroDashboard = () => {
               <Bot className="h-4 w-4 sm:h-5 sm:w-5 lg:h-6 lg:w-6 text-auttus-orange flex-shrink-0" />
             </div>
             
-            <div className="flex items-center space-x-3 p-3 sm:p-4 bg-blue-50 rounded-xl hover:bg-blue-100 transition-colors duration-500">
+            <div className="flex items-center space-x-3 p-3 sm:p-4 bg-blue-50 rounded-xl hover:bg-blue-100 transition-colors duration-300">
               <MessageCircle className="h-4 w-4 sm:h-5 sm:w-5 lg:h-6 lg:w-6 text-blue-600 flex-shrink-0" />
               <div className="flex-1 min-w-0">
                 <div className="font-medium text-sm sm:text-base">
@@ -47,7 +47,7 @@ export const HeroDashboard = () => {
               <Zap className="h-4 w-4 sm:h-5 sm:w-5 lg:h-6 lg:w-6 text-auttus-orange flex-shrink-0" />
             </div>
             
-            <div className="flex items-center space-x-3 p-3 sm:p-4 bg-purple-50 rounded-xl hover:bg-purple-100 transition-colors duration-500">
+            <div className="flex items-center space-x-3 p-3 sm:p-4 bg-purple-50 rounded-xl hover:bg-purple-100 transition-colors duration-300">
               <MessageCircle className="h-4 w-4 sm:h-5 sm:w-5 lg:h-6 lg:w-6 text-purple-600 flex-shrink-0" />
               <div className="flex-1 min-w-0">
                 <div className="font-medium text-sm sm:text-base">
@@ -70,11 +70,11 @@ export const HeroDashboard = () => {
         </div>
       </div>
       
-      {/* Subtle floating elements */}
-      <div className="absolute -top-4 -right-4 sm:-top-6 sm:-right-6 bg-auttus-orange text-white p-3 sm:p-4 rounded-full animate-float shadow-lg opacity-90">
+      {/* Elementos decorativos estáticos */}
+      <div className="absolute -top-4 -right-4 sm:-top-6 sm:-right-6 bg-auttus-orange text-white p-3 sm:p-4 rounded-full shadow-lg opacity-90">
         <Bot className="h-5 w-5 sm:h-6 sm:w-6 lg:h-8 lg:w-8" />
       </div>
-      <div className="absolute -bottom-4 -left-4 sm:-bottom-6 sm:-left-6 bg-green-500 text-white p-3 sm:p-4 rounded-full animate-pulse shadow-lg opacity-90" style={{ animationDelay: '1s' }}>
+      <div className="absolute -bottom-4 -left-4 sm:-bottom-6 sm:-left-6 bg-green-500 text-white p-3 sm:p-4 rounded-full shadow-lg opacity-90">
         <Zap className="h-5 w-5 sm:h-6 sm:w-6 lg:h-8 lg:w-8" />
       </div>
     </div>
