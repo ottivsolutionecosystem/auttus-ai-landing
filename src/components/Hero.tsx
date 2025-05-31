@@ -1,15 +1,20 @@
-
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Bot, Zap, MessageCircle } from "lucide-react";
+import { ArrowRight, Bot, Zap, MessageCircle, Car } from "lucide-react";
 
 export const Hero = () => {
   return (
     <section className="relative min-h-screen bg-gradient-to-br from-auttus-blue via-auttus-blue to-blue-900 overflow-hidden">
       {/* Background Animation */}
       <div className="absolute inset-0 opacity-10">
-        <div className="absolute top-10 left-4 md:top-20 md:left-20 w-16 h-16 md:w-32 md:h-32 bg-auttus-orange rounded-full animate-float"></div>
-        <div className="absolute top-20 right-8 md:top-40 md:right-32 w-12 h-12 md:w-24 md:h-24 bg-white rounded-full animate-float" style={{ animationDelay: '1s' }}></div>
-        <div className="absolute bottom-20 left-1/3 w-8 h-8 md:w-16 md:h-16 bg-auttus-orange rounded-full animate-float" style={{ animationDelay: '2s' }}></div>
+        <div className="absolute top-10 left-4 md:top-20 md:left-20 w-16 h-16 md:w-32 md:h-32 bg-auttus-orange rounded-full animate-float flex items-center justify-center">
+          <Car className="h-8 w-8 md:h-16 md:w-16 text-white" />
+        </div>
+        <div className="absolute top-20 right-8 md:top-40 md:right-32 w-12 h-12 md:w-24 md:h-24 bg-white rounded-full animate-float flex items-center justify-center" style={{ animationDelay: '1s' }}>
+          <Bot className="h-6 w-6 md:h-12 md:w-12 text-auttus-blue" />
+        </div>
+        <div className="absolute bottom-20 left-1/3 w-8 h-8 md:w-16 md:h-16 bg-auttus-orange rounded-full animate-float flex items-center justify-center" style={{ animationDelay: '2s' }}>
+          <Car className="h-4 w-4 md:h-8 md:w-8 text-white" />
+        </div>
       </div>
 
       <div className="relative z-10 container mx-auto px-4 sm:px-6 pt-16 sm:pt-20 pb-12 sm:pb-16">
