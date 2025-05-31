@@ -1,4 +1,3 @@
-
 import { useState, useRef, useEffect } from "react";
 import { MessageCircle, X, Send, Bot, User } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -98,7 +97,7 @@ export const FloatingChat = () => {
       {!isOpen && (
         <button
           onClick={() => setIsOpen(true)}
-          className="fixed bottom-4 left-4 sm:bottom-6 sm:left-6 z-50 bg-auttus-orange hover:bg-orange-600 text-white p-3 sm:p-4 rounded-full shadow-2xl transition-all duration-300 transform hover:scale-110 animate-bounce"
+          className="fixed bottom-4 right-4 sm:bottom-6 sm:right-6 z-50 bg-auttus-orange hover:bg-orange-600 text-white p-3 sm:p-4 rounded-full shadow-2xl transition-all duration-300 transform hover:scale-110 animate-bounce"
         >
           <MessageCircle className="h-5 w-5 sm:h-6 sm:w-6" />
         </button>
@@ -106,7 +105,7 @@ export const FloatingChat = () => {
 
       {/* Chat Window */}
       {isOpen && (
-        <div className="fixed bottom-4 left-4 sm:bottom-6 sm:left-6 z-50 w-80 sm:w-96 h-96 bg-white rounded-2xl shadow-2xl border-2 border-auttus-orange flex flex-col animate-slide-up">
+        <div className="fixed bottom-4 right-4 sm:bottom-6 sm:right-6 z-50 w-80 sm:w-96 h-96 bg-white rounded-2xl shadow-2xl border-2 border-auttus-orange flex flex-col animate-slide-up">
           {/* Header */}
           <div className="bg-auttus-orange text-white p-4 rounded-t-2xl flex items-center justify-between">
             <div className="flex items-center space-x-2">
