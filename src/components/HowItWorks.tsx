@@ -36,18 +36,18 @@ const steps = [
 
 export const HowItWorks = () => {
   return (
-    <section className="py-20 bg-auttus-gray">
-      <div className="container mx-auto px-6">
-        <div className="text-center mb-16 animate-fade-in">
-          <h2 className="text-4xl font-bold text-auttus-blue mb-4">
+    <section className="py-12 sm:py-16 lg:py-20 bg-auttus-gray">
+      <div className="container mx-auto px-4 sm:px-6">
+        <div className="text-center mb-12 sm:mb-16 animate-fade-in">
+          <h2 className="text-3xl sm:text-4xl font-bold text-auttus-blue mb-4">
             Como funciona a Auttus
           </h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+          <p className="text-lg sm:text-xl text-gray-600 max-w-3xl mx-auto px-4">
             Em apenas 6 etapas simples, transforme completamente sua operação de vendas
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
           {steps.map((step, index) => {
             const IconComponent = step.icon;
             return (
@@ -56,37 +56,28 @@ export const HowItWorks = () => {
                 className="relative group animate-slide-up"
                 style={{ animationDelay: `${index * 0.2}s` }}
               >
-                <div className="bg-white rounded-xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 border border-gray-100">
+                <div className="bg-white rounded-xl p-4 sm:p-6 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 border border-gray-100 h-full">
                   {/* Step Number */}
-                  <div className="absolute -top-4 -left-4 bg-auttus-orange text-white w-8 h-8 rounded-full flex items-center justify-center font-bold text-sm">
+                  <div className="absolute -top-3 -left-3 sm:-top-4 sm:-left-4 bg-auttus-orange text-white w-6 h-6 sm:w-8 sm:h-8 rounded-full flex items-center justify-center font-bold text-xs sm:text-sm">
                     {index + 1}
                   </div>
                   
                   {/* Icon */}
-                  <div className="bg-auttus-blue/10 rounded-lg p-3 w-fit mb-4 group-hover:bg-auttus-orange/10 transition-colors duration-300">
-                    <IconComponent className="h-8 w-8 text-auttus-blue group-hover:text-auttus-orange transition-colors duration-300" />
+                  <div className="bg-auttus-blue/10 rounded-lg p-2 sm:p-3 w-fit mb-3 sm:mb-4 group-hover:bg-auttus-orange/10 transition-colors duration-300">
+                    <IconComponent className="h-6 w-6 sm:h-8 sm:w-8 text-auttus-blue group-hover:text-auttus-orange transition-colors duration-300" />
                   </div>
                   
                   {/* Content */}
-                  <h3 className="text-xl font-semibold text-auttus-blue mb-3">
+                  <h3 className="text-lg sm:text-xl font-semibold text-auttus-blue mb-2 sm:mb-3 leading-tight">
                     {step.title}
                   </h3>
-                  <p className="text-gray-600 leading-relaxed">
+                  <p className="text-sm sm:text-base text-gray-600 leading-relaxed">
                     {step.description}
                   </p>
                 </div>
               </div>
             );
           })}
-        </div>
-
-        {/* Process Flow Arrow */}
-        <div className="hidden lg:block absolute left-1/2 transform -translate-x-1/2 mt-8">
-          <div className="flex items-center space-x-4 opacity-30">
-            {[...Array(5)].map((_, i) => (
-              <div key={i} className="w-8 h-0.5 bg-auttus-orange"></div>
-            ))}
-          </div>
         </div>
       </div>
     </section>

@@ -36,18 +36,18 @@ const features = [
 
 export const Features = () => {
   return (
-    <section className="py-20 bg-auttus-gray">
-      <div className="container mx-auto px-6">
-        <div className="text-center mb-16 animate-fade-in">
-          <h2 className="text-4xl font-bold text-auttus-blue mb-4">
+    <section className="py-12 sm:py-16 lg:py-20 bg-auttus-gray">
+      <div className="container mx-auto px-4 sm:px-6">
+        <div className="text-center mb-12 sm:mb-16 animate-fade-in">
+          <h2 className="text-3xl sm:text-4xl font-bold text-auttus-blue mb-4">
             Funcionalidades que transformam vendas
           </h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+          <p className="text-lg sm:text-xl text-gray-600 max-w-3xl mx-auto px-4">
             Cada funcionalidade foi pensada para maximizar conversões e otimizar seu tempo
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
           {features.map((feature, index) => {
             const IconComponent = feature.icon;
             return (
@@ -56,22 +56,22 @@ export const Features = () => {
                 className="group animate-slide-up"
                 style={{ animationDelay: `${index * 0.15}s` }}
               >
-                <div className="bg-white rounded-xl p-8 shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-3 hover:rotate-1 border border-gray-100 cursor-pointer">
+                <div className="bg-white rounded-xl p-6 sm:p-8 shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-3 hover:rotate-1 border border-gray-100 cursor-pointer h-full">
                   {/* Icon */}
-                  <div className="bg-gradient-to-br from-auttus-blue to-blue-700 rounded-lg p-4 w-fit mb-6 group-hover:from-auttus-orange group-hover:to-orange-600 transition-all duration-500 group-hover:scale-110">
-                    <IconComponent className="h-8 w-8 text-white" />
+                  <div className="bg-gradient-to-br from-auttus-blue to-blue-700 rounded-lg p-3 sm:p-4 w-fit mb-4 sm:mb-6 group-hover:from-auttus-orange group-hover:to-orange-600 transition-all duration-500 group-hover:scale-110">
+                    <IconComponent className="h-6 w-6 sm:h-8 sm:w-8 text-white" />
                   </div>
                   
                   {/* Content */}
-                  <h3 className="text-xl font-bold text-auttus-blue mb-4 group-hover:text-auttus-orange transition-colors duration-300">
+                  <h3 className="text-lg sm:text-xl font-bold text-auttus-blue mb-3 sm:mb-4 group-hover:text-auttus-orange transition-colors duration-300 leading-tight">
                     {feature.title}
                   </h3>
-                  <p className="text-gray-600 leading-relaxed group-hover:text-gray-700 transition-colors duration-300">
+                  <p className="text-sm sm:text-base text-gray-600 leading-relaxed group-hover:text-gray-700 transition-colors duration-300">
                     {feature.description}
                   </p>
 
                   {/* Hover Effect Arrow */}
-                  <div className="mt-6 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                  <div className="mt-4 sm:mt-6 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                     <div className="w-12 h-0.5 bg-gradient-to-r from-auttus-orange to-orange-600"></div>
                   </div>
                 </div>
