@@ -1,19 +1,98 @@
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Bot, Zap, MessageCircle, Car } from "lucide-react";
+import { useEffect, useState } from "react";
 
 export const Hero = () => {
+  const [scrollY, setScrollY] = useState(0);
+
+  useEffect(() => {
+    const handleScroll = () => setScrollY(window.scrollY);
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
   return (
     <section className="relative min-h-screen bg-gradient-to-br from-auttus-blue via-auttus-blue to-blue-900 overflow-hidden">
-      {/* Background Animation */}
+      {/* Background Animation with Parallax */}
       <div className="absolute inset-0 opacity-10">
-        <div className="absolute top-10 left-4 md:top-20 md:left-20 w-16 h-16 md:w-32 md:h-32 bg-auttus-orange rounded-full animate-float flex items-center justify-center">
+        {/* Layer 1 - Slowest parallax */}
+        <div 
+          className="absolute top-10 left-4 md:top-20 md:left-20 w-16 h-16 md:w-32 md:h-32 bg-auttus-orange rounded-full animate-float flex items-center justify-center"
+          style={{ transform: `translate3d(0, ${scrollY * 0.2}px, 0)` }}
+        >
           <Car className="h-8 w-8 md:h-16 md:w-16 text-white" />
         </div>
-        <div className="absolute top-20 right-8 md:top-40 md:right-32 w-12 h-12 md:w-24 md:h-24 bg-white rounded-full animate-float flex items-center justify-center" style={{ animationDelay: '1s' }}>
+        <div 
+          className="absolute top-20 right-8 md:top-40 md:right-32 w-12 h-12 md:w-24 md:h-24 bg-white rounded-full animate-float flex items-center justify-center" 
+          style={{ animationDelay: '1s', transform: `translate3d(0, ${scrollY * 0.3}px, 0)` }}
+        >
           <Bot className="h-6 w-6 md:h-12 md:w-12 text-auttus-blue" />
         </div>
-        <div className="absolute bottom-20 left-1/3 w-8 h-8 md:w-16 md:h-16 bg-auttus-orange rounded-full animate-float flex items-center justify-center" style={{ animationDelay: '2s' }}>
+        <div 
+          className="absolute bottom-20 left-1/3 w-8 h-8 md:w-16 md:h-16 bg-auttus-orange rounded-full animate-float flex items-center justify-center" 
+          style={{ animationDelay: '2s', transform: `translate3d(0, ${scrollY * 0.15}px, 0)` }}
+        >
           <Car className="h-4 w-4 md:h-8 md:w-8 text-white" />
+        </div>
+
+        {/* Layer 2 - Medium parallax */}
+        <div 
+          className="absolute top-32 left-1/2 w-10 h-10 md:w-20 md:h-20 bg-white rounded-full animate-float flex items-center justify-center" 
+          style={{ animationDelay: '0.5s', transform: `translate3d(0, ${scrollY * 0.4}px, 0)` }}
+        >
+          <Bot className="h-5 w-5 md:h-10 md:w-10 text-auttus-blue" />
+        </div>
+        <div 
+          className="absolute top-64 right-1/4 w-14 h-14 md:w-28 md:h-28 bg-auttus-orange rounded-full animate-float flex items-center justify-center" 
+          style={{ animationDelay: '1.5s', transform: `translate3d(0, ${scrollY * 0.25}px, 0)` }}
+        >
+          <Car className="h-7 w-7 md:h-14 md:w-14 text-white" />
+        </div>
+        <div 
+          className="absolute bottom-32 right-8 w-6 h-6 md:w-12 md:h-12 bg-white rounded-full animate-float flex items-center justify-center" 
+          style={{ animationDelay: '3s', transform: `translate3d(0, ${scrollY * 0.35}px, 0)` }}
+        >
+          <Bot className="h-3 w-3 md:h-6 md:w-6 text-auttus-blue" />
+        </div>
+
+        {/* Layer 3 - Fastest parallax */}
+        <div 
+          className="absolute top-48 left-8 w-6 h-6 md:w-12 md:h-12 bg-auttus-orange rounded-full animate-float flex items-center justify-center" 
+          style={{ animationDelay: '2.5s', transform: `translate3d(0, ${scrollY * 0.5}px, 0)` }}
+        >
+          <Car className="h-3 w-3 md:h-6 md:w-6 text-white" />
+        </div>
+        <div 
+          className="absolute top-80 right-1/3 w-8 h-8 md:w-16 md:h-16 bg-white rounded-full animate-float flex items-center justify-center" 
+          style={{ animationDelay: '0.8s', transform: `translate3d(0, ${scrollY * 0.45}px, 0)` }}
+        >
+          <Bot className="h-4 w-4 md:h-8 md:w-8 text-auttus-blue" />
+        </div>
+        <div 
+          className="absolute bottom-48 left-1/4 w-10 h-10 md:w-20 md:h-20 bg-auttus-orange rounded-full animate-float flex items-center justify-center" 
+          style={{ animationDelay: '1.8s', transform: `translate3d(0, ${scrollY * 0.3}px, 0)` }}
+        >
+          <Car className="h-5 w-5 md:h-10 md:w-10 text-white" />
+        </div>
+        <div 
+          className="absolute bottom-64 right-12 w-12 h-12 md:w-24 md:h-24 bg-white rounded-full animate-float flex items-center justify-center" 
+          style={{ animationDelay: '2.2s', transform: `translate3d(0, ${scrollY * 0.4}px, 0)` }}
+        >
+          <Bot className="h-6 w-6 md:h-12 md:w-12 text-auttus-blue" />
+        </div>
+
+        {/* Additional scattered elements */}
+        <div 
+          className="absolute top-96 left-12 w-4 h-4 md:w-8 md:h-8 bg-auttus-orange rounded-full animate-float flex items-center justify-center" 
+          style={{ animationDelay: '3.5s', transform: `translate3d(0, ${scrollY * 0.6}px, 0)` }}
+        >
+          <Car className="h-2 w-2 md:h-4 md:w-4 text-white" />
+        </div>
+        <div 
+          className="absolute top-16 right-1/2 w-5 h-5 md:w-10 md:h-10 bg-white rounded-full animate-float flex items-center justify-center" 
+          style={{ animationDelay: '4s', transform: `translate3d(0, ${scrollY * 0.35}px, 0)` }}
+        >
+          <Bot className="h-2.5 w-2.5 md:h-5 md:w-5 text-auttus-blue" />
         </div>
       </div>
 
@@ -47,7 +126,7 @@ export const Hero = () => {
             {/* CTA Button */}
             <Button 
               size="lg" 
-              className="w-full sm:w-auto bg-auttus-orange hover:bg-orange-600 text-white font-semibold px-6 sm:px-8 py-3 sm:py-4 text-base sm:text-lg rounded-lg transition-all duration-300 transform hover:scale-105 mb-8 sm:mb-12"
+              className="w-full sm:w-auto bg-auttus-orange hover:bg-orange-600 text-white font-semibold px-6 sm:px-8 py-3 sm:py-4 text-base sm:text-lg rounded-lg transition-all duration-300 mb-8 sm:mb-12"
             >
               Solicite sua demonstração gratuita
               <ArrowRight className="ml-2 h-4 w-4 sm:h-5 sm:w-5" />
