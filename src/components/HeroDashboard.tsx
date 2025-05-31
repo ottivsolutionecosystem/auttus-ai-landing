@@ -59,8 +59,8 @@ export const HeroDashboard = () => {
   }, [activeStep]);
 
   return (
-    <div className="w-full lg:w-1/2 relative lg:pl-8 xl:pl-12 flex-shrink-0">
-      <div className="relative bg-white rounded-2xl shadow-xl p-4 sm:p-6 lg:p-8 transition-shadow duration-300 max-w-md sm:max-w-lg mx-auto lg:max-w-none h-auto min-h-[400px]">
+    <div className="w-full lg:w-1/2 relative lg:pl-8 xl:pl-12 flex-shrink-0 mt-8 lg:mt-0">
+      <div className="relative bg-white rounded-2xl shadow-xl p-4 sm:p-6 lg:p-8 transition-shadow duration-300 max-w-md sm:max-w-lg mx-auto lg:max-w-none min-h-[400px] lg:h-auto lg:min-h-[400px]">
         
         {/* Dashboard Mockup */}
         <div className="bg-auttus-gray rounded-xl p-4 sm:p-6 h-full">
@@ -76,7 +76,7 @@ export const HeroDashboard = () => {
           </div>
           
           {/* Chat Messages - altura fixa para evitar mudanças de layout */}
-          <div className="space-y-3 sm:space-y-4 h-72 overflow-hidden">
+          <div className="space-y-3 sm:space-y-4 h-64 lg:h-72 overflow-hidden">
             {messages.map((message, index) => (
               <div 
                 key={index}
