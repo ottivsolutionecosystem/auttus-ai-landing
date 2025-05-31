@@ -16,13 +16,6 @@ export const Hero = () => {
           <HeroDashboard />
         </div>
       </div>
-
-      {/* Floating CTA */}
-      <div className="absolute bottom-10 left-1/2 transform -translate-x-1/2 animate-bounce z-20">
-        <div className="bg-auttus-orange text-white px-6 py-3 rounded-full shadow-2xl hover:scale-105 transition-transform duration-300 cursor-pointer">
-          <span className="font-semibold">🚀 Comece agora - Setup em 24h</span>
-        </div>
-      </div>
     </section>
   );
 };
