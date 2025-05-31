@@ -45,21 +45,21 @@ export const IrresistibleOffer = () => {
           {/* Badge */}
           <div className="inline-flex items-center space-x-2 bg-white/20 backdrop-blur-sm rounded-full px-4 sm:px-6 py-2 mb-6 sm:mb-8">
             <Gift className="h-5 w-5 text-white" />
-            <span className="text-white font-semibold text-sm sm:text-base">🚀 ACESSO ANTECIPADO</span>
+            <span className="text-white font-semibold text-sm sm:text-base">🚀 OFERTA ESPECIAL</span>
           </div>
 
           {/* Main Title */}
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-4 sm:mb-6 leading-tight">
-            Seja um dos primeiros{" "}
+            Seja um dos próximos{" "}
             <span className="bg-white text-auttus-orange px-2 sm:px-4 py-1 rounded-lg inline-block transform -rotate-2">
-              50 usuários
+              50 clientes
             </span>
           </h2>
 
           {/* Subtitle */}
           <p className="text-lg sm:text-xl text-orange-100 mb-6 sm:mb-8 leading-relaxed">
             Acesso gratuito por 60 dias + Setup personalizado + Suporte prioritário.
-            Apenas para as primeiras revendas que se cadastrarem.
+            Apenas para as próximas empresas que se cadastrarem.
           </p>
 
           {/* Countdown Timer */}
@@ -116,7 +116,7 @@ export const IrresistibleOffer = () => {
                 <Zap className="h-6 w-6 sm:h-8 sm:w-8 text-white" />
               </div>
               <h3 className="font-semibold text-white text-sm sm:text-base">Suporte Prioritário</h3>
-              <p className="text-orange-100 text-xs sm:text-sm text-center">Atendimento VIP durante o beta</p>
+              <p className="text-orange-100 text-xs sm:text-sm text-center">Atendimento VIP personalizado</p>
             </div>
           </div>
 
@@ -124,7 +124,7 @@ export const IrresistibleOffer = () => {
           <div className="bg-white/10 backdrop-blur-sm rounded-xl p-4 mb-8">
             <div className="flex items-center justify-center space-x-4 text-white">
               <Users className="h-5 w-5" />
-              <span className="text-sm">🔥 <strong>23 revendas</strong> já garantiram sua vaga</span>
+              <span className="text-sm">🔥 <strong>23 empresas</strong> já garantiram sua vaga</span>
               <div className="flex -space-x-2">
                 <div className="w-8 h-8 bg-white rounded-full border-2 border-orange-400"></div>
                 <div className="w-8 h-8 bg-white rounded-full border-2 border-orange-400"></div>
@@ -141,7 +141,7 @@ export const IrresistibleOffer = () => {
               size="lg" 
               className="w-full sm:w-auto bg-white text-auttus-orange hover:bg-gray-100 font-bold px-8 sm:px-12 py-4 sm:py-6 text-lg sm:text-xl rounded-xl shadow-2xl transform hover:scale-105 transition-all duration-300"
             >
-              🚀 QUERO MINHA VAGA NO BETA
+              🚀 GARANTIR MINHA VAGA AGORA
               <ArrowRight className="ml-2 h-5 w-5 sm:h-6 sm:w-6" />
             </Button>
           </div>
