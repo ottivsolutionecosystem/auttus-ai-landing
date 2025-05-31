@@ -4,6 +4,8 @@ import { HeroDashboard } from "./HeroDashboard";
 import { AnimatedBackground } from "./AnimatedBackground";
 
 export const Hero = () => {
+  console.log("Hero component loaded successfully");
+  
   return (
     <section className="relative min-h-screen bg-gradient-to-br from-auttus-blue via-auttus-blue to-blue-900 overflow-hidden">
       <AnimatedBackground />
