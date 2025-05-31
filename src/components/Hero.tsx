@@ -63,7 +63,7 @@ export const Hero = () => {
             <div className="mb-6 sm:mb-8">
               <div className="flex items-center justify-center lg:justify-start space-x-3 sm:space-x-4 mb-4">
                 <img 
-                  src="/lovable-uploads/f42b87c0-a166-4e1e-b7e1-7bb50c4fb40b.png" 
+                  src="/lovable-uploads/8d1a3a7d-2eb5-454e-8e09-956437a46655.png" 
                   alt="AUTTUS Logo" 
                   className="h-10 sm:h-12 lg:h-16 w-auto"
                 />
@@ -73,7 +73,7 @@ export const Hero = () => {
                 </div>
               </div>
               <p className="text-auttus-orange font-medium text-sm sm:text-base lg:text-lg">
-                Seja um dos primeiros a usar a revolução em vendas automotivas
+                Líder em automação de vendas automotivas
               </p>
             </div>
 
