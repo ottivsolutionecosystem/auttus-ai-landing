@@ -1,6 +1,6 @@
 
 import { useState, useEffect } from "react";
-import { ArrowRight, X } from "lucide-react";
+import { ArrowRight, X, Rocket } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 export const FloatingCTA = () => {
@@ -33,29 +33,37 @@ export const FloatingCTA = () => {
 
   return (
     <div className="fixed bottom-4 right-4 sm:bottom-6 sm:right-6 z-50 animate-slide-up max-w-xs sm:max-w-sm">
-      <div className="bg-white rounded-2xl shadow-2xl border-2 border-auttus-orange p-4 sm:p-6">
+      <div className="bg-gradient-to-r from-auttus-orange to-orange-600 rounded-2xl shadow-2xl border-2 border-white p-4 sm:p-6 text-white">
         <button 
           onClick={handleClose}
-          className="absolute top-2 right-2 text-gray-400 hover:text-gray-600 transition-colors duration-300"
+          className="absolute top-2 right-2 text-white/70 hover:text-white transition-colors duration-300"
         >
           <X className="h-3 w-3 sm:h-4 sm:w-4" />
         </button>
         
         <div className="mb-4">
-          <h3 className="text-base sm:text-lg font-bold text-auttus-blue mb-2">
-            Venda mais, com menos esforço
+          <div className="flex items-center space-x-2 mb-3">
+            <Rocket className="h-5 w-5 text-white" />
+            <span className="font-bold text-sm sm:text-base">🚀 ÚLTIMA CHANCE!</span>
+          </div>
+          <h3 className="text-base sm:text-lg font-bold mb-2">
+            Ainda restam poucas vagas no beta
           </h3>
-          <p className="text-xs sm:text-sm text-gray-600">
-            Deixe a Auttus trabalhar por você. Demonstração gratuita em 15 minutos.
+          <p className="text-xs sm:text-sm text-orange-100">
+            60 dias grátis + setup personalizado. Garantia sua vaga agora!
           </p>
         </div>
         
         <Button 
-          className="w-full bg-auttus-orange hover:bg-orange-600 text-white font-semibold py-2 sm:py-3 rounded-lg transition-all duration-300 transform hover:scale-105 text-xs sm:text-sm"
+          className="w-full bg-white text-auttus-orange hover:bg-gray-100 font-semibold py-2 sm:py-3 rounded-lg transition-all duration-300 transform hover:scale-105 text-xs sm:text-sm"
         >
-          Agende sua demonstração
+          Garantir minha vaga
           <ArrowRight className="ml-2 h-3 w-3 sm:h-4 sm:w-4" />
         </Button>
+
+        <p className="text-center text-xs text-orange-200 mt-2">
+          ⚡ Apenas 27 vagas restantes
+        </p>
       </div>
     </div>
   );

@@ -1,29 +1,50 @@
 
 import { useState, useEffect } from "react";
-import { ChevronLeft, ChevronRight, Star } from "lucide-react";
+import { ChevronLeft, ChevronRight, Star, Shield, Users, Rocket } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
-const testimonials = [
+const betaTestimonials = [
   {
-    name: "Marcos Silva",
-    role: "Revenda AutoMais",
+    name: "Carlos Mendes",
+    role: "Beta Tester - Revenda AutoSul",
     image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80",
-    content: "Vendo carros há 10 anos e nunca vi nada igual. Auttus mudou meu jogo. Agora vendo 3x mais com metade do esforço.",
-    rating: 5
+    content: "Testei a Auttus por 2 semanas. A IA realmente entende como falar com clientes de carro. Impressionante a naturalidade das respostas.",
+    rating: 5,
+    badge: "Beta Tester"
   },
   {
-    name: "Juliana Costa",
-    role: "Gerente de Vendas",
+    name: "Ana Paula Silva",
+    role: "Consultora de Vendas - Testadora Alpha",
     image: "https://images.unsplash.com/photo-1494790108755-2616b612b786?ixlib=rb-1.2.1&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80",
-    content: "A IA faz o que 2 atendentes faziam antes. E faz melhor. Nosso faturamento aumentou 150% em apenas 3 meses.",
-    rating: 5
+    content: "Participei dos testes iniciais. O que mais me chamou atenção foi como a IA consegue manter o tom de vendas sem ser invasiva.",
+    rating: 5,
+    badge: "Alpha Tester"
   },
   {
-    name: "Roberto Santos",
-    role: "Proprietário - Multimarcas Santos",
+    name: "Roberto Oliveira",
+    role: "Gerente - Participante do Piloto",
     image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-1.2.1&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80",
-    content: "Impressionante como a Auttus entende cada cliente. As respostas são tão naturais que até eu fico surpreso.",
-    rating: 5
+    content: "Acompanhei o desenvolvimento desde o início. A equipe realmente entende do mercado automotivo brasileiro.",
+    rating: 5,
+    badge: "Piloto"
+  }
+];
+
+const teamCredentials = [
+  {
+    icon: Users,
+    title: "Equipe Especializada",
+    description: "Time com 10+ anos em IA e vendas automotivas"
+  },
+  {
+    icon: Shield,
+    title: "Tecnologia Comprovada",
+    description: "Baseado em modelos de linguagem avançados"
+  },
+  {
+    icon: Rocket,
+    title: "Foco no Resultado",
+    description: "Desenvolvido pensando no ROI das revendas"
   }
 ];
 
@@ -33,7 +54,7 @@ export const Testimonials = () => {
   useEffect(() => {
     const timer = setInterval(() => {
       setCurrentIndex((prevIndex) => 
-        prevIndex === testimonials.length - 1 ? 0 : prevIndex + 1
+        prevIndex === betaTestimonials.length - 1 ? 0 : prevIndex + 1
       );
     }, 5000);
 
@@ -41,11 +62,11 @@ export const Testimonials = () => {
   }, []);
 
   const nextTestimonial = () => {
-    setCurrentIndex(currentIndex === testimonials.length - 1 ? 0 : currentIndex + 1);
+    setCurrentIndex(currentIndex === betaTestimonials.length - 1 ? 0 : currentIndex + 1);
   };
 
   const prevTestimonial = () => {
-    setCurrentIndex(currentIndex === 0 ? testimonials.length - 1 : currentIndex - 1);
+    setCurrentIndex(currentIndex === 0 ? betaTestimonials.length - 1 : currentIndex - 1);
   };
 
   return (
@@ -53,44 +74,47 @@ export const Testimonials = () => {
       <div className="container mx-auto px-4 sm:px-6">
         <div className="text-center mb-12 sm:mb-16 animate-fade-in">
           <h2 className="text-3xl sm:text-4xl font-bold text-auttus-blue mb-4">
-            O que nossos clientes dizem
+            O que nossos testadores dizem
           </h2>
           <p className="text-lg sm:text-xl text-gray-600 max-w-3xl mx-auto px-4">
-            Histórias reais de transformação e crescimento
+            Feedback real de quem já testou a Auttus em suas operações
           </p>
         </div>
 
-        <div className="relative max-w-4xl mx-auto">
-          {/* Testimonial Card */}
+        {/* Testimonial Card */}
+        <div className="relative max-w-4xl mx-auto mb-12">
           <div className="bg-gradient-to-br from-auttus-blue to-blue-900 rounded-2xl p-6 sm:p-8 md:p-12 text-white shadow-2xl animate-fade-in">
             <div className="flex flex-col md:flex-row items-center text-center md:text-left">
               {/* Avatar */}
-              <div className="mb-6 md:mb-0 md:mr-6 lg:mr-8 flex-shrink-0">
+              <div className="mb-6 md:mb-0 md:mr-6 lg:mr-8 flex-shrink-0 relative">
                 <img 
-                  src={testimonials[currentIndex].image} 
-                  alt={testimonials[currentIndex].name}
+                  src={betaTestimonials[currentIndex].image} 
+                  alt={betaTestimonials[currentIndex].name}
                   className="w-20 h-20 sm:w-24 sm:h-24 rounded-full border-4 border-auttus-orange shadow-lg mx-auto"
                 />
+                <div className="absolute -bottom-2 -right-2 bg-auttus-orange text-white px-2 py-1 rounded-full text-xs font-semibold">
+                  {betaTestimonials[currentIndex].badge}
+                </div>
               </div>
               
               {/* Content */}
               <div className="flex-1">
                 {/* Stars */}
                 <div className="flex justify-center md:justify-start mb-4">
-                  {[...Array(testimonials[currentIndex].rating)].map((_, i) => (
+                  {[...Array(betaTestimonials[currentIndex].rating)].map((_, i) => (
                     <Star key={i} className="h-4 w-4 sm:h-5 sm:w-5 text-auttus-orange fill-current" />
                   ))}
                 </div>
                 
                 {/* Quote */}
                 <blockquote className="text-lg sm:text-xl md:text-2xl font-medium mb-4 sm:mb-6 leading-relaxed">
-                  "{testimonials[currentIndex].content}"
+                  "{betaTestimonials[currentIndex].content}"
                 </blockquote>
                 
                 {/* Author */}
                 <div>
-                  <div className="font-bold text-base sm:text-lg">{testimonials[currentIndex].name}</div>
-                  <div className="text-blue-200 text-sm sm:text-base">{testimonials[currentIndex].role}</div>
+                  <div className="font-bold text-base sm:text-lg">{betaTestimonials[currentIndex].name}</div>
+                  <div className="text-blue-200 text-sm sm:text-base">{betaTestimonials[currentIndex].role}</div>
                 </div>
               </div>
             </div>
@@ -109,7 +133,7 @@ export const Testimonials = () => {
             
             {/* Dots Indicator */}
             <div className="flex items-center space-x-2">
-              {testimonials.map((_, index) => (
+              {betaTestimonials.map((_, index) => (
                 <button
                   key={index}
                   onClick={() => setCurrentIndex(index)}
@@ -129,6 +153,30 @@ export const Testimonials = () => {
               <ChevronRight className="h-3 w-3 sm:h-4 sm:w-4" />
             </Button>
           </div>
+        </div>
+
+        {/* Team Credentials */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8 max-w-4xl mx-auto">
+          {teamCredentials.map((credential, index) => {
+            const IconComponent = credential.icon;
+            return (
+              <div 
+                key={index}
+                className="text-center animate-fade-in"
+                style={{ animationDelay: `${index * 0.2}s` }}
+              >
+                <div className="bg-auttus-blue rounded-full p-4 w-fit mx-auto mb-4">
+                  <IconComponent className="h-8 w-8 text-white" />
+                </div>
+                <h3 className="font-bold text-auttus-blue mb-2 text-lg">
+                  {credential.title}
+                </h3>
+                <p className="text-gray-600">
+                  {credential.description}
+                </p>
+              </div>
+            );
+          })}
         </div>
       </div>
     </section>

@@ -1,5 +1,6 @@
+
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Bot, Zap, MessageCircle, Car } from "lucide-react";
+import { ArrowRight, Bot, Zap, MessageCircle, Car, Play } from "lucide-react";
 import { useEffect, useState } from "react";
 
 export const Hero = () => {
@@ -34,8 +35,6 @@ export const Hero = () => {
         >
           <Car className="h-4 w-4 md:h-8 md:w-8 text-white" />
         </div>
-
-        {/* Layer 2 - Medium parallax */}
         <div 
           className="absolute top-32 left-1/2 w-10 h-10 md:w-20 md:h-20 bg-white rounded-full animate-float flex items-center justify-center" 
           style={{ animationDelay: '0.5s', transform: `translate3d(0, ${scrollY * 0.4}px, 0)` }}
@@ -54,8 +53,6 @@ export const Hero = () => {
         >
           <Bot className="h-3 w-3 md:h-6 md:w-6 text-auttus-blue" />
         </div>
-
-        {/* Layer 3 - Fastest parallax */}
         <div 
           className="absolute top-48 left-8 w-6 h-6 md:w-12 md:h-12 bg-auttus-orange rounded-full animate-float flex items-center justify-center" 
           style={{ animationDelay: '2.5s', transform: `translate3d(0, ${scrollY * 0.5}px, 0)` }}
@@ -80,8 +77,6 @@ export const Hero = () => {
         >
           <Bot className="h-6 w-6 md:h-12 md:w-12 text-auttus-blue" />
         </div>
-
-        {/* Additional scattered elements */}
         <div 
           className="absolute top-96 left-12 w-4 h-4 md:w-8 md:h-8 bg-auttus-orange rounded-full animate-float flex items-center justify-center" 
           style={{ animationDelay: '3.5s', transform: `translate3d(0, ${scrollY * 0.6}px, 0)` }}
@@ -100,51 +95,66 @@ export const Hero = () => {
         <div className="flex flex-col lg:flex-row items-center justify-between min-h-[80vh]">
           {/* Left Content */}
           <div className="w-full lg:w-1/2 mb-8 lg:mb-0 animate-fade-in text-center lg:text-left">
-            {/* Logo */}
+            {/* Logo & Beta Badge */}
             <div className="mb-6 sm:mb-8">
-              <h1 className="text-3xl sm:text-4xl font-bold text-white mb-2 animate-pulse-soft">
-                AUTTUS
-              </h1>
+              <div className="flex items-center justify-center lg:justify-start space-x-4 mb-4">
+                <h1 className="text-3xl sm:text-4xl font-bold text-white animate-pulse-soft">
+                  AUTTUS
+                </h1>
+                <div className="bg-auttus-orange text-white px-3 py-1 rounded-full text-xs font-semibold">
+                  ACESSO ANTECIPADO
+                </div>
+              </div>
               <p className="text-auttus-orange font-medium text-base sm:text-lg">
-                Venda mais. Responda menos. Automatize tudo.
+                Responda leads em segundos, não horas
               </p>
             </div>
 
             {/* Main Title */}
             <h2 className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-bold text-white mb-4 sm:mb-6 leading-tight">
-              Sua loja vendendo no{" "}
-              <span className="text-auttus-orange">automático</span> com IA de verdade.
+              Pare de perder vendas por{" "}
+              <span className="text-auttus-orange">demora na resposta</span>
             </h2>
 
             {/* Subtitle */}
             <p className="text-lg sm:text-xl text-blue-100 mb-6 sm:mb-8 leading-relaxed max-w-2xl mx-auto lg:mx-0">
-              A Auttus centraliza todos seus atendimentos e automatiza vendas com 
-              inteligência artificial treinada para responder, agendar, qualificar e 
-              vender por você.
+              A primeira IA brasileira treinada especificamente para vendas automotivas. 
+              Responde leads, qualifica clientes e agenda visitas automaticamente.
             </p>
 
-            {/* CTA Button */}
-            <Button 
-              size="lg" 
-              className="w-full sm:w-auto bg-auttus-orange hover:bg-orange-600 text-white font-semibold px-6 sm:px-8 py-3 sm:py-4 text-base sm:text-lg rounded-lg transition-all duration-300 mb-8 sm:mb-12"
-            >
-              Solicite sua demonstração gratuita
-              <ArrowRight className="ml-2 h-4 w-4 sm:h-5 sm:w-5" />
-            </Button>
+            {/* CTA Buttons */}
+            <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start mb-8">
+              <Button 
+                size="lg" 
+                className="bg-auttus-orange hover:bg-orange-600 text-white font-semibold px-6 sm:px-8 py-3 sm:py-4 text-base sm:text-lg rounded-lg transition-all duration-300"
+              >
+                Quero acesso antecipado GRÁTIS
+                <ArrowRight className="ml-2 h-4 w-4 sm:h-5 sm:w-5" />
+              </Button>
+              
+              <Button 
+                variant="outline"
+                size="lg" 
+                className="border-white text-white hover:bg-white hover:text-auttus-blue font-semibold px-6 sm:px-8 py-3 sm:py-4 text-base sm:text-lg rounded-lg transition-all duration-300"
+              >
+                <Play className="mr-2 h-4 w-4 sm:h-5 sm:w-5" />
+                Ver demonstração
+              </Button>
+            </div>
 
-            {/* Stats */}
+            {/* Value Props */}
             <div className="flex flex-col sm:flex-row justify-center lg:justify-start space-y-4 sm:space-y-0 sm:space-x-8">
               <div className="text-center">
-                <div className="text-2xl sm:text-3xl font-bold text-auttus-orange">98%</div>
-                <div className="text-blue-200 text-xs sm:text-sm">Aumento em vendas</div>
-              </div>
-              <div className="text-center">
-                <div className="text-2xl sm:text-3xl font-bold text-auttus-orange">75%</div>
-                <div className="text-blue-200 text-xs sm:text-sm">Redução de tempo</div>
+                <div className="text-2xl sm:text-3xl font-bold text-auttus-orange">Instantâneo</div>
+                <div className="text-blue-200 text-xs sm:text-sm">Resposta em segundos</div>
               </div>
               <div className="text-center">
                 <div className="text-2xl sm:text-3xl font-bold text-auttus-orange">24/7</div>
-                <div className="text-blue-200 text-xs sm:text-sm">Atendimento ativo</div>
+                <div className="text-blue-200 text-xs sm:text-sm">Nunca para de vender</div>
+              </div>
+              <div className="text-center">
+                <div className="text-2xl sm:text-3xl font-bold text-auttus-orange">IA Brasileira</div>
+                <div className="text-blue-200 text-xs sm:text-sm">Entende seu cliente</div>
               </div>
             </div>
           </div>
@@ -155,7 +165,7 @@ export const Hero = () => {
               {/* Dashboard Mockup */}
               <div className="bg-auttus-gray rounded-lg p-3 sm:p-4">
                 <div className="flex items-center justify-between mb-3 sm:mb-4">
-                  <h3 className="font-semibold text-auttus-blue text-sm sm:text-base">Painel Auttus</h3>
+                  <h3 className="font-semibold text-auttus-blue text-sm sm:text-base">Demo - Auttus IA</h3>
                   <div className="flex space-x-1 sm:space-x-2">
                     <div className="w-2 h-2 sm:w-3 sm:h-3 bg-red-400 rounded-full"></div>
                     <div className="w-2 h-2 sm:w-3 sm:h-3 bg-yellow-400 rounded-full"></div>
@@ -168,8 +178,8 @@ export const Hero = () => {
                   <div className="flex items-center space-x-2 sm:space-x-3 p-2 sm:p-3 bg-green-50 rounded-lg animate-fade-in" style={{ animationDelay: '0.5s' }}>
                     <MessageCircle className="h-4 w-4 sm:h-5 sm:w-5 text-green-600 flex-shrink-0" />
                     <div className="flex-1 min-w-0">
-                      <div className="font-medium text-xs sm:text-sm">WhatsApp - João Silva</div>
-                      <div className="text-xs text-gray-600 truncate">Interessado no Civic 2023</div>
+                      <div className="font-medium text-xs sm:text-sm">WhatsApp - João (Demo)</div>
+                      <div className="text-xs text-gray-600 truncate">IA: "Olá João! Vi seu interesse no Civic. Posso agendar um test-drive?"</div>
                     </div>
                     <Bot className="h-4 w-4 sm:h-5 sm:w-5 text-auttus-orange flex-shrink-0" />
                   </div>
@@ -177,8 +187,8 @@ export const Hero = () => {
                   <div className="flex items-center space-x-2 sm:space-x-3 p-2 sm:p-3 bg-blue-50 rounded-lg animate-fade-in" style={{ animationDelay: '1s' }}>
                     <MessageCircle className="h-4 w-4 sm:h-5 sm:w-5 text-blue-600 flex-shrink-0" />
                     <div className="flex-1 min-w-0">
-                      <div className="font-medium text-xs sm:text-sm">OLX - Maria Costa</div>
-                      <div className="text-xs text-gray-600 truncate">Proposta enviada automaticamente</div>
+                      <div className="font-medium text-xs sm:text-sm">OLX - Maria (Demo)</div>
+                      <div className="text-xs text-gray-600 truncate">IA respondeu e qualificou automaticamente</div>
                     </div>
                     <Zap className="h-4 w-4 sm:h-5 sm:w-5 text-auttus-orange flex-shrink-0" />
                   </div>
@@ -186,11 +196,18 @@ export const Hero = () => {
                   <div className="flex items-center space-x-2 sm:space-x-3 p-2 sm:p-3 bg-purple-50 rounded-lg animate-fade-in" style={{ animationDelay: '1.5s' }}>
                     <MessageCircle className="h-4 w-4 sm:h-5 sm:w-5 text-purple-600 flex-shrink-0" />
                     <div className="flex-1 min-w-0">
-                      <div className="font-medium text-xs sm:text-sm">Instagram - Pedro Lima</div>
-                      <div className="text-xs text-gray-600 truncate">Agendamento realizado</div>
+                      <div className="font-medium text-xs sm:text-sm">Instagram - Pedro (Demo)</div>
+                      <div className="text-xs text-gray-600 truncate">Agendamento confirmado para amanhã 14h</div>
                     </div>
                     <Bot className="h-4 w-4 sm:h-5 sm:w-5 text-auttus-orange flex-shrink-0" />
                   </div>
+                </div>
+
+                {/* Demo Badge */}
+                <div className="mt-3 text-center">
+                  <span className="text-xs text-gray-500 bg-gray-100 px-2 py-1 rounded">
+                    * Interface de demonstração
+                  </span>
                 </div>
               </div>
             </div>

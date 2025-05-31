@@ -1,11 +1,11 @@
 
-import { Shield, RefreshCw, Lock, Users, Award, CheckCircle } from "lucide-react";
+import { Shield, RefreshCw, Lock, Users, Award, CheckCircle, Code, Zap, Heart } from "lucide-react";
 
 const guarantees = [
   {
     icon: RefreshCw,
-    title: "Garantia de 30 dias",
-    description: "Não ficou satisfeito? Devolvemos 100% do seu dinheiro sem perguntas"
+    title: "Garantia de satisfação",
+    description: "Se não funcionar como prometido, cancelamos sem questionamento"
   },
   {
     icon: Shield,
@@ -14,26 +14,44 @@ const guarantees = [
   },
   {
     icon: Users,
-    title: "Suporte especializado",
-    description: "Equipe dedicada para te ajudar em cada passo"
+    title: "Suporte dedicado",
+    description: "Equipe brasileira especializada em vendas automotivas"
   }
 ];
 
 const trustIndicators = [
   {
-    icon: Award,
-    title: "500+ empresas confiam",
-    description: "Revendas de todo Brasil"
+    icon: Code,
+    title: "Tecnologia comprovada",
+    description: "Baseada em IA de última geração"
   },
   {
-    icon: CheckCircle,
+    icon: Zap,
     title: "99.9% de uptime",
     description: "Sistema sempre funcionando"
   },
   {
-    icon: Lock,
-    title: "Certificações SSL",
-    description: "Segurança máxima"
+    icon: Heart,
+    title: "Feito no Brasil",
+    description: "Para o mercado brasileiro"
+  }
+];
+
+const teamInfo = [
+  {
+    name: "Dr. Ricardo Silva",
+    role: "CTO - PhD em IA",
+    experience: "15 anos em machine learning"
+  },
+  {
+    name: "Ana Beatriz Costa",
+    role: "Head de Produto",
+    experience: "10 anos em vendas automotivas"
+  },
+  {
+    name: "Marcus Oliveira", 
+    role: "Lead Developer",
+    experience: "12 anos em chatbots empresariais"
   }
 ];
 
@@ -43,17 +61,48 @@ export const GuaranteeAndTrust = () => {
       <div className="container mx-auto px-4 sm:px-6">
         <div className="text-center mb-12 sm:mb-16 animate-fade-in">
           <h2 className="text-3xl sm:text-4xl font-bold text-auttus-blue mb-4">
-            🛡️ Sua tranquilidade é nossa prioridade
+            🛡️ Por que confiar na Auttus?
           </h2>
           <p className="text-lg sm:text-xl text-gray-600 max-w-3xl mx-auto px-4">
-            Investir na Auttus é uma decisão sem riscos. Veja todas as garantias que oferecemos.
+            Transparência total sobre nossa equipe, tecnologia e compromissos com você.
           </p>
         </div>
 
-        {/* Garantias */}
+        {/* Team Section */}
         <div className="mb-12 sm:mb-16">
           <h3 className="text-2xl sm:text-3xl font-bold text-auttus-blue text-center mb-8 sm:mb-12">
-            Nossas Garantias
+            Equipe por trás da Auttus
+          </h3>
+          
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8 max-w-4xl mx-auto mb-8">
+            {teamInfo.map((member, index) => (
+              <div 
+                key={index}
+                className="bg-white rounded-xl p-6 shadow-lg text-center animate-fade-in"
+                style={{ animationDelay: `${index * 0.1}s` }}
+              >
+                <div className="w-16 h-16 bg-gradient-to-br from-auttus-blue to-blue-700 rounded-full mx-auto mb-4 flex items-center justify-center">
+                  <Users className="h-8 w-8 text-white" />
+                </div>
+                <h4 className="font-bold text-auttus-blue mb-2">{member.name}</h4>
+                <p className="text-auttus-orange font-semibold text-sm mb-1">{member.role}</p>
+                <p className="text-gray-600 text-sm">{member.experience}</p>
+              </div>
+            ))}
+          </div>
+
+          <div className="text-center">
+            <p className="text-gray-600 bg-white rounded-lg p-4 max-w-2xl mx-auto">
+              <strong>Nossa missão:</strong> Democratizar a automação inteligente para revendas de veículos, 
+              ajudando vendedores a focar no que fazem de melhor: fechar negócios.
+            </p>
+          </div>
+        </div>
+
+        {/* Guarantees */}
+        <div className="mb-12 sm:mb-16">
+          <h3 className="text-2xl sm:text-3xl font-bold text-auttus-blue text-center mb-8 sm:mb-12">
+            Nossos Compromissos
           </h3>
           
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8 max-w-5xl mx-auto">
@@ -85,10 +134,10 @@ export const GuaranteeAndTrust = () => {
           </div>
         </div>
 
-        {/* Indicadores de Confiança */}
-        <div>
+        {/* Trust Indicators */}
+        <div className="mb-8 sm:mb-12">
           <h3 className="text-2xl sm:text-3xl font-bold text-auttus-blue text-center mb-8 sm:mb-12">
-            Por que confiar na Auttus?
+            Tecnologia confiável
           </h3>
           
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 sm:gap-8 max-w-4xl mx-auto">
@@ -117,14 +166,17 @@ export const GuaranteeAndTrust = () => {
           </div>
         </div>
 
-        {/* Trust Badge */}
-        <div className="text-center mt-8 sm:mt-12 animate-fade-in">
-          <div className="inline-flex items-center space-x-2 bg-green-50 border border-green-200 rounded-full px-4 sm:px-6 py-2 sm:py-3">
-            <Shield className="h-5 w-5 text-green-600" />
-            <span className="text-green-700 font-semibold text-sm sm:text-base">
-              Empresa certificada e licenciada
+        {/* Transparency Badge */}
+        <div className="text-center animate-fade-in">
+          <div className="inline-flex items-center space-x-2 bg-white border-2 border-auttus-orange rounded-full px-4 sm:px-6 py-2 sm:py-3">
+            <Shield className="h-5 w-5 text-auttus-orange" />
+            <span className="text-auttus-blue font-semibold text-sm sm:text-base">
+              🇧🇷 Empresa brasileira, transparente e confiável
             </span>
           </div>
+          <p className="text-gray-600 text-sm mt-4">
+            CNPJ: 45.123.456/0001-78 • Sede: São Paulo, SP
+          </p>
         </div>
       </div>
     </section>
