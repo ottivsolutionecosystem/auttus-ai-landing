@@ -89,38 +89,38 @@ export const Hero = () => {
               Responde leads, qualifica clientes e agenda visitas automaticamente.
             </p>
 
-            {/* Value Props */}
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-6 lg:gap-8 mb-8 sm:mb-10 max-w-2xl mx-auto lg:mx-0">
-              <div className="text-center lg:text-left bg-white/10 rounded-xl p-4 backdrop-blur-sm">
-                <div className="text-2xl sm:text-3xl lg:text-4xl font-bold text-auttus-orange mb-1">Instantâneo</div>
-                <div className="text-blue-200 text-sm sm:text-base">Resposta em segundos</div>
+            {/* Value Props - Fixed layout */}
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 sm:gap-4 mb-8 sm:mb-10 max-w-3xl mx-auto lg:mx-0">
+              <div className="text-center lg:text-left bg-white/10 rounded-xl p-3 sm:p-4 backdrop-blur-sm">
+                <div className="text-xl sm:text-2xl lg:text-3xl font-bold text-auttus-orange mb-1">Instantâneo</div>
+                <div className="text-blue-200 text-xs sm:text-sm">Resposta em segundos</div>
               </div>
-              <div className="text-center lg:text-left bg-white/10 rounded-xl p-4 backdrop-blur-sm">
-                <div className="text-2xl sm:text-3xl lg:text-4xl font-bold text-auttus-orange mb-1">24/7</div>
-                <div className="text-blue-200 text-sm sm:text-base">Nunca para de vender</div>
+              <div className="text-center lg:text-left bg-white/10 rounded-xl p-3 sm:p-4 backdrop-blur-sm">
+                <div className="text-xl sm:text-2xl lg:text-3xl font-bold text-auttus-orange mb-1">24/7</div>
+                <div className="text-blue-200 text-xs sm:text-sm">Nunca para de vender</div>
               </div>
-              <div className="text-center lg:text-left bg-white/10 rounded-xl p-4 backdrop-blur-sm">
-                <div className="text-2xl sm:text-3xl lg:text-4xl font-bold text-auttus-orange mb-1">IA Nacional</div>
-                <div className="text-blue-200 text-sm sm:text-base">Entende seu cliente</div>
+              <div className="text-center lg:text-left bg-white/10 rounded-xl p-3 sm:p-4 backdrop-blur-sm">
+                <div className="text-xl sm:text-2xl lg:text-3xl font-bold text-auttus-orange mb-1">IA Nacional</div>
+                <div className="text-blue-200 text-xs sm:text-sm">Entende seu cliente</div>
               </div>
             </div>
 
-            {/* CTA Buttons */}
+            {/* CTA Buttons - Fixed visibility and layout */}
             <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center lg:justify-start mb-6 sm:mb-8">
               <Button 
                 size="lg" 
-                className="bg-auttus-orange hover:bg-orange-600 text-white font-semibold px-6 sm:px-8 lg:px-10 py-4 sm:py-5 text-base sm:text-lg lg:text-xl rounded-xl transition-all duration-300 shadow-2xl transform hover:scale-105"
+                className="bg-auttus-orange hover:bg-orange-600 text-white font-semibold px-6 sm:px-8 lg:px-10 py-4 sm:py-5 text-base sm:text-lg lg:text-xl rounded-xl transition-all duration-300 shadow-2xl transform hover:scale-105 min-h-[60px] flex items-center justify-center"
               >
                 Começar agora
-                <ArrowRight className="ml-2 h-5 w-5 sm:h-6 sm:w-6" />
+                <ArrowRight className="ml-2 h-5 w-5 sm:h-6 sm:w-6 flex-shrink-0" />
               </Button>
               
               <Button 
                 variant="outline"
                 size="lg" 
-                className="border-2 border-white text-white hover:bg-white hover:text-auttus-blue font-semibold px-6 sm:px-8 lg:px-10 py-4 sm:py-5 text-base sm:text-lg lg:text-xl rounded-xl transition-all duration-300 backdrop-blur-sm"
+                className="border-2 border-white text-white hover:bg-white hover:text-auttus-blue font-semibold px-6 sm:px-8 lg:px-10 py-4 sm:py-5 text-base sm:text-lg lg:text-xl rounded-xl transition-all duration-300 backdrop-blur-sm min-h-[60px] flex items-center justify-center"
               >
-                <Play className="mr-2 h-5 w-5 sm:h-6 sm:w-6" />
+                <Play className="mr-2 h-5 w-5 sm:h-6 sm:w-6 flex-shrink-0" />
                 Ver demonstração
               </Button>
             </div>
@@ -128,15 +128,15 @@ export const Hero = () => {
             {/* Social Proof */}
             <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start space-y-2 sm:space-y-0 sm:space-x-6 text-blue-200">
               <div className="flex items-center space-x-2">
-                <CheckCircle className="h-4 w-4 sm:h-5 sm:w-5 text-green-400" />
+                <CheckCircle className="h-4 w-4 sm:h-5 sm:w-5 text-green-400 flex-shrink-0" />
                 <span className="text-sm sm:text-base">Setup em 24h</span>
               </div>
               <div className="flex items-center space-x-2">
-                <CheckCircle className="h-4 w-4 sm:h-5 sm:w-5 text-green-400" />
+                <CheckCircle className="h-4 w-4 sm:h-5 sm:w-5 text-green-400 flex-shrink-0" />
                 <span className="text-sm sm:text-base">Suporte dedicado</span>
               </div>
               <div className="flex items-center space-x-2">
-                <CheckCircle className="h-4 w-4 sm:h-5 sm:w-5 text-green-400" />
+                <CheckCircle className="h-4 w-4 sm:h-5 sm:w-5 text-green-400 flex-shrink-0" />
                 <span className="text-sm sm:text-base">Garantia de resultado</span>
               </div>
             </div>
