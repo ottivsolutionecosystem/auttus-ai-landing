@@ -51,7 +51,7 @@ export const FloatingCTA = () => {
         </div>
         
         <Button 
-          className="w-full bg-auttus-orange hover:bg-orange-600 text-white font-semibold py-2 sm:py-3 rounded-lg transition-all duration-300 transform hover:scale-105 animate-pulse-soft text-xs sm:text-sm"
+          className="w-full bg-auttus-orange hover:bg-orange-600 text-white font-semibold py-2 sm:py-3 rounded-lg transition-all duration-300 transform hover:scale-105 text-xs sm:text-sm"
         >
           Agende sua demonstração
           <ArrowRight className="ml-2 h-3 w-3 sm:h-4 sm:w-4" />

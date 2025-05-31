@@ -1,4 +1,3 @@
-
 import { Instagram, MessageCircle } from "lucide-react";
 
 export const Footer = () => {
@@ -8,7 +7,7 @@ export const Footer = () => {
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
           {/* Logo and Description */}
           <div className="sm:col-span-2 text-center sm:text-left">
-            <h3 className="text-2xl sm:text-3xl font-bold mb-4 animate-pulse-soft">AUTTUS</h3>
+            <h3 className="text-2xl sm:text-3xl font-bold mb-4 animate-float">AUTTUS</h3>
             <p className="text-blue-200 mb-6 max-w-md mx-auto sm:mx-0">
               Transforme sua operação de vendas com automação inteligente. 
               Venda mais, responda menos, automatize tudo.
