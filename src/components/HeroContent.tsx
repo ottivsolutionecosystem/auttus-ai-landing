@@ -1,3 +1,4 @@
+
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Play, CheckCircle } from "lucide-react";
 
@@ -8,7 +9,7 @@ export const HeroContent = () => {
       <div className="mb-6 sm:mb-8">
         <div className="flex items-center justify-center lg:justify-start space-x-3 sm:space-x-4 mb-4">
           <img 
-            src="/lovable-uploads/8d1a3a7d-2eb5-454e-8e09-956437a46655.png" 
+            src="/lovable-uploads/d263659d-bcbc-4a4b-8ef6-a9332b55e6d3.png" 
             alt="AUTTUS Logo" 
             className="h-10 sm:h-12 lg:h-16 w-auto hover:scale-105 transition-transform duration-300"
           />

@@ -1,4 +1,3 @@
-
 import { Instagram, MessageCircle } from "lucide-react";
 
 export const Footer = () => {
@@ -10,7 +9,7 @@ export const Footer = () => {
           <div className="sm:col-span-2 text-center sm:text-left">
             <div className="flex items-center justify-center sm:justify-start mb-4">
               <img 
-                src="/lovable-uploads/8d1a3a7d-2eb5-454e-8e09-956437a46655.png" 
+                src="/lovable-uploads/d263659d-bcbc-4a4b-8ef6-a9332b55e6d3.png" 
                 alt="AUTTUS Logo" 
                 className="h-8 sm:h-10 w-auto animate-float"
               />
