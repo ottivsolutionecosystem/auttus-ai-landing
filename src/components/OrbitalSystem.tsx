@@ -2,18 +2,18 @@
 import { MessageCircle, Instagram, Car, Mail } from "lucide-react";
 
 const channels = [
-  { name: "WhatsApp", icon: MessageCircle, color: "text-green-500", bg: "bg-green-50", orbitRadius: 35, angle: 0, speed: 20 },
-  { name: "OLX", icon: Car, color: "text-purple-500", bg: "bg-purple-50", orbitRadius: 55, angle: 60, speed: 25 },
-  { name: "Instagram", icon: Instagram, color: "text-pink-500", bg: "bg-pink-50", orbitRadius: 75, angle: 120, speed: 22 },
-  { name: "Facebook", icon: MessageCircle, color: "text-blue-500", bg: "bg-blue-50", orbitRadius: 95, angle: 180, speed: 28 },
-  { name: "Webmotors", icon: Car, color: "text-red-500", bg: "bg-red-50", orbitRadius: 115, angle: 240, speed: 18 },
-  { name: "E-mail", icon: Mail, color: "text-orange-500", bg: "bg-orange-50", orbitRadius: 135, angle: 300, speed: 26 }
+  { name: "WhatsApp", icon: MessageCircle, color: "text-green-500", bg: "bg-green-50", orbitRadius: 50, angle: 0, speed: 20 },
+  { name: "OLX", icon: Car, color: "text-purple-500", bg: "bg-purple-50", orbitRadius: 75, angle: 60, speed: 25 },
+  { name: "Instagram", icon: Instagram, color: "text-pink-500", bg: "bg-pink-50", orbitRadius: 100, angle: 120, speed: 22 },
+  { name: "Facebook", icon: MessageCircle, color: "text-blue-500", bg: "bg-blue-50", orbitRadius: 125, angle: 180, speed: 28 },
+  { name: "Webmotors", icon: Car, color: "text-red-500", bg: "bg-red-50", orbitRadius: 150, angle: 240, speed: 18 },
+  { name: "E-mail", icon: Mail, color: "text-orange-500", bg: "bg-orange-50", orbitRadius: 175, angle: 300, speed: 26 }
 ];
 
 export const OrbitalSystem = () => {
   return (
     <div className="relative w-full max-w-[95vw] aspect-square max-h-[95vh] mx-auto">
-      <div className="relative w-full h-full max-w-[600px] max-h-[600px] sm:max-w-[700px] sm:max-h-[700px] md:max-w-[900px] md:max-h-[900px] lg:max-w-[1200px] lg:max-h-[1200px] xl:max-w-[1400px] xl:max-h-[1400px] mx-auto">
+      <div className="relative w-full h-full max-w-[700px] max-h-[700px] sm:max-w-[800px] sm:max-h-[800px] md:max-w-[1000px] md:max-h-[1000px] lg:max-w-[1400px] lg:max-h-[1400px] xl:max-w-[1600px] xl:max-h-[1600px] mx-auto">
         
         {/* Connection Lines */}
         {channels.map((channel, index) => (
@@ -49,12 +49,12 @@ export const OrbitalSystem = () => {
 
         {/* Orbital Paths (subtle guides) */}
         <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
-          <div className="w-[70%] h-[70%] border border-gray-200 rounded-full opacity-10"></div>
-          <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[110%] h-[110%] border border-gray-200 rounded-full opacity-8"></div>
-          <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[150%] h-[150%] border border-gray-200 rounded-full opacity-6"></div>
-          <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[190%] h-[190%] border border-gray-200 rounded-full opacity-4"></div>
-          <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[230%] h-[230%] border border-gray-200 rounded-full opacity-3"></div>
-          <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[270%] h-[270%] border border-gray-200 rounded-full opacity-2"></div>
+          <div className="w-[100%] h-[100%] border border-gray-200 rounded-full opacity-10"></div>
+          <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[150%] h-[150%] border border-gray-200 rounded-full opacity-8"></div>
+          <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[200%] h-[200%] border border-gray-200 rounded-full opacity-6"></div>
+          <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[250%] h-[250%] border border-gray-200 rounded-full opacity-4"></div>
+          <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[300%] h-[300%] border border-gray-200 rounded-full opacity-3"></div>
+          <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[350%] h-[350%] border border-gray-200 rounded-full opacity-2"></div>
         </div>
 
         {/* Orbiting Channel Icons */}
