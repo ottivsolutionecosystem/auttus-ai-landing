@@ -39,11 +39,6 @@ Em alguns segundos você será redirecionado para o WhatsApp onde nosso time esp
 
       // Redirecionar para WhatsApp após 3 segundos
       setTimeout(() => {
-        const whatsappMessage = `Olá! Sou ${flow.userName} e me interessei pela automação de vendas da Auttus. Gostaria de receber o material exclusivo e agendar uma demonstração!`;
-        const whatsappNumber = "5511999999999"; // Substitua pelo número real
-        const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(whatsappMessage)}`;
-        window.open(whatsappUrl, '_blank');
-        
         setFlow(prev => ({ ...prev, step: 'completed' }));
         addBotMessage(`Redirecionando para o WhatsApp... 
 
@@ -51,6 +46,7 @@ Se não abriu automaticamente, clique no botão abaixo! 👇`);
       }, 3000);
       break;
 
+    case 'finalizing':
     case 'completed':
       addBotMessage('Você já foi redirecionado para o WhatsApp! Nosso time está aguardando sua mensagem. 😊');
       break;
@@ -67,13 +63,17 @@ export const getPlaceholderText = (step: ChatFlow['step']) => {
       return 'Digite seu nome...';
     case 'collecting_name':
       return 'Digite seu WhatsApp...';
+    case 'finalizing':
+      return 'Aguardando redirecionamento...';
+    case 'completed':
+      return '';
     default:
       return 'Digite sua mensagem...';
   }
 };
 
 export const openWhatsApp = (userName?: string) => {
-  const whatsappMessage = `Olá! Sou ${userName} e me interessei pela automação de vendas da Auttus.`;
+  const whatsappMessage = `Olá! Sou ${userName || 'um visitante'} e me interessei pela automação de vendas da Auttus. Gostaria de receber o material exclusivo e agendar uma demonstração!`;
   const whatsappNumber = "5511999999999"; // Substitua pelo número real
   const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(whatsappMessage)}`;
   window.open(whatsappUrl, '_blank');
