@@ -1,3 +1,4 @@
+
 import { AlertTriangle, Clock, Users, TrendingDown, TrendingUp, Bot, Target, ArrowRight, Zap } from "lucide-react";
 
 const beforePoints = [
@@ -67,10 +68,6 @@ export const ValueComparison = () => {
 
       <div className="container mx-auto px-4 sm:px-6 relative z-10">
         <div className="text-center mb-12 sm:mb-16 animate-fade-in">
-          <div className="inline-flex items-center space-x-2 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-full px-6 py-2 mb-6 shadow-lg">
-            <Bot className="h-5 w-5" />
-            <span className="font-semibold">IA vs Manual</span>
-          </div>
           
           <h2 className="text-3xl sm:text-4xl font-bold bg-gradient-to-r from-auttus-blue to-purple-700 bg-clip-text text-transparent mb-4">
             Transformação Digital em Vendas
@@ -170,18 +167,6 @@ export const ValueComparison = () => {
                 })}
               </div>
             </div>
-          </div>
-        </div>
-
-        {/* Bottom CTA */}
-        <div className="text-center mt-12 sm:mt-16 animate-fade-in" style={{ animationDelay: '0.8s' }}>
-          <div className="bg-gradient-to-r from-auttus-blue to-purple-700 text-white rounded-2xl p-6 sm:p-8 shadow-2xl max-w-2xl mx-auto">
-            <h3 className="text-xl sm:text-2xl font-bold mb-3">
-              🚀 Pronto para a transformação?
-            </h3>
-            <p className="text-blue-100 text-sm sm:text-base">
-              Acelere suas vendas com inteligência artificial. Resultados em 24h.
-            </p>
           </div>
         </div>
       </div>
