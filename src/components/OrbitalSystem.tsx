@@ -15,11 +15,11 @@ export const OrbitalSystem = () => {
     <div className="relative w-[500px] h-[500px] lg:w-[550px] lg:h-[550px]">
       {/* Central Auttus Logo */}
       <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-10">
-        <div className="w-20 h-20 lg:w-24 lg:h-24 bg-auttus-blue rounded-full flex items-center justify-center shadow-lg animate-pulse-soft">
+        <div className="w-20 h-20 lg:w-24 lg:h-24 bg-gradient-to-br from-white via-gray-100 to-gray-200 rounded-full flex items-center justify-center shadow-lg animate-pulse-soft">
           <img 
-            src="/lovable-uploads/8d1a3a7d-2eb5-454e-8e09-956437a46655.png" 
+            src="/lovable-uploads/e1ebd96e-097c-4ad3-abff-e3da1e7146aa.png" 
             alt="AUTTUS Logo" 
-            className="h-12 w-auto lg:h-14 filter brightness-0 invert"
+            className="h-12 w-auto lg:h-14"
           />
         </div>
       </div>
