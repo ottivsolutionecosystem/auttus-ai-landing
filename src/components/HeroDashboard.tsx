@@ -1,4 +1,3 @@
-
 import { Bot, User, MessageCircle, CheckCircle, Clock } from "lucide-react";
 import { useState, useEffect, useRef } from "react";
 
@@ -7,6 +6,7 @@ export const HeroDashboard = () => {
   const [visibleMessages, setVisibleMessages] = useState<any[]>([]);
   const [isTyping, setIsTyping] = useState(false);
   const messagesEndRef = useRef<HTMLDivElement>(null);
+  const chatContainerRef = useRef<HTMLDivElement>(null);
 
   const chatFlow = [
     {
@@ -106,10 +106,9 @@ export const HeroDashboard = () => {
   ];
 
   const scrollToBottom = () => {
-    messagesEndRef.current?.scrollIntoView({ 
-      behavior: "smooth",
-      block: "end"
-    });
+    if (chatContainerRef.current) {
+      chatContainerRef.current.scrollTop = chatContainerRef.current.scrollHeight;
+    }
   };
 
   useEffect(() => {
@@ -161,8 +160,12 @@ export const HeroDashboard = () => {
             </div>
           </div>
           
-          {/* Chat Messages - Área com scroll */}
-          <div className="flex-1 overflow-y-auto space-y-3 pb-4 scroll-smooth">
+          {/* Chat Messages - Área com scroll restrito */}
+          <div 
+            ref={chatContainerRef}
+            className="flex-1 overflow-y-auto space-y-3 pb-4 overscroll-contain"
+            style={{ scrollBehavior: 'smooth' }}
+          >
             {visibleMessages.map((msg, index) => (
               <div key={index} className="animate-fade-in">
                 {msg.type === 'user' && (
