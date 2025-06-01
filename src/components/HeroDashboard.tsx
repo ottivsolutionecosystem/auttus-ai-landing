@@ -1,15 +1,16 @@
-
 import { useState, useEffect, useRef } from "react";
 import { ChatMessage } from "./ChatMessage";
 import { ChatHeader } from "./ChatHeader";
 import { ChatTypingIndicator } from "./ChatTypingIndicator";
 import { ChatStatusBar } from "./ChatStatusBar";
 import { FloatingIcons } from "./FloatingIcons";
+import { UserTypingIndicator } from "./UserTypingIndicator";
 
 export const HeroDashboard = () => {
   const [currentMessageIndex, setCurrentMessageIndex] = useState(0);
   const [visibleMessages, setVisibleMessages] = useState<any[]>([]);
   const [isTyping, setIsTyping] = useState(false);
+  const [isUserTyping, setIsUserTyping] = useState(false);
   const messagesEndRef = useRef<HTMLDivElement>(null);
   const chatContainerRef = useRef<HTMLDivElement>(null);
 
@@ -147,25 +148,39 @@ export const HeroDashboard = () => {
 
   // Effect para scroll quando indicador de digitação aparece
   useEffect(() => {
-    if (isTyping) {
+    if (isTyping || isUserTyping) {
       const scrollTimeout = setTimeout(() => {
         scrollToBottomSmooth();
       }, 100);
       
       return () => clearTimeout(scrollTimeout);
     }
-  }, [isTyping]);
+  }, [isTyping, isUserTyping]);
 
   useEffect(() => {
     const interval = setInterval(() => {
       if (currentMessageIndex < chatFlow.length) {
-        setIsTyping(true);
+        const currentMessage = chatFlow[currentMessageIndex];
         
-        setTimeout(() => {
-          setVisibleMessages(prev => [...prev, chatFlow[currentMessageIndex]]);
-          setCurrentMessageIndex(prev => prev + 1);
-          setIsTyping(false);
-        }, chatFlow[currentMessageIndex].type === 'bot' ? 2000 : 1000);
+        if (currentMessage.type === 'user') {
+          // Mostrar que João está digitando
+          setIsUserTyping(true);
+          
+          setTimeout(() => {
+            setVisibleMessages(prev => [...prev, currentMessage]);
+            setCurrentMessageIndex(prev => prev + 1);
+            setIsUserTyping(false);
+          }, 1500); // João digita por 1.5 segundos
+        } else {
+          // Mensagem do bot ou sistema
+          setIsTyping(true);
+          
+          setTimeout(() => {
+            setVisibleMessages(prev => [...prev, currentMessage]);
+            setCurrentMessageIndex(prev => prev + 1);
+            setIsTyping(false);
+          }, currentMessage.type === 'bot' ? 2000 : 1000);
+        }
       } else {
         setTimeout(() => {
           setVisibleMessages([]);
@@ -198,6 +213,7 @@ export const HeroDashboard = () => {
               </div>
             ))}
             
+            {isUserTyping && <UserTypingIndicator />}
             {isTyping && <ChatTypingIndicator />}
             
             <div ref={messagesEndRef} />
