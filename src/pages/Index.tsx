@@ -10,6 +10,7 @@ import { Demo } from "@/components/Demo";
 import { IrresistibleOffer } from "@/components/IrresistibleOffer";
 import { GuaranteeAndTrust } from "@/components/GuaranteeAndTrust";
 import { Footer } from "@/components/Footer";
+import { FloatingChatBot } from "@/components/FloatingChatBot";
 
 const Index = () => {
   return (
@@ -25,6 +26,7 @@ const Index = () => {
       <IrresistibleOffer />
       <GuaranteeAndTrust />
       <Footer />
+      <FloatingChatBot />
     </div>
   );
 };
