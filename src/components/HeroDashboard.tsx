@@ -111,53 +111,34 @@ export const HeroDashboard = () => {
     }
   ];
 
-  // Função de scroll suave melhorada
-  const scrollToBottomSmooth = () => {
+  // Função de scroll isolada apenas para o container do chat
+  const scrollChatToBottom = () => {
     if (chatContainerRef.current) {
       const container = chatContainerRef.current;
       
-      // Força o scroll para o final imediatamente
+      // Scroll direto no container sem afetar a página
       container.scrollTop = container.scrollHeight;
-      
-      // Também usa scrollIntoView como backup
-      if (messagesEndRef.current) {
-        messagesEndRef.current.scrollIntoView({ 
-          behavior: 'smooth', 
-          block: 'end',
-          inline: 'nearest'
-        });
-      }
     }
   };
 
   // Effect para scroll quando novas mensagens aparecem
   useEffect(() => {
     if (visibleMessages.length > 0) {
-      // Scroll imediato quando nova mensagem aparecer
-      setTimeout(() => {
-        scrollToBottomSmooth();
-      }, 50);
+      // Pequeno delay para garantir que a mensagem foi renderizada
+      requestAnimationFrame(() => {
+        scrollChatToBottom();
+      });
     }
   }, [visibleMessages.length]);
 
   // Effect para scroll quando indicador de digitação aparece
   useEffect(() => {
     if (isTyping || isUserTyping) {
-      setTimeout(() => {
-        scrollToBottomSmooth();
-      }, 50);
+      requestAnimationFrame(() => {
+        scrollChatToBottom();
+      });
     }
   }, [isTyping, isUserTyping]);
-
-  // Effect adicional para garantir scroll em mudanças de estado
-  useEffect(() => {
-    // Scroll sempre que qualquer estado relevante mudar
-    const scrollTimeout = setTimeout(() => {
-      scrollToBottomSmooth();
-    }, 100);
-    
-    return () => clearTimeout(scrollTimeout);
-  }, [visibleMessages, isTyping, isUserTyping]);
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -202,11 +183,10 @@ export const HeroDashboard = () => {
           
           <div 
             ref={chatContainerRef}
-            className="flex-1 overflow-y-auto space-y-3 pb-4 mobile-safe-scroll"
+            className="flex-1 overflow-y-auto space-y-3 pb-4"
             style={{ 
               overscrollBehavior: 'contain',
-              WebkitOverflowScrolling: 'touch',
-              scrollBehavior: 'auto'
+              WebkitOverflowScrolling: 'touch'
             }}
           >
             {visibleMessages.map((msg, index) => (
@@ -218,7 +198,7 @@ export const HeroDashboard = () => {
             {isUserTyping && <UserTypingIndicator />}
             {isTyping && <ChatTypingIndicator />}
             
-            <div ref={messagesEndRef} style={{ height: '1px' }} />
+            <div ref={messagesEndRef} />
           </div>
 
           <ChatStatusBar />
