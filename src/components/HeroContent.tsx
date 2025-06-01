@@ -1,4 +1,3 @@
-
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Play, CheckCircle } from "lucide-react";
 
@@ -85,7 +84,7 @@ export const HeroContent = () => {
       </div>
 
       {/* Social Proof */}
-      <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start space-y-2 sm:space-y-0 sm:space-x-6 text-auttus-blue">
+      <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start space-y-2 sm:space-y-0 sm:space-x-6 text-blue-200">
         <div className="flex items-center space-x-2">
           <CheckCircle className="h-4 w-4 sm:h-5 sm:w-5 text-green-400 flex-shrink-0" />
           <span className="text-sm sm:text-base">Implementação rápida</span>
