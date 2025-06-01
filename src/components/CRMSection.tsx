@@ -1,4 +1,3 @@
-
 import { Users, Target, Bell, BarChart3, Calendar, Brain, Database, Zap, Plus } from "lucide-react";
 import { useState, useEffect } from "react";
 
@@ -73,14 +72,19 @@ export const CRMSection = () => {
     pipeline: 2.3,
     salesMonth: 156
   });
-  const [isAnimating, setIsAnimating] = useState(false);
+  const [showNewLeadAlert, setShowNewLeadAlert] = useState(false);
   const [newLeadIndex, setNewLeadIndex] = useState(0);
+  const [animatingStats, setAnimatingStats] = useState(false);
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setIsAnimating(true);
+      // Mostrar alerta de novo lead
+      setShowNewLeadAlert(true);
       
-      // Add new lead
+      // Animar stats
+      setAnimatingStats(true);
+      
+      // Após 1 segundo, adicionar o novo lead e esconder o alerta
       setTimeout(() => {
         const newLead = newLeads[newLeadIndex % newLeads.length];
         setLeads(prev => [newLead, ...prev.slice(0, 2)]);
@@ -94,8 +98,9 @@ export const CRMSection = () => {
           salesMonth: prev.salesMonth + 1
         }));
         
-        setIsAnimating(false);
-      }, 500);
+        setShowNewLeadAlert(false);
+        setAnimatingStats(false);
+      }, 1500);
     }, 4000);
 
     return () => clearInterval(interval);
@@ -122,7 +127,7 @@ export const CRMSection = () => {
         {/* Dashboard Preview */}
         <div className="mb-16 animate-slide-up">
           <div className="bg-gradient-to-br from-auttus-gray to-gray-100 rounded-2xl p-6 sm:p-8 border border-gray-200 shadow-xl">
-            <div className="bg-white rounded-xl p-4 sm:p-6 shadow-lg">
+            <div className="bg-white rounded-xl p-4 sm:p-6 shadow-lg relative overflow-hidden">
               {/* Mock Dashboard Header */}
               <div className="flex items-center justify-between mb-6 pb-4 border-b border-gray-200">
                 <div className="flex items-center space-x-3">
@@ -141,53 +146,76 @@ export const CRMSection = () => {
                 </div>
               </div>
 
+              {/* New Lead Alert - Positioned absolutely to not affect layout */}
+              <div className={`absolute top-20 left-4 right-4 z-10 transition-all duration-500 ${
+                showNewLeadAlert 
+                  ? 'opacity-100 transform translate-y-0' 
+                  : 'opacity-0 transform -translate-y-4 pointer-events-none'
+              }`}>
+                <div className="p-3 bg-auttus-orange/10 border border-auttus-orange/30 rounded-lg backdrop-blur-sm">
+                  <div className="flex items-center space-x-2">
+                    <Plus className={`h-4 w-4 text-auttus-orange transition-transform duration-300 ${
+                      showNewLeadAlert ? 'animate-bounce' : ''
+                    }`} />
+                    <span className="text-sm font-medium text-auttus-orange">Novo lead cadastrado automaticamente!</span>
+                  </div>
+                </div>
+              </div>
+
               {/* Mock Stats Cards */}
               <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
-                <div className={`bg-gradient-to-br from-green-50 to-green-100 p-4 rounded-lg border border-green-200 transition-all duration-500 ${isAnimating ? 'animate-pulse-soft' : ''}`}>
+                <div className={`bg-gradient-to-br from-green-50 to-green-100 p-4 rounded-lg border border-green-200 transition-all duration-300 ${
+                  animatingStats ? 'scale-105 shadow-lg' : ''
+                }`}>
                   <div className="text-2xl font-bold text-green-700">{stats.activeLeads}</div>
                   <div className="text-sm text-green-600">Leads Ativos</div>
                 </div>
-                <div className={`bg-gradient-to-br from-blue-50 to-blue-100 p-4 rounded-lg border border-blue-200 transition-all duration-500 ${isAnimating ? 'animate-pulse-soft' : ''}`}>
+                <div className={`bg-gradient-to-br from-blue-50 to-blue-100 p-4 rounded-lg border border-blue-200 transition-all duration-300 ${
+                  animatingStats ? 'scale-105 shadow-lg' : ''
+                }`}>
                   <div className="text-2xl font-bold text-blue-700">{stats.conversionRate}%</div>
                   <div className="text-sm text-blue-600">Taxa Conversão</div>
                 </div>
-                <div className={`bg-gradient-to-br from-orange-50 to-orange-100 p-4 rounded-lg border border-orange-200 transition-all duration-500 ${isAnimating ? 'animate-pulse-soft' : ''}`}>
+                <div className={`bg-gradient-to-br from-orange-50 to-orange-100 p-4 rounded-lg border border-orange-200 transition-all duration-300 ${
+                  animatingStats ? 'scale-105 shadow-lg' : ''
+                }`}>
                   <div className="text-2xl font-bold text-orange-700">R$ {stats.pipeline.toFixed(1)}M</div>
                   <div className="text-sm text-orange-600">Pipeline</div>
                 </div>
-                <div className={`bg-gradient-to-br from-purple-50 to-purple-100 p-4 rounded-lg border border-purple-200 transition-all duration-500 ${isAnimating ? 'animate-pulse-soft' : ''}`}>
+                <div className={`bg-gradient-to-br from-purple-50 to-purple-100 p-4 rounded-lg border border-purple-200 transition-all duration-300 ${
+                  animatingStats ? 'scale-105 shadow-lg' : ''
+                }`}>
                   <div className="text-2xl font-bold text-purple-700">{stats.salesMonth}</div>
                   <div className="text-sm text-purple-600">Vendas/Mês</div>
                 </div>
               </div>
-
-              {/* New Lead Alert */}
-              {isAnimating && (
-                <div className="mb-4 p-3 bg-auttus-orange/10 border border-auttus-orange/30 rounded-lg animate-slide-down">
-                  <div className="flex items-center space-x-2">
-                    <Plus className="h-4 w-4 text-auttus-orange animate-bounce" />
-                    <span className="text-sm font-medium text-auttus-orange">Novo lead cadastrado automaticamente!</span>
-                  </div>
-                </div>
-              )}
 
               {/* Mock Lead List */}
               <div className="space-y-3">
                 {leads.map((lead, index) => (
                   <div 
                     key={`${lead.name}-${index}`}
-                    className={`flex items-center justify-between p-3 bg-gray-50 rounded-lg transition-all duration-700 ${
-                      index === 0 && isAnimating ? 'animate-slide-down bg-auttus-orange/5 border border-auttus-orange/20' : ''
+                    className={`flex items-center justify-between p-3 bg-gray-50 rounded-lg transition-all duration-500 ${
+                      index === 0 && showNewLeadAlert 
+                        ? 'bg-auttus-orange/5 border border-auttus-orange/20 shadow-md transform scale-[1.02]' 
+                        : 'hover:bg-gray-100'
                     }`}
+                    style={{
+                      transitionDelay: index === 0 && showNewLeadAlert ? '1.5s' : '0s'
+                    }}
                   >
                     <div className="flex items-center space-x-3">
-                      <div className={`w-2 h-2 bg-${lead.color}-500 rounded-full ${index === 0 && isAnimating ? 'animate-pulse' : ''}`}></div>
+                      <div className={`w-2 h-2 bg-${lead.color}-500 rounded-full transition-all duration-300 ${
+                        index === 0 && showNewLeadAlert ? 'animate-pulse scale-150' : ''
+                      }`}></div>
                       <div>
                         <div className="font-medium text-gray-900">{lead.name}</div>
                         <div className="text-sm text-gray-500">{lead.source} • {lead.product}</div>
                       </div>
                     </div>
-                    <div className={`text-sm font-medium text-${lead.color}-600`}>
+                    <div className={`text-sm font-medium text-${lead.color}-600 transition-all duration-300 ${
+                      index === 0 && showNewLeadAlert ? 'font-bold' : ''
+                    }`}>
                       {lead.status} • {lead.score} pts
                     </div>
                   </div>
