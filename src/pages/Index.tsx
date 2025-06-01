@@ -7,7 +7,6 @@ import { ValueComparison } from "@/components/ValueComparison";
 import { Testimonials } from "@/components/Testimonials";
 import { Demo } from "@/components/Demo";
 import { IrresistibleOffer } from "@/components/IrresistibleOffer";
-import { Pricing } from "@/components/Pricing";
 import { GuaranteeAndTrust } from "@/components/GuaranteeAndTrust";
 import { Footer } from "@/components/Footer";
 import { FloatingChat } from "@/components/FloatingChat";
@@ -23,7 +22,6 @@ const Index = () => {
       <Testimonials />
       <Demo />
       <IrresistibleOffer />
-      <Pricing />
       <GuaranteeAndTrust />
       <Footer />
       <FloatingChat />
