@@ -106,12 +106,20 @@ export const HeroDashboard = () => {
   ];
 
   const scrollToBottom = () => {
-    messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
+    messagesEndRef.current?.scrollIntoView({ 
+      behavior: "smooth",
+      block: "end"
+    });
   };
 
   useEffect(() => {
-    scrollToBottom();
-  }, [visibleMessages]);
+    if (visibleMessages.length > 0) {
+      // Pequeno delay para garantir que a mensagem foi renderizada
+      setTimeout(() => {
+        scrollToBottom();
+      }, 100);
+    }
+  }, [visibleMessages, isTyping]);
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -153,8 +161,8 @@ export const HeroDashboard = () => {
             </div>
           </div>
           
-          {/* Chat Messages */}
-          <div className="flex-1 overflow-y-auto space-y-3 pb-4">
+          {/* Chat Messages - Área com scroll */}
+          <div className="flex-1 overflow-y-auto space-y-3 pb-4 scroll-smooth">
             {visibleMessages.map((msg, index) => (
               <div key={index} className="animate-fade-in">
                 {msg.type === 'user' && (
@@ -209,6 +217,8 @@ export const HeroDashboard = () => {
                 </div>
               </div>
             )}
+            
+            {/* Elemento invisível para marcar o final das mensagens */}
             <div ref={messagesEndRef} />
           </div>
 
