@@ -1,6 +1,5 @@
 import { useState, useEffect, useRef } from "react";
 import { ChatMessage } from "./ChatMessage";
-import { ChatHeader } from "./ChatHeader";
 import { ChatTypingIndicator } from "./ChatTypingIndicator";
 import { ChatStatusBar } from "./ChatStatusBar";
 import { FloatingIcons } from "./FloatingIcons";
@@ -179,7 +178,17 @@ export const HeroDashboard = () => {
     <div className="w-full lg:w-1/2 relative lg:pl-8 xl:pl-12 flex-shrink-0 mt-8 lg:mt-0">
       <div className="relative bg-white rounded-2xl shadow-xl p-4 sm:p-6 lg:p-8 transition-shadow duration-300 max-w-md sm:max-w-lg mx-auto lg:max-w-none h-[500px] lg:h-[600px]">
         <div className="bg-auttus-gray rounded-xl p-4 sm:p-6 h-full flex flex-col">
-          <ChatHeader />
+          <div className="bg-gradient-to-r from-auttus-orange to-orange-600 text-white p-4 flex items-center justify-between rounded-t-xl -m-4 sm:-m-6 mb-4 sm:mb-6">
+            <div className="flex items-center space-x-3">
+              <div className="w-10 h-10 bg-white bg-opacity-20 rounded-full flex items-center justify-center">
+                <span className="text-lg">🤖</span>
+              </div>
+              <div>
+                <h3 className="font-semibold">Assistente Auttus</h3>
+                <p className="text-sm opacity-90">🟢 Online agora</p>
+              </div>
+            </div>
+          </div>
           
           <div 
             ref={chatContainerRef}

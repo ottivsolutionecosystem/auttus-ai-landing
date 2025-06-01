@@ -64,30 +64,32 @@ export const FloatingChatBot = () => {
     openWhatsApp(flow.userName);
   };
 
+  const toggleChat = () => {
+    setIsOpen(!isOpen);
+  };
+
   return (
     <>
-      {/* Botão Flutuante */}
-      {!isOpen && (
-        <FloatingChatButton onClick={() => setIsOpen(true)} />
-      )}
+      {/* Botão Flutuante - Sempre visível */}
+      <FloatingChatButton onClick={toggleChat} />
 
-      {/* Janela do Chat */}
+      {/* Balão do Chat - Aparece próximo ao botão */}
       {isOpen && (
-        <div className="fixed inset-0 z-50 bg-black bg-opacity-50 backdrop-blur-sm flex items-center justify-center p-4">
-          <div className="w-full max-w-md h-[600px] bg-white rounded-2xl shadow-2xl flex flex-col overflow-hidden">
-            <ChatHeader onClose={() => setIsOpen(false)} />
+        <div className="fixed bottom-20 right-6 z-40 w-80 h-96 bg-white rounded-2xl shadow-2xl flex flex-col overflow-hidden animate-scale-in border border-gray-200">
+          <ChatHeader onClose={() => setIsOpen(false)} />
+          <div className="flex-1 min-h-0">
             <ChatMessages messages={messages} isTyping={isTyping} />
-            <ChatInput
-              inputValue={inputValue}
-              setInputValue={setInputValue}
-              onSendMessage={handleSendMessage}
-              onKeyPress={handleKeyPress}
-              isTyping={isTyping}
-              flow={flow}
-              placeholderText={getPlaceholderText(flow.step)}
-              onOpenWhatsApp={handleOpenWhatsApp}
-            />
           </div>
+          <ChatInput
+            inputValue={inputValue}
+            setInputValue={setInputValue}
+            onSendMessage={handleSendMessage}
+            onKeyPress={handleKeyPress}
+            isTyping={isTyping}
+            flow={flow}
+            placeholderText={getPlaceholderText(flow.step)}
+            onOpenWhatsApp={handleOpenWhatsApp}
+          />
         </div>
       )}
     </>

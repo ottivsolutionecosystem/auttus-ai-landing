@@ -17,27 +17,27 @@ export const ChatMessages = ({ messages, isTyping }: ChatMessagesProps) => {
 
   useEffect(() => {
     scrollToBottom();
-  }, [messages]);
+  }, [messages, isTyping]);
 
   return (
-    <div className="flex-1 overflow-y-auto p-4 space-y-4 bg-gray-50">
+    <div className="flex-1 overflow-y-auto p-3 space-y-3 bg-gray-50 h-full">
       {messages.map((message) => (
         <div
           key={message.id}
           className={`flex ${message.sender === 'user' ? 'justify-end' : 'justify-start'}`}
         >
           <div
-            className={`max-w-[80%] p-3 rounded-2xl ${
+            className={`max-w-[85%] p-2.5 rounded-xl text-sm ${
               message.sender === 'user'
                 ? 'bg-auttus-orange text-white rounded-br-sm'
-                : 'bg-white text-gray-800 rounded-bl-sm shadow-md'
+                : 'bg-white text-gray-800 rounded-bl-sm shadow-sm'
             }`}
           >
             <div className="flex items-start space-x-2">
               {message.sender === 'bot' && (
-                <Bot className="h-4 w-4 mt-1 text-auttus-orange flex-shrink-0" />
+                <Bot className="h-3.5 w-3.5 mt-0.5 text-auttus-orange flex-shrink-0" />
               )}
-              <p className="text-sm whitespace-pre-line">{message.text}</p>
+              <p className="whitespace-pre-line leading-relaxed">{message.text}</p>
             </div>
           </div>
         </div>
@@ -45,13 +45,13 @@ export const ChatMessages = ({ messages, isTyping }: ChatMessagesProps) => {
       
       {isTyping && (
         <div className="flex justify-start">
-          <div className="bg-white text-gray-800 p-3 rounded-2xl rounded-bl-sm shadow-md max-w-[80%]">
+          <div className="bg-white text-gray-800 p-2.5 rounded-xl rounded-bl-sm shadow-sm max-w-[85%]">
             <div className="flex items-center space-x-2">
-              <Bot className="h-4 w-4 text-auttus-orange" />
+              <Bot className="h-3.5 w-3.5 text-auttus-orange" />
               <div className="flex space-x-1">
-                <div className="w-2 h-2 bg-gray-400 rounded-full animate-bounce"></div>
-                <div className="w-2 h-2 bg-gray-400 rounded-full animate-bounce" style={{ animationDelay: '0.1s' }}></div>
-                <div className="w-2 h-2 bg-gray-400 rounded-full animate-bounce" style={{ animationDelay: '0.2s' }}></div>
+                <div className="w-1.5 h-1.5 bg-gray-400 rounded-full animate-bounce"></div>
+                <div className="w-1.5 h-1.5 bg-gray-400 rounded-full animate-bounce" style={{ animationDelay: '0.1s' }}></div>
+                <div className="w-1.5 h-1.5 bg-gray-400 rounded-full animate-bounce" style={{ animationDelay: '0.2s' }}></div>
               </div>
             </div>
           </div>
