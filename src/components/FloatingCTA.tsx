@@ -32,8 +32,8 @@ export const FloatingCTA = () => {
   if (!isVisible || isHidden) return null;
 
   return (
-    <div className="fixed inset-0 flex items-center justify-center z-50 pointer-events-none bg-black bg-opacity-50">
-      <div className="bg-gradient-to-r from-auttus-orange to-orange-600 rounded-3xl shadow-2xl border-2 border-white p-8 sm:p-10 text-white animate-scale-in max-w-md sm:max-w-lg w-full mx-4 pointer-events-auto bg-opacity-95 backdrop-blur-sm relative">
+    <div className="w-full flex justify-center py-12 bg-gradient-to-b from-transparent to-orange-50">
+      <div className="bg-gradient-to-r from-auttus-orange to-orange-600 rounded-3xl shadow-2xl border-2 border-white p-8 sm:p-10 text-white animate-scale-in max-w-md sm:max-w-lg w-full mx-4 bg-opacity-95 backdrop-blur-sm relative">
         <button 
           onClick={handleClose}
           className="absolute top-4 right-4 text-white/70 hover:text-white transition-colors duration-300 p-2 hover:bg-white hover:bg-opacity-20 rounded-full"
