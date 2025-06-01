@@ -69,30 +69,20 @@ export const FloatingChatBot = () => {
   };
 
   return (
-    <div 
-      className="pointer-events-none"
-      style={{ 
-        position: 'fixed',
-        top: 0,
-        left: 0,
-        width: '100%',
-        height: '100%',
-        zIndex: 9998,
-        pointerEvents: 'none'
-      }}
-    >
+    <>
       {/* Botão Flutuante - Sempre visível */}
       <FloatingChatButton onClick={toggleChat} />
 
       {/* Balão do Chat - Aparece próximo ao botão */}
       {isOpen && (
         <div 
-          className="fixed bottom-20 right-6 w-80 h-96 bg-white rounded-2xl shadow-2xl flex flex-col overflow-hidden animate-scale-in border border-gray-200 pointer-events-auto"
+          className="fixed bottom-20 right-6 w-80 h-96 bg-white rounded-2xl shadow-2xl flex flex-col overflow-hidden animate-scale-in border border-gray-200"
           style={{
-            position: 'fixed',
-            bottom: '80px',
-            right: '24px',
-            zIndex: 9999
+            position: 'fixed !important',
+            bottom: '80px !important',
+            right: '24px !important',
+            zIndex: 2147483647,
+            pointerEvents: 'auto'
           }}
         >
           <ChatHeader onClose={() => setIsOpen(false)} />
@@ -111,6 +101,6 @@ export const FloatingChatBot = () => {
           />
         </div>
       )}
-    </div>
+    </>
   );
 };
