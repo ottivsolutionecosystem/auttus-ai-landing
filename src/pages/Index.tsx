@@ -10,7 +10,6 @@ import { Demo } from "@/components/Demo";
 import { IrresistibleOffer } from "@/components/IrresistibleOffer";
 import { GuaranteeAndTrust } from "@/components/GuaranteeAndTrust";
 import { Footer } from "@/components/Footer";
-import { FloatingChat } from "@/components/FloatingChat";
 
 const Index = () => {
   return (
@@ -26,7 +25,6 @@ const Index = () => {
       <IrresistibleOffer />
       <GuaranteeAndTrust />
       <Footer />
-      <FloatingChat />
     </div>
   );
 };
