@@ -98,94 +98,96 @@ export const FloatingChat = () => {
       {!isOpen && (
         <button
           onClick={() => setIsOpen(true)}
-          className="fixed bottom-4 right-4 sm:bottom-6 sm:right-6 z-50 bg-auttus-orange hover:bg-orange-600 text-white p-3 sm:p-4 rounded-full shadow-2xl transition-all duration-300 transform hover:scale-110 animate-float"
+          className="fixed bottom-6 right-6 z-50 bg-auttus-orange hover:bg-orange-600 text-white p-4 rounded-full shadow-2xl transition-colors"
         >
-          <MessageCircle className="h-5 w-5 sm:h-6 sm:w-6" />
+          <MessageCircle className="h-6 w-6" />
         </button>
       )}
 
-      {/* Chat Window */}
+      {/* Chat Window - Full Screen Overlay */}
       {isOpen && (
-        <div className="fixed bottom-4 right-4 sm:bottom-6 sm:right-6 z-50 w-80 sm:w-96 h-96 bg-white rounded-2xl shadow-2xl border-2 border-auttus-orange flex flex-col animate-slide-up">
-          {/* Header */}
-          <div className="bg-auttus-orange text-white p-4 rounded-t-2xl flex items-center justify-between">
-            <div className="flex items-center space-x-2">
-              <Bot className="h-5 w-5" />
-              <div>
-                <h3 className="font-semibold text-sm">IA Auttus</h3>
-                <p className="text-xs opacity-90">Online agora</p>
-              </div>
-            </div>
-            <button
-              onClick={() => setIsOpen(false)}
-              className="text-white hover:text-gray-200 transition-colors"
-            >
-              <X className="h-5 w-5" />
-            </button>
-          </div>
-
-          {/* Messages */}
-          <div className="flex-1 overflow-y-auto p-4 space-y-3">
-            {messages.map((message) => (
-              <div
-                key={message.id}
-                className={`flex ${message.sender === 'user' ? 'justify-end' : 'justify-start'}`}
-              >
-                <div
-                  className={`max-w-[80%] p-3 rounded-lg ${
-                    message.sender === 'user'
-                      ? 'bg-auttus-orange text-white'
-                      : 'bg-gray-100 text-gray-800'
-                  }`}
-                >
-                  <div className="flex items-start space-x-2">
-                    {message.sender === 'bot' && (
-                      <Bot className="h-4 w-4 mt-0.5 text-auttus-orange" />
-                    )}
-                    {message.sender === 'user' && (
-                      <User className="h-4 w-4 mt-0.5" />
-                    )}
-                    <p className="text-sm">{message.text}</p>
-                  </div>
+        <div className="fixed inset-0 z-50 bg-black bg-opacity-30 backdrop-blur-sm">
+          <div className="w-full h-full max-w-4xl mx-auto bg-white bg-opacity-80 backdrop-blur-md flex flex-col">
+            {/* Header */}
+            <div className="bg-auttus-orange bg-opacity-90 text-white p-6 flex items-center justify-between">
+              <div className="flex items-center space-x-3">
+                <Bot className="h-8 w-8" />
+                <div>
+                  <h3 className="font-semibold text-xl">IA Auttus</h3>
+                  <p className="text-sm opacity-90">Online agora</p>
                 </div>
               </div>
-            ))}
-            
-            {isTyping && (
-              <div className="flex justify-start">
-                <div className="bg-gray-100 text-gray-800 p-3 rounded-lg max-w-[80%]">
-                  <div className="flex items-center space-x-2">
-                    <Bot className="h-4 w-4 text-auttus-orange" />
-                    <div className="flex space-x-1">
-                      <div className="w-2 h-2 bg-gray-400 rounded-full animate-bounce"></div>
-                      <div className="w-2 h-2 bg-gray-400 rounded-full animate-bounce" style={{ animationDelay: '0.1s' }}></div>
-                      <div className="w-2 h-2 bg-gray-400 rounded-full animate-bounce" style={{ animationDelay: '0.2s' }}></div>
+              <button
+                onClick={() => setIsOpen(false)}
+                className="text-white hover:text-gray-200 transition-colors"
+              >
+                <X className="h-8 w-8" />
+              </button>
+            </div>
+
+            {/* Messages */}
+            <div className="flex-1 overflow-y-auto p-8 space-y-6">
+              {messages.map((message) => (
+                <div
+                  key={message.id}
+                  className={`flex ${message.sender === 'user' ? 'justify-end' : 'justify-start'}`}
+                >
+                  <div
+                    className={`max-w-[70%] p-4 rounded-lg ${
+                      message.sender === 'user'
+                        ? 'bg-auttus-orange bg-opacity-90 text-white'
+                        : 'bg-gray-100 bg-opacity-90 text-gray-800'
+                    }`}
+                  >
+                    <div className="flex items-start space-x-3">
+                      {message.sender === 'bot' && (
+                        <Bot className="h-6 w-6 mt-1 text-auttus-orange" />
+                      )}
+                      {message.sender === 'user' && (
+                        <User className="h-6 w-6 mt-1" />
+                      )}
+                      <p className="text-lg">{message.text}</p>
                     </div>
                   </div>
                 </div>
-              </div>
-            )}
-            <div ref={messagesEndRef} />
-          </div>
+              ))}
+              
+              {isTyping && (
+                <div className="flex justify-start">
+                  <div className="bg-gray-100 bg-opacity-90 text-gray-800 p-4 rounded-lg max-w-[70%]">
+                    <div className="flex items-center space-x-3">
+                      <Bot className="h-6 w-6 text-auttus-orange" />
+                      <div className="flex space-x-2">
+                        <div className="w-3 h-3 bg-gray-400 rounded-full"></div>
+                        <div className="w-3 h-3 bg-gray-400 rounded-full"></div>
+                        <div className="w-3 h-3 bg-gray-400 rounded-full"></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              )}
+              <div ref={messagesEndRef} />
+            </div>
 
-          {/* Input */}
-          <div className="p-4 border-t">
-            <div className="flex space-x-2">
-              <input
-                type="text"
-                value={inputValue}
-                onChange={(e) => setInputValue(e.target.value)}
-                onKeyPress={handleKeyPress}
-                placeholder="Digite sua dúvida..."
-                className="flex-1 px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-auttus-orange text-sm"
-              />
-              <Button
-                onClick={handleSendMessage}
-                disabled={!inputValue.trim()}
-                className="bg-auttus-orange hover:bg-orange-600 p-2"
-              >
-                <Send className="h-4 w-4" />
-              </Button>
+            {/* Input */}
+            <div className="p-8 border-t border-gray-200 border-opacity-50 bg-white bg-opacity-50">
+              <div className="flex space-x-4">
+                <input
+                  type="text"
+                  value={inputValue}
+                  onChange={(e) => setInputValue(e.target.value)}
+                  onKeyPress={handleKeyPress}
+                  placeholder="Digite sua dúvida..."
+                  className="flex-1 px-6 py-4 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-auttus-orange text-lg bg-white bg-opacity-80"
+                />
+                <Button
+                  onClick={handleSendMessage}
+                  disabled={!inputValue.trim()}
+                  className="bg-auttus-orange hover:bg-orange-600 p-4 text-lg"
+                >
+                  <Send className="h-6 w-6" />
+                </Button>
+              </div>
             </div>
           </div>
         </div>
