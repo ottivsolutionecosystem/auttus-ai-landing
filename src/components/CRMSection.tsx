@@ -1,5 +1,6 @@
 
-import { Users, Target, Bell, BarChart3, Calendar, Brain, Database, Zap } from "lucide-react";
+import { Users, Target, Bell, BarChart3, Calendar, Brain, Database, Zap, Plus } from "lucide-react";
+import { useState, useEffect } from "react";
 
 const crmFeatures = [
   {
@@ -52,7 +53,54 @@ const crmFeatures = [
   }
 ];
 
+const initialLeads = [
+  { name: "João Silva", source: "WhatsApp", product: "Civic", status: "Quente", score: 95, color: "green" },
+  { name: "Maria Costa", source: "Instagram", product: "Corolla 2020", status: "Morno", score: 67, color: "yellow" },
+  { name: "Pedro Santos", source: "OLX", product: "Procura SUV", status: "Novo", score: 43, color: "blue" }
+];
+
+const newLeads = [
+  { name: "Ana Oliveira", source: "Facebook", product: "Interested in Honda HR-V", status: "Quente", score: 88, color: "green" },
+  { name: "Carlos Mendes", source: "Site", product: "Looking for Sedan", status: "Morno", score: 72, color: "yellow" },
+  { name: "Lucia Santos", source: "WhatsApp", product: "Civic Type R", status: "Quente", score: 91, color: "green" }
+];
+
 export const CRMSection = () => {
+  const [leads, setLeads] = useState(initialLeads);
+  const [stats, setStats] = useState({
+    activeLeads: 247,
+    conversionRate: 89,
+    pipeline: 2.3,
+    salesMonth: 156
+  });
+  const [isAnimating, setIsAnimating] = useState(false);
+  const [newLeadIndex, setNewLeadIndex] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setIsAnimating(true);
+      
+      // Add new lead
+      setTimeout(() => {
+        const newLead = newLeads[newLeadIndex % newLeads.length];
+        setLeads(prev => [newLead, ...prev.slice(0, 2)]);
+        setNewLeadIndex(prev => prev + 1);
+        
+        // Update stats
+        setStats(prev => ({
+          activeLeads: prev.activeLeads + 1,
+          conversionRate: Math.min(99, prev.conversionRate + 1),
+          pipeline: prev.pipeline + 0.1,
+          salesMonth: prev.salesMonth + 1
+        }));
+        
+        setIsAnimating(false);
+      }, 500);
+    }, 4000);
+
+    return () => clearInterval(interval);
+  }, [newLeadIndex]);
+
   return (
     <section className="py-12 sm:py-16 lg:py-20 bg-white">
       <div className="container mx-auto px-4 sm:px-6">
@@ -87,7 +135,7 @@ export const CRMSection = () => {
                   </div>
                 </div>
                 <div className="flex space-x-2">
-                  <div className="w-3 h-3 bg-green-500 rounded-full"></div>
+                  <div className="w-3 h-3 bg-green-500 rounded-full animate-pulse-soft"></div>
                   <div className="w-3 h-3 bg-yellow-500 rounded-full"></div>
                   <div className="w-3 h-3 bg-red-500 rounded-full"></div>
                 </div>
@@ -95,56 +143,55 @@ export const CRMSection = () => {
 
               {/* Mock Stats Cards */}
               <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
-                <div className="bg-gradient-to-br from-green-50 to-green-100 p-4 rounded-lg border border-green-200">
-                  <div className="text-2xl font-bold text-green-700">247</div>
+                <div className={`bg-gradient-to-br from-green-50 to-green-100 p-4 rounded-lg border border-green-200 transition-all duration-500 ${isAnimating ? 'animate-pulse-soft' : ''}`}>
+                  <div className="text-2xl font-bold text-green-700">{stats.activeLeads}</div>
                   <div className="text-sm text-green-600">Leads Ativos</div>
                 </div>
-                <div className="bg-gradient-to-br from-blue-50 to-blue-100 p-4 rounded-lg border border-blue-200">
-                  <div className="text-2xl font-bold text-blue-700">89%</div>
+                <div className={`bg-gradient-to-br from-blue-50 to-blue-100 p-4 rounded-lg border border-blue-200 transition-all duration-500 ${isAnimating ? 'animate-pulse-soft' : ''}`}>
+                  <div className="text-2xl font-bold text-blue-700">{stats.conversionRate}%</div>
                   <div className="text-sm text-blue-600">Taxa Conversão</div>
                 </div>
-                <div className="bg-gradient-to-br from-orange-50 to-orange-100 p-4 rounded-lg border border-orange-200">
-                  <div className="text-2xl font-bold text-orange-700">R$ 2.3M</div>
+                <div className={`bg-gradient-to-br from-orange-50 to-orange-100 p-4 rounded-lg border border-orange-200 transition-all duration-500 ${isAnimating ? 'animate-pulse-soft' : ''}`}>
+                  <div className="text-2xl font-bold text-orange-700">R$ {stats.pipeline.toFixed(1)}M</div>
                   <div className="text-sm text-orange-600">Pipeline</div>
                 </div>
-                <div className="bg-gradient-to-br from-purple-50 to-purple-100 p-4 rounded-lg border border-purple-200">
-                  <div className="text-2xl font-bold text-purple-700">156</div>
+                <div className={`bg-gradient-to-br from-purple-50 to-purple-100 p-4 rounded-lg border border-purple-200 transition-all duration-500 ${isAnimating ? 'animate-pulse-soft' : ''}`}>
+                  <div className="text-2xl font-bold text-purple-700">{stats.salesMonth}</div>
                   <div className="text-sm text-purple-600">Vendas/Mês</div>
                 </div>
               </div>
 
+              {/* New Lead Alert */}
+              {isAnimating && (
+                <div className="mb-4 p-3 bg-auttus-orange/10 border border-auttus-orange/30 rounded-lg animate-slide-down">
+                  <div className="flex items-center space-x-2">
+                    <Plus className="h-4 w-4 text-auttus-orange animate-bounce" />
+                    <span className="text-sm font-medium text-auttus-orange">Novo lead cadastrado automaticamente!</span>
+                  </div>
+                </div>
+              )}
+
               {/* Mock Lead List */}
               <div className="space-y-3">
-                <div className="flex items-center justify-between p-3 bg-gray-50 rounded-lg">
-                  <div className="flex items-center space-x-3">
-                    <div className="w-2 h-2 bg-green-500 rounded-full"></div>
-                    <div>
-                      <div className="font-medium text-gray-900">João Silva</div>
-                      <div className="text-sm text-gray-500">WhatsApp • Interessado em Civic</div>
+                {leads.map((lead, index) => (
+                  <div 
+                    key={`${lead.name}-${index}`}
+                    className={`flex items-center justify-between p-3 bg-gray-50 rounded-lg transition-all duration-700 ${
+                      index === 0 && isAnimating ? 'animate-slide-down bg-auttus-orange/5 border border-auttus-orange/20' : ''
+                    }`}
+                  >
+                    <div className="flex items-center space-x-3">
+                      <div className={`w-2 h-2 bg-${lead.color}-500 rounded-full ${index === 0 && isAnimating ? 'animate-pulse' : ''}`}></div>
+                      <div>
+                        <div className="font-medium text-gray-900">{lead.name}</div>
+                        <div className="text-sm text-gray-500">{lead.source} • {lead.product}</div>
+                      </div>
+                    </div>
+                    <div className={`text-sm font-medium text-${lead.color}-600`}>
+                      {lead.status} • {lead.score} pts
                     </div>
                   </div>
-                  <div className="text-sm font-medium text-green-600">Quente • 95 pts</div>
-                </div>
-                <div className="flex items-center justify-between p-3 bg-gray-50 rounded-lg">
-                  <div className="flex items-center space-x-3">
-                    <div className="w-2 h-2 bg-yellow-500 rounded-full"></div>
-                    <div>
-                      <div className="font-medium text-gray-900">Maria Costa</div>
-                      <div className="text-sm text-gray-500">Instagram • Corolla 2020</div>
-                    </div>
-                  </div>
-                  <div className="text-sm font-medium text-yellow-600">Morno • 67 pts</div>
-                </div>
-                <div className="flex items-center justify-between p-3 bg-gray-50 rounded-lg">
-                  <div className="flex items-center space-x-3">
-                    <div className="w-2 h-2 bg-blue-500 rounded-full"></div>
-                    <div>
-                      <div className="font-medium text-gray-900">Pedro Santos</div>
-                      <div className="text-sm text-gray-500">OLX • Procura SUV</div>
-                    </div>
-                  </div>
-                  <div className="text-sm font-medium text-blue-600">Novo • 43 pts</div>
-                </div>
+                ))}
               </div>
             </div>
           </div>
