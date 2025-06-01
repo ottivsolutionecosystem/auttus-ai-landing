@@ -1,6 +1,5 @@
-
 import { MessageCircle, Instagram, Calendar, Car, Phone, Inbox } from "lucide-react";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 
 const channels = [
   { name: "WhatsApp", icon: MessageCircle, color: "text-green-500", bg: "bg-green-50" },
@@ -66,6 +65,7 @@ const inboxMessages = [
 export const OmnichannelSection = () => {
   const [visibleMessages, setVisibleMessages] = useState<any[]>([]);
   const [currentMessageIndex, setCurrentMessageIndex] = useState(0);
+  const inboxRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -83,6 +83,13 @@ export const OmnichannelSection = () => {
 
     return () => clearInterval(interval);
   }, [currentMessageIndex]);
+
+  // Auto scroll to bottom when new messages arrive
+  useEffect(() => {
+    if (inboxRef.current && visibleMessages.length > 0) {
+      inboxRef.current.scrollTop = inboxRef.current.scrollHeight;
+    }
+  }, [visibleMessages]);
 
   return (
     <section className="py-12 sm:py-16 lg:py-20 bg-white">
@@ -134,7 +141,7 @@ export const OmnichannelSection = () => {
               </div>
 
               {/* Inbox Messages */}
-              <div className="h-80 overflow-y-auto bg-white">
+              <div ref={inboxRef} className="h-80 overflow-y-auto bg-white">
                 {visibleMessages.map((msg) => (
                   <div key={msg.id} className="animate-fade-in border-b border-gray-100 hover:bg-gray-50 transition-colors cursor-pointer">
                     <div className="p-4 flex items-start space-x-3">
