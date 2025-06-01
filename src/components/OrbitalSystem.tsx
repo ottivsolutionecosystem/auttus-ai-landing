@@ -2,13 +2,16 @@
 import { MessageCircle, Instagram, Car, Mail } from "lucide-react";
 
 const channels = [
-  { name: "WhatsApp", icon: MessageCircle, color: "text-green-500", bg: "bg-green-50", orbitRadius: 50, angle: 0, speed: 20 },
-  { name: "OLX", icon: Car, color: "text-purple-500", bg: "bg-purple-50", orbitRadius: 75, angle: 60, speed: 25 },
-  { name: "Instagram", icon: Instagram, color: "text-pink-500", bg: "bg-pink-50", orbitRadius: 100, angle: 120, speed: 22 },
-  { name: "Facebook", icon: MessageCircle, color: "text-blue-500", bg: "bg-blue-50", orbitRadius: 125, angle: 180, speed: 28 },
-  { name: "Webmotors", icon: Car, color: "text-red-500", bg: "bg-red-50", orbitRadius: 150, angle: 240, speed: 18 },
-  { name: "E-mail", icon: Mail, color: "text-orange-500", bg: "bg-orange-50", orbitRadius: 175, angle: 300, speed: 26 }
+  { name: "WhatsApp", icon: MessageCircle, color: "text-green-500", bg: "bg-green-50", angle: 0, speed: 30 },
+  { name: "OLX", icon: Car, color: "text-purple-500", bg: "bg-purple-50", angle: 60, speed: 30 },
+  { name: "Instagram", icon: Instagram, color: "text-pink-500", bg: "bg-pink-50", angle: 120, speed: 30 },
+  { name: "Facebook", icon: MessageCircle, color: "text-blue-500", bg: "bg-blue-50", angle: 180, speed: 30 },
+  { name: "Webmotors", icon: Car, color: "text-red-500", bg: "bg-red-50", angle: 240, speed: 30 },
+  { name: "E-mail", icon: Mail, color: "text-orange-500", bg: "bg-orange-50", angle: 300, speed: 30 }
 ];
+
+// Raio único para todos os elementos
+const ORBIT_RADIUS = 140; // valor em percentual
 
 export const OrbitalSystem = () => {
   return (
@@ -21,7 +24,7 @@ export const OrbitalSystem = () => {
             key={`line-${index}`}
             className="absolute top-1/2 left-1/2 origin-center"
             style={{
-              animation: `orbit-${index} ${channel.speed}s linear infinite`,
+              animation: `single-orbit ${channel.speed}s linear infinite`,
               transform: `translate(-50%, -50%) rotate(${channel.angle}deg)`,
               willChange: 'transform'
             }}
@@ -29,7 +32,7 @@ export const OrbitalSystem = () => {
             <div 
               className="border-l-2 border-dashed border-gray-300 opacity-30"
               style={{
-                height: `${channel.orbitRadius}%`,
+                height: `${ORBIT_RADIUS}%`,
                 transformOrigin: 'bottom center'
               }}
             />
@@ -47,17 +50,18 @@ export const OrbitalSystem = () => {
           </div>
         </div>
 
-        {/* Orbital Paths (subtle guides) */}
+        {/* Single Orbital Path (visible guide) */}
         <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
-          <div className="w-[100%] h-[100%] border border-gray-200 rounded-full opacity-10"></div>
-          <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[150%] h-[150%] border border-gray-200 rounded-full opacity-8"></div>
-          <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[200%] h-[200%] border border-gray-200 rounded-full opacity-6"></div>
-          <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[250%] h-[250%] border border-gray-200 rounded-full opacity-4"></div>
-          <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[300%] h-[300%] border border-gray-200 rounded-full opacity-3"></div>
-          <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[350%] h-[350%] border border-gray-200 rounded-full opacity-2"></div>
+          <div 
+            className="border border-gray-200 rounded-full opacity-20"
+            style={{
+              width: `${ORBIT_RADIUS * 2}%`,
+              height: `${ORBIT_RADIUS * 2}%`
+            }}
+          ></div>
         </div>
 
-        {/* Orbiting Channel Icons */}
+        {/* Orbiting Channel Icons - All in single orbit */}
         {channels.map((channel, index) => {
           const IconComponent = channel.icon;
           
@@ -66,8 +70,8 @@ export const OrbitalSystem = () => {
               key={index}
               className="absolute top-1/2 left-1/2 z-10"
               style={{
-                animation: `orbit-${index} ${channel.speed}s linear infinite`,
-                transform: `translate(-50%, -50%) rotate(${channel.angle}deg) translateX(${channel.orbitRadius}%) rotate(-${channel.angle}deg)`,
+                animation: `single-orbit ${channel.speed}s linear infinite`,
+                transform: `translate(-50%, -50%) rotate(${channel.angle}deg) translateX(${ORBIT_RADIUS}%) rotate(-${channel.angle}deg)`,
                 willChange: 'transform'
               }}
             >
