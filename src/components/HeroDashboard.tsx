@@ -1,5 +1,6 @@
 import { Bot, User, MessageCircle, CheckCircle, Clock } from "lucide-react";
 import { useState, useEffect, useRef } from "react";
+import { useSafeScroll } from "../utils/scrollUtils";
 
 export const HeroDashboard = () => {
   const [currentMessageIndex, setCurrentMessageIndex] = useState(0);
@@ -7,6 +8,7 @@ export const HeroDashboard = () => {
   const [isTyping, setIsTyping] = useState(false);
   const messagesEndRef = useRef<HTMLDivElement>(null);
   const chatContainerRef = useRef<HTMLDivElement>(null);
+  const { scrollToBottom } = useSafeScroll();
 
   const chatFlow = [
     {
@@ -105,20 +107,14 @@ export const HeroDashboard = () => {
     }
   ];
 
-  const scrollToBottom = () => {
-    if (chatContainerRef.current) {
-      chatContainerRef.current.scrollTop = chatContainerRef.current.scrollHeight;
-    }
-  };
-
   useEffect(() => {
     if (visibleMessages.length > 0) {
       // Pequeno delay para garantir que a mensagem foi renderizada
       setTimeout(() => {
-        scrollToBottom();
+        scrollToBottom(chatContainerRef);
       }, 100);
     }
-  }, [visibleMessages, isTyping]);
+  }, [visibleMessages, isTyping, scrollToBottom]);
 
   useEffect(() => {
     const interval = setInterval(() => {

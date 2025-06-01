@@ -1,3 +1,4 @@
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -97,5 +98,20 @@
 
   body {
     @apply bg-background text-foreground;
+    /* Previne scroll bounce no iOS e controla overscroll globalmente */
+    overscroll-behavior: contain;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  /* Controle global de overscroll para evitar interferência entre containers */
+  .scroll-container {
+    overscroll-behavior: contain;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  /* Previne scroll bounce em áreas específicas no mobile */
+  .safe-scroll {
+    overscroll-behavior-y: contain;
+    touch-action: pan-y;
   }
 }
