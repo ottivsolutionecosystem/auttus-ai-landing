@@ -111,13 +111,13 @@ export const OmnichannelSection = () => {
         </div>
 
         <div className="flex flex-col lg:flex-row items-center justify-between gap-8 lg:gap-12">
-          {/* Left - Orbital System */}
-          <div className="w-full lg:w-1/2 order-2 lg:order-1 flex justify-center">
+          {/* Mobile: Orbital System primeiro */}
+          <div className="w-full lg:w-1/2 order-1 lg:order-1 flex justify-center">
             <OrbitalSystem />
           </div>
 
-          {/* Right - Inbox Interface */}
-          <div className="w-full lg:w-1/2 order-1 lg:order-2">
+          {/* Mobile: Inbox Interface segundo */}
+          <div className="w-full lg:w-1/2 order-2 lg:order-2">
             <InboxInterface visibleMessages={visibleMessages} inboxRef={inboxRef} />
           </div>
         </div>
