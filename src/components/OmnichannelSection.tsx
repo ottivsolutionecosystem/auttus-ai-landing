@@ -135,7 +135,7 @@ export const OmnichannelSection = () => {
 
               {/* Inbox Messages */}
               <div className="h-80 overflow-y-auto bg-white">
-                {visibleMessages.map((msg, index) => (
+                {visibleMessages.map((msg) => (
                   <div key={msg.id} className="animate-fade-in border-b border-gray-100 hover:bg-gray-50 transition-colors cursor-pointer">
                     <div className="p-4 flex items-start space-x-3">
                       <div className={`${msg.color} bg-gray-100 rounded-full p-2 flex-shrink-0`}>
