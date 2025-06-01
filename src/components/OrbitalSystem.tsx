@@ -25,7 +25,6 @@ export const OrbitalSystem = () => {
             className="absolute top-1/2 left-1/2 origin-center"
             style={{
               animation: `single-orbit ${channel.speed}s linear infinite`,
-              animationDelay: `${(channel.angle / 360) * channel.speed}s`,
               transform: `translate(-50%, -50%) rotate(${channel.angle}deg)`,
               willChange: 'transform'
             }}
@@ -72,7 +71,6 @@ export const OrbitalSystem = () => {
               className="absolute top-1/2 left-1/2 z-10"
               style={{
                 animation: `single-orbit ${channel.speed}s linear infinite`,
-                animationDelay: `${(channel.angle / 360) * channel.speed}s`,
                 transform: `translate(-50%, -50%) rotate(${channel.angle}deg) translateX(${ORBIT_RADIUS}%) rotate(-${channel.angle}deg)`,
                 willChange: 'transform'
               }}
