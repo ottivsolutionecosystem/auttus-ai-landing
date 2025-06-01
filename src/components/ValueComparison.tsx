@@ -1,5 +1,4 @@
-
-import { AlertTriangle, Clock, Users, TrendingDown, Bot, Target, ArrowRight, Zap } from "lucide-react";
+import { AlertTriangle, Clock, Users, TrendingDown, TrendingUp, Bot, Target, ArrowRight, Zap } from "lucide-react";
 
 const beforePoints = [
   {
