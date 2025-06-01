@@ -1,4 +1,5 @@
-import { MessageCircle, Instagram, Calendar, Car, Phone, Inbox } from "lucide-react";
+
+import { MessageCircle, Instagram, Calendar, Car, Phone, Inbox, Mail } from "lucide-react";
 import { useState, useEffect, useRef } from "react";
 
 const channels = [
@@ -6,7 +7,8 @@ const channels = [
   { name: "OLX", icon: Car, color: "text-purple-500", bg: "bg-purple-50" },
   { name: "Instagram", icon: Instagram, color: "text-pink-500", bg: "bg-pink-50" },
   { name: "Facebook", icon: MessageCircle, color: "text-blue-500", bg: "bg-blue-50" },
-  { name: "Webmotors", icon: Car, color: "text-red-500", bg: "bg-red-50" }
+  { name: "Webmotors", icon: Car, color: "text-red-500", bg: "bg-red-50" },
+  { name: "E-mail", icon: Mail, color: "text-orange-500", bg: "bg-orange-50" }
 ];
 
 const inboxMessages = [
@@ -58,6 +60,16 @@ const inboxMessages = [
     time: "14:31",
     icon: Car,
     color: "text-red-500",
+    unread: true
+  },
+  {
+    id: 6,
+    channel: "E-mail",
+    sender: "Luisa Ferreira",
+    message: "Solicito proposta detalhada para aquisição do Civic Touring",
+    time: "14:33",
+    icon: Mail,
+    color: "text-orange-500",
     unread: true
   }
 ];
