@@ -89,9 +89,7 @@ Para te enviar um material exclusivo e agendar uma demonstração gratuita, qual
         // Validação básica de telefone
         const phoneRegex = /^[\d\s\(\)\-\+]+$/;
         if (!phoneRegex.test(phone) || phone.length < 10) {
-          addBotMessage('Ops! Parece que o número não está no formato correto. Pode tentar novamente? 
-
-Por exemplo: (11) 99999-9999 ou 11999999999');
+          addBotMessage('Ops! Parece que o número não está no formato correto. Pode tentar novamente? Por exemplo: (11) 99999-9999 ou 11999999999');
           return;
         }
 
@@ -100,7 +98,7 @@ Por exemplo: (11) 99999-9999 ou 11999999999');
 
 Vou te enviar agora mesmo:
 ✅ E-book exclusivo: "Como Automatizar Vendas com IA"
-✅ Acesso ao nosso case de sucesso
+✅ Acesso ao nosso case de sucesso  
 ✅ Demonstração personalizada gratuita
 
 Em alguns segundos você será redirecionado para o WhatsApp onde nosso time especializado vai te atender pessoalmente!`);
