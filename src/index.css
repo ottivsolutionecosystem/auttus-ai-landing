@@ -96,22 +96,40 @@
     @apply border-border;
   }
 
+  html {
+    /* Previne scroll bounce no iOS */
+    overscroll-behavior: none;
+    /* Melhora a performance de scroll no mobile */
+    -webkit-overflow-scrolling: touch;
+  }
+
   body {
     @apply bg-background text-foreground;
-    /* Previne scroll bounce no iOS e controla overscroll globalmente */
-    overscroll-behavior: contain;
+    /* Controle rígido de overscroll para evitar interferência */
+    overscroll-behavior: none;
+    /* Otimização para mobile */
     -webkit-overflow-scrolling: touch;
+    /* Previne zoom indesejado no iOS */
+    -webkit-text-size-adjust: 100%;
+    /* Estabiliza o layout durante animações */
+    transform: translateZ(0);
   }
 
-  /* Controle global de overscroll para evitar interferência entre containers */
-  .scroll-container {
+  /* Classe para containers de scroll isolados */
+  .isolated-scroll {
     overscroll-behavior: contain;
     -webkit-overflow-scrolling: touch;
+    /* Força uma nova camada de composição para melhor performance */
+    will-change: scroll-position;
+    transform: translateZ(0);
   }
 
-  /* Previne scroll bounce em áreas específicas no mobile */
-  .safe-scroll {
+  /* Previne scroll bounce e interferência em dispositivos mobile */
+  .mobile-safe-scroll {
     overscroll-behavior-y: contain;
+    overscroll-behavior-x: none;
+    -webkit-overflow-scrolling: touch;
+    /* Previne pull-to-refresh no mobile */
     touch-action: pan-y;
   }
 }

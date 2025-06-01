@@ -1,6 +1,5 @@
 
 import { useState, useEffect, useRef } from "react";
-import { useSafeScroll } from "../utils/scrollUtils";
 import { ChatMessage } from "./ChatMessage";
 import { ChatHeader } from "./ChatHeader";
 import { ChatTypingIndicator } from "./ChatTypingIndicator";
@@ -13,7 +12,6 @@ export const HeroDashboard = () => {
   const [isTyping, setIsTyping] = useState(false);
   const messagesEndRef = useRef<HTMLDivElement>(null);
   const chatContainerRef = useRef<HTMLDivElement>(null);
-  const { scrollToBottom } = useSafeScroll();
 
   const chatFlow = [
     {
@@ -112,13 +110,51 @@ export const HeroDashboard = () => {
     }
   ];
 
+  // Função de scroll suave que não interfere com a página
+  const scrollToBottomSmooth = () => {
+    if (chatContainerRef.current) {
+      const container = chatContainerRef.current;
+      const targetScroll = container.scrollHeight - container.clientHeight;
+      
+      // Usar requestAnimationFrame para scroll mais suave
+      const smoothScroll = () => {
+        const currentScroll = container.scrollTop;
+        const distance = targetScroll - currentScroll;
+        
+        if (Math.abs(distance) > 1) {
+          container.scrollTop = currentScroll + distance * 0.15;
+          requestAnimationFrame(smoothScroll);
+        } else {
+          container.scrollTop = targetScroll;
+        }
+      };
+      
+      requestAnimationFrame(smoothScroll);
+    }
+  };
+
+  // Effect para scroll automático quando novas mensagens aparecem
   useEffect(() => {
     if (visibleMessages.length > 0) {
-      setTimeout(() => {
-        scrollToBottom(chatContainerRef);
-      }, 100);
+      // Delay para permitir que a mensagem seja renderizada
+      const scrollTimeout = setTimeout(() => {
+        scrollToBottomSmooth();
+      }, 150);
+      
+      return () => clearTimeout(scrollTimeout);
     }
-  }, [visibleMessages, isTyping, scrollToBottom]);
+  }, [visibleMessages.length]);
+
+  // Effect para scroll quando indicador de digitação aparece
+  useEffect(() => {
+    if (isTyping) {
+      const scrollTimeout = setTimeout(() => {
+        scrollToBottomSmooth();
+      }, 100);
+      
+      return () => clearTimeout(scrollTimeout);
+    }
+  }, [isTyping]);
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -149,8 +185,12 @@ export const HeroDashboard = () => {
           
           <div 
             ref={chatContainerRef}
-            className="flex-1 overflow-y-auto space-y-3 pb-4 overscroll-contain"
-            style={{ scrollBehavior: 'smooth' }}
+            className="flex-1 overflow-y-auto space-y-3 pb-4"
+            style={{ 
+              overscrollBehavior: 'contain',
+              WebkitOverflowScrolling: 'touch',
+              scrollBehavior: 'auto' // Removemos smooth para evitar conflitos
+            }}
           >
             {visibleMessages.map((msg, index) => (
               <div key={index} className="animate-fade-in">
