@@ -1,5 +1,5 @@
 
-import { MessageCircle, Instagram, Calendar, Car, Phone } from "lucide-react";
+import { MessageCircle, Instagram, Calendar, Car, Phone, Inbox } from "lucide-react";
 import { useState, useEffect } from "react";
 
 const channels = [
@@ -10,46 +10,56 @@ const channels = [
   { name: "Webmotors", icon: Car, color: "text-red-500", bg: "bg-red-50" }
 ];
 
-const chatMessages = [
+const inboxMessages = [
   {
+    id: 1,
     channel: "WhatsApp",
     sender: "João Silva",
     message: "Oi! Tenho interesse no Civic 2023. Ainda está disponível?",
     time: "14:23",
     icon: MessageCircle,
-    color: "text-green-500"
+    color: "text-green-500",
+    unread: true
   },
   {
+    id: 2,
     channel: "OLX",
     sender: "Maria Santos",
     message: "Gostaria de saber mais sobre o financiamento do Corolla",
     time: "14:25",
     icon: Car,
-    color: "text-purple-500"
+    color: "text-purple-500",
+    unread: true
   },
   {
+    id: 3,
     channel: "Instagram",
     sender: "Carlos Lima",
     message: "Vi o story do HRV, posso agendar test drive?",
     time: "14:27",
     icon: Instagram,
-    color: "text-pink-500"
+    color: "text-pink-500",
+    unread: true
   },
   {
+    id: 4,
     channel: "Facebook",
     sender: "Ana Costa",
     message: "Qual o valor à vista do Fit que vocês anunciaram?",
     time: "14:29",
     icon: MessageCircle,
-    color: "text-blue-500"
+    color: "text-blue-500",
+    unread: true
   },
   {
+    id: 5,
     channel: "Webmotors",
     sender: "Pedro Oliveira",
     message: "Aceita troca por moto no Onix Plus?",
     time: "14:31",
     icon: Car,
-    color: "text-red-500"
+    color: "text-red-500",
+    unread: true
   }
 ];
 
@@ -59,8 +69,8 @@ export const OmnichannelSection = () => {
 
   useEffect(() => {
     const interval = setInterval(() => {
-      if (currentMessageIndex < chatMessages.length) {
-        setVisibleMessages(prev => [...prev, chatMessages[currentMessageIndex]]);
+      if (currentMessageIndex < inboxMessages.length) {
+        setVisibleMessages(prev => [...prev, inboxMessages[currentMessageIndex]]);
         setCurrentMessageIndex(prev => prev + 1);
       } else {
         // Reset after showing all messages
@@ -109,60 +119,62 @@ export const OmnichannelSection = () => {
             </div>
           </div>
 
-          {/* Right - WhatsApp-like Chat Interface */}
+          {/* Right - Inbox Interface */}
           <div className="w-full lg:w-1/2 order-1 lg:order-2">
             <div className="bg-white rounded-2xl shadow-xl border border-gray-200 overflow-hidden animate-slide-up">
-              {/* Chat Header */}
+              {/* Inbox Header */}
               <div className="bg-auttus-blue text-white p-4 flex items-center space-x-3">
                 <div className="w-10 h-10 bg-auttus-orange rounded-full flex items-center justify-center">
-                  <span className="text-white font-bold text-sm">A</span>
+                  <Inbox className="w-5 h-5 text-white" />
                 </div>
                 <div className="flex-1">
-                  <h3 className="font-semibold text-lg">Auttus Central</h3>
-                  <p className="text-xs opacity-90">Omnichannel ativo</p>
+                  <h3 className="font-semibold text-lg">Auttus Inbox</h3>
+                  <p className="text-xs opacity-90">{visibleMessages.length} mensagens não lidas</p>
                 </div>
-                <Phone className="w-5 h-5 opacity-75" />
               </div>
 
-              {/* Chat Messages */}
-              <div className="h-80 overflow-y-auto bg-gray-50 p-4 space-y-3">
+              {/* Inbox Messages */}
+              <div className="h-80 overflow-y-auto bg-white">
                 {visibleMessages.map((msg, index) => (
-                  <div key={index} className="animate-fade-in">
-                    <div className="flex items-start space-x-3">
-                      <div className={`${msg.color} bg-white rounded-full p-2 shadow-sm flex-shrink-0`}>
+                  <div key={msg.id} className="animate-fade-in border-b border-gray-100 hover:bg-gray-50 transition-colors cursor-pointer">
+                    <div className="p-4 flex items-start space-x-3">
+                      <div className={`${msg.color} bg-gray-100 rounded-full p-2 flex-shrink-0`}>
                         <msg.icon className="w-4 h-4" />
                       </div>
-                      <div className="bg-white rounded-lg p-3 shadow-sm flex-1 max-w-[80%]">
+                      <div className="flex-1 min-w-0">
                         <div className="flex items-center justify-between mb-1">
-                          <span className="text-xs font-medium text-auttus-blue">{msg.sender}</span>
-                          <span className="text-xs text-gray-500">{msg.time}</span>
+                          <span className="text-sm font-semibold text-gray-900 truncate">{msg.sender}</span>
+                          <span className="text-xs text-gray-500 flex-shrink-0 ml-2">{msg.time}</span>
                         </div>
                         <div className="text-xs text-gray-600 mb-1">
                           via {msg.channel}
                         </div>
-                        <p className="text-sm text-gray-800">{msg.message}</p>
+                        <p className="text-sm text-gray-700 truncate">{msg.message}</p>
                       </div>
+                      {msg.unread && (
+                        <div className="w-3 h-3 bg-auttus-orange rounded-full flex-shrink-0"></div>
+                      )}
                     </div>
                   </div>
                 ))}
                 
                 {visibleMessages.length === 0 && (
                   <div className="text-center text-gray-500 py-8">
-                    <MessageCircle className="w-12 h-12 mx-auto mb-3 opacity-50" />
-                    <p className="text-sm">Aguardando mensagens...</p>
+                    <Inbox className="w-12 h-12 mx-auto mb-3 opacity-50" />
+                    <p className="text-sm">Inbox vazio</p>
+                    <p className="text-xs text-gray-400">Aguardando mensagens...</p>
                   </div>
                 )}
               </div>
 
-              {/* Chat Input (disabled) */}
-              <div className="p-4 bg-white border-t border-gray-200">
-                <div className="flex items-center space-x-3">
-                  <div className="flex-1 bg-gray-100 rounded-full px-4 py-2">
-                    <span className="text-gray-500 text-sm">LetícIA está respondendo automaticamente...</span>
-                  </div>
-                  <div className="w-8 h-8 bg-auttus-orange rounded-full flex items-center justify-center">
-                    <MessageCircle className="w-4 h-4 text-white" />
-                  </div>
+              {/* Inbox Footer */}
+              <div className="p-4 bg-gray-50 border-t border-gray-200">
+                <div className="flex items-center justify-between text-xs text-gray-600">
+                  <span>LetícIA organizando automaticamente</span>
+                  <span className="flex items-center space-x-1">
+                    <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
+                    <span>Online</span>
+                  </span>
                 </div>
               </div>
             </div>
