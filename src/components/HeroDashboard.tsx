@@ -1,55 +1,102 @@
 
 import { Bot, User, MessageCircle, CheckCircle, Clock } from "lucide-react";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 
 export const HeroDashboard = () => {
   const [currentMessageIndex, setCurrentMessageIndex] = useState(0);
   const [visibleMessages, setVisibleMessages] = useState<any[]>([]);
   const [isTyping, setIsTyping] = useState(false);
+  const messagesEndRef = useRef<HTMLDivElement>(null);
 
   const chatFlow = [
     {
       type: 'user',
       sender: 'João Silva',
       platform: 'WhatsApp',
-      message: 'Oi, vi o Civic 2024 no seu site. Ainda está disponível?',
-      timestamp: '14:32'
+      message: 'Oi! Esse carro aqui que vocês anunciaram tá disponível ainda? www.auttus.io/corolla2020',
+      timestamp: '09:15'
     },
     {
       type: 'bot',
-      message: 'Olá João! Sim, o Honda Civic 2024 está disponível. É um excelente modelo! Posso te fazer algumas perguntas para encontrar a melhor opção para você?',
-      timestamp: '14:32'
+      message: 'Bom dia! 😊\nDeixa eu confirmar aqui rapidinho pra você se ele ainda tá disponível, só um segundinho… 👀',
+      timestamp: '09:15'
+    },
+    {
+      type: 'bot',
+      message: 'Tá disponível sim!\nTemos 3 interessados nele, mas ainda ninguém fechou.\nVocê quer vir dar uma olhada pessoalmente?',
+      timestamp: '09:16'
     },
     {
       type: 'user',
       sender: 'João Silva',
       platform: 'WhatsApp',
-      message: 'Claro! Qual o preço?',
-      timestamp: '14:33'
+      message: 'Quero sim! Tô pensando em dar meu onix na troca e financiar o restante.',
+      timestamp: '09:17'
     },
     {
       type: 'bot',
-      message: 'O Civic 2024 está a partir de R$ 145.000. Para te dar um valor mais preciso, me conta: você tem veículo para troca?',
-      timestamp: '14:33'
+      message: 'Qual o ano e o modelo do seu onix?',
+      timestamp: '09:17'
     },
     {
       type: 'user',
       sender: 'João Silva',
       platform: 'WhatsApp',
-      message: 'Tenho sim, um Corolla 2020',
-      timestamp: '14:34'
+      message: '2020 é o Plus.',
+      timestamp: '09:18'
     },
     {
       type: 'bot',
-      message: 'Perfeito! Com a troca do seu Corolla 2020, conseguimos uma condição especial. Que tal agendarmos um test-drive para você conhecer o veículo? Tenho horário disponível amanhã às 14h ou 16h.',
-      timestamp: '14:34'
+      message: 'Ótimo! Antes da sua visita, posso adiantar aqui uma pré-análise de crédito.\nEla é bem simples e não interfere no seu score, tá?\n\nMe passa seu CPF rapidinho só pra gente fazer a consulta?',
+      timestamp: '09:18'
     },
     {
       type: 'user',
       sender: 'João Silva',
       platform: 'WhatsApp',
-      message: 'Amanhã às 14h seria perfeito!',
-      timestamp: '14:35'
+      message: '111.555.666-33',
+      timestamp: '09:19'
+    },
+    {
+      type: 'bot',
+      message: 'Humm… nessa análise aqui o sistema não liberou o crédito, mas isso acontece às vezes.\nVocê teria outra pessoa, um familiar, amigo, pra gente simular?',
+      timestamp: '09:20'
+    },
+    {
+      type: 'user',
+      sender: 'João Silva',
+      platform: 'WhatsApp',
+      message: 'Pode ser no da minha esposa, é 222.333.444-55',
+      timestamp: '09:21'
+    },
+    {
+      type: 'bot',
+      message: 'Agora sim! ✅\nAqui consta crédito pré-aprovado. Isso já ajuda bastante pra agilizar sua visita!\nPerfeito, já anotei tudo aqui 📝\n\nAgora, o ideal é você vir até a loja.\nLá o vendedor avalia seu carro direitinho, conversa com você e juntos vão montar a melhor parcela e as melhores condições de financiamento, na hora.\n\nPodemos agendar um horário?',
+      timestamp: '09:22'
+    },
+    {
+      type: 'user',
+      sender: 'João Silva',
+      platform: 'WhatsApp',
+      message: 'Pode sim.',
+      timestamp: '09:23'
+    },
+    {
+      type: 'bot',
+      message: 'Tenho horários disponíveis amanhã:\n⏰ 10h, 14h ou 16h\nQual fica melhor pra você?',
+      timestamp: '09:23'
+    },
+    {
+      type: 'user',
+      sender: 'João Silva',
+      platform: 'WhatsApp',
+      message: '14h.',
+      timestamp: '09:24'
+    },
+    {
+      type: 'bot',
+      message: 'Agendado!\n📅 Amanhã às 14h\n📍 Loja da Auttus – Av. 26 de Agosto, Campo Grande – MS\n\nPode vir tranquilo, vamos te receber com tudo pronto.\nE 30 min antes eu te lembro aqui, combinado?',
+      timestamp: '09:24'
     },
     {
       type: 'system',
@@ -57,6 +104,14 @@ export const HeroDashboard = () => {
       status: 'qualified'
     }
   ];
+
+  const scrollToBottom = () => {
+    messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
+  };
+
+  useEffect(() => {
+    scrollToBottom();
+  }, [visibleMessages]);
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -82,15 +137,15 @@ export const HeroDashboard = () => {
 
   return (
     <div className="w-full lg:w-1/2 relative lg:pl-8 xl:pl-12 flex-shrink-0 mt-8 lg:mt-0">
-      <div className="relative bg-white rounded-2xl shadow-xl p-4 sm:p-6 lg:p-8 transition-shadow duration-300 max-w-md sm:max-w-lg mx-auto lg:max-w-none min-h-[400px] lg:h-auto lg:min-h-[400px]">
+      <div className="relative bg-white rounded-2xl shadow-xl p-4 sm:p-6 lg:p-8 transition-shadow duration-300 max-w-md sm:max-w-lg mx-auto lg:max-w-none h-[500px] lg:h-[600px]">
         
         {/* Chat Header */}
-        <div className="bg-auttus-gray rounded-xl p-4 sm:p-6 h-full">
+        <div className="bg-auttus-gray rounded-xl p-4 sm:p-6 h-full flex flex-col">
           <div className="flex items-center justify-between mb-4 sm:mb-6">
             <div className="flex items-center space-x-3">
               <div className="w-3 h-3 bg-green-400 rounded-full animate-pulse"></div>
               <h3 className="font-semibold text-auttus-blue text-sm sm:text-base lg:text-lg">
-                IA Auttus - Atendimento Ativo
+                LetícIA - Atendimento Ativo
               </h3>
             </div>
             <div className="text-xs text-gray-500">
@@ -99,7 +154,7 @@ export const HeroDashboard = () => {
           </div>
           
           {/* Chat Messages */}
-          <div className="space-y-3 h-64 lg:h-72 overflow-y-auto pb-4">
+          <div className="flex-1 overflow-y-auto space-y-3 pb-4">
             {visibleMessages.map((msg, index) => (
               <div key={index} className="animate-fade-in">
                 {msg.type === 'user' && (
@@ -110,7 +165,7 @@ export const HeroDashboard = () => {
                         <span className="text-xs font-medium">{msg.sender}</span>
                         <span className="text-xs opacity-75">{msg.timestamp}</span>
                       </div>
-                      <p className="text-sm">{msg.message}</p>
+                      <p className="text-sm whitespace-pre-line">{msg.message}</p>
                     </div>
                   </div>
                 )}
@@ -120,10 +175,10 @@ export const HeroDashboard = () => {
                     <div className="bg-white border border-gray-200 p-3 rounded-lg max-w-[80%] shadow-sm">
                       <div className="flex items-center space-x-2 mb-1">
                         <Bot className="h-3 w-3 text-auttus-orange" />
-                        <span className="text-xs font-medium text-auttus-blue">IA Auttus</span>
+                        <span className="text-xs font-medium text-auttus-blue">LetícIA</span>
                         <span className="text-xs text-gray-500">{msg.timestamp}</span>
                       </div>
-                      <p className="text-sm text-gray-800">{msg.message}</p>
+                      <p className="text-sm text-gray-800 whitespace-pre-line">{msg.message}</p>
                     </div>
                   </div>
                 )}
@@ -144,7 +199,7 @@ export const HeroDashboard = () => {
                 <div className="bg-white border border-gray-200 p-3 rounded-lg shadow-sm">
                   <div className="flex items-center space-x-2 mb-1">
                     <Bot className="h-3 w-3 text-auttus-orange" />
-                    <span className="text-xs font-medium text-auttus-blue">IA Auttus</span>
+                    <span className="text-xs font-medium text-auttus-blue">LetícIA</span>
                   </div>
                   <div className="flex items-center space-x-1">
                     <div className="w-2 h-2 bg-gray-400 rounded-full animate-bounce"></div>
@@ -154,6 +209,7 @@ export const HeroDashboard = () => {
                 </div>
               </div>
             )}
+            <div ref={messagesEndRef} />
           </div>
 
           {/* Status Bar */}
@@ -161,11 +217,11 @@ export const HeroDashboard = () => {
             <div className="flex items-center space-x-4 text-xs text-gray-600">
               <div className="flex items-center space-x-1">
                 <Clock className="h-3 w-3" />
-                <span>Tempo médio: 2min</span>
+                <span>Qualificação: 9min</span>
               </div>
               <div className="flex items-center space-x-1">
                 <CheckCircle className="h-3 w-3 text-green-500" />
-                <span>Taxa qualificação: 85%</span>
+                <span>Lead agendado</span>
               </div>
             </div>
           </div>
