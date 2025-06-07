@@ -203,7 +203,7 @@ export const GuaranteeAndTrust = () => {
             </span>
           </div>
           <p className="text-gray-600 text-sm mt-4">
-            CNPJ: 60.081.212/0001-72 • Sede: Campo Grande-MS • Fundada em 2020
+            CNPJ: 60.081.212/0001-72 • Sede: Campo Grande-MS
           </p>
         </div>
       </div>
