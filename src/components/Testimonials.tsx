@@ -1,4 +1,3 @@
-
 import { useState, useEffect } from "react";
 import { ChevronLeft, ChevronRight, Star, Shield, Users, Rocket } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -13,26 +12,10 @@ const customerTestimonials = [
     badge: "Cliente"
   },
   {
-    name: "30 DIAS",
-    role: "com Resultado Garantido",
-    image: "https://images.unsplash.com/photo-1494790108755-2616b612b786?ixlib=rb-1.2.1&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80",
-    content: "",
-    rating: 5,
-    badge: "Garantia"
-  },
-  {
     name: "Felipe",
     role: "Proprietário - Teca Automóveis",
     image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-1.2.1&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80",
     content: "A Auttus não só responde rápido, como também agenda os test drives e envia follow-ups. Nossa conversão aumentou significativamente.",
-    rating: 5,
-    badge: "Cliente"
-  },
-  {
-    name: "Cristian",
-    role: "CEO, CNA Motors",
-    image: "https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-1.2.1&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80",
-    content: "Em 15 dias já vi o retorno do investimento. A garantia me deu confiança para testar.",
     rating: 5,
     badge: "Cliente"
   }
@@ -89,10 +72,10 @@ export const Testimonials = () => {
           </p>
         </div>
 
-        {/* Testimonial Card */}
+        {/* Testimonial Card - Fixed Height */}
         <div className="relative max-w-4xl mx-auto mb-12">
-          <div className="bg-gradient-to-br from-auttus-blue to-blue-900 rounded-2xl p-6 sm:p-8 md:p-12 text-white shadow-2xl animate-fade-in">
-            <div className="flex flex-col md:flex-row items-center text-center md:text-left">
+          <div className="bg-gradient-to-br from-auttus-blue to-blue-900 rounded-2xl p-6 sm:p-8 md:p-12 text-white shadow-2xl animate-fade-in h-80 sm:h-96 flex items-center">
+            <div className="flex flex-col md:flex-row items-center text-center md:text-left w-full">
               {/* Avatar */}
               <div className="mb-6 md:mb-0 md:mr-6 lg:mr-8 flex-shrink-0 relative">
                 <img 
@@ -108,37 +91,22 @@ export const Testimonials = () => {
               {/* Content */}
               <div className="flex-1">
                 {/* Stars */}
-                {customerTestimonials[currentIndex].content && (
-                  <div className="flex justify-center md:justify-start mb-4">
-                    {[...Array(customerTestimonials[currentIndex].rating)].map((_, i) => (
-                      <Star key={i} className="h-4 w-4 sm:h-5 sm:w-5 text-auttus-orange fill-current" />
-                    ))}
-                  </div>
-                )}
+                <div className="flex justify-center md:justify-start mb-4">
+                  {[...Array(customerTestimonials[currentIndex].rating)].map((_, i) => (
+                    <Star key={i} className="h-4 w-4 sm:h-5 sm:w-5 text-auttus-orange fill-current" />
+                  ))}
+                </div>
                 
-                {/* Quote or Special Content */}
-                {customerTestimonials[currentIndex].content ? (
-                  <blockquote className="text-lg sm:text-xl md:text-2xl font-medium mb-4 sm:mb-6 leading-relaxed">
-                    "{customerTestimonials[currentIndex].content}"
-                  </blockquote>
-                ) : (
-                  <div className="text-center">
-                    <div className="text-4xl sm:text-5xl md:text-6xl font-bold text-auttus-orange mb-2">
-                      {customerTestimonials[currentIndex].name}
-                    </div>
-                    <div className="text-xl sm:text-2xl font-medium text-blue-200">
-                      {customerTestimonials[currentIndex].role}
-                    </div>
-                  </div>
-                )}
+                {/* Quote */}
+                <blockquote className="text-lg sm:text-xl md:text-2xl font-medium mb-4 sm:mb-6 leading-relaxed">
+                  "{customerTestimonials[currentIndex].content}"
+                </blockquote>
                 
-                {/* Author (only for regular testimonials) */}
-                {customerTestimonials[currentIndex].content && (
-                  <div>
-                    <div className="font-bold text-base sm:text-lg">{customerTestimonials[currentIndex].name}</div>
-                    <div className="text-blue-200 text-sm sm:text-base">{customerTestimonials[currentIndex].role}</div>
-                  </div>
-                )}
+                {/* Author */}
+                <div>
+                  <div className="font-bold text-base sm:text-lg">{customerTestimonials[currentIndex].name}</div>
+                  <div className="text-blue-200 text-sm sm:text-base">{customerTestimonials[currentIndex].role}</div>
+                </div>
               </div>
             </div>
           </div>
