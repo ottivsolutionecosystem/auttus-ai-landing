@@ -13,7 +13,7 @@ const customerTestimonials = [
   },
   {
     name: "Cristian",
-    role: "Proprietário - CNA Motors",
+    role: "CEO, CNA Motors",
     image: "https://images.unsplash.com/photo-1494790108755-2616b612b786?ixlib=rb-1.2.1&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80",
     content: "Em 15 dias já vi o retorno do investimento. A garantia me deu confiança para testar.",
     rating: 5,
@@ -24,6 +24,14 @@ const customerTestimonials = [
     role: "Proprietário - Teca Automóveis",
     image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-1.2.1&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80",
     content: "A Auttus não só responde rápido, como também agenda os test drives e envia follow-ups. Nossa conversão aumentou significativamente.",
+    rating: 5,
+    badge: "Cliente"
+  },
+  {
+    name: "Celio Grizoni",
+    role: "CEO, Grizoni Automóveis",
+    image: "https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-1.2.1&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80",
+    content: "A automação da Auttus revolucionou nossa forma de atender clientes. Resultados impressionantes desde o primeiro mês.",
     rating: 5,
     badge: "Cliente"
   }
