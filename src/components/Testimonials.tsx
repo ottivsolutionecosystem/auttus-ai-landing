@@ -1,3 +1,4 @@
+
 import { useState, useEffect } from "react";
 import { ChevronLeft, ChevronRight, Star, Shield, Users, Rocket } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -12,12 +13,12 @@ const customerTestimonials = [
     badge: "Cliente"
   },
   {
-    name: "Cristian",
-    role: "CEO, CNA Motors",
+    name: "30 DIAS",
+    role: "com Resultado Garantido",
     image: "https://images.unsplash.com/photo-1494790108755-2616b612b786?ixlib=rb-1.2.1&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80",
-    content: "Em 15 dias já vi o retorno do investimento. A garantia me deu confiança para testar.",
+    content: "",
     rating: 5,
-    badge: "Cliente"
+    badge: "Garantia"
   },
   {
     name: "Felipe",
@@ -107,22 +108,37 @@ export const Testimonials = () => {
               {/* Content */}
               <div className="flex-1">
                 {/* Stars */}
-                <div className="flex justify-center md:justify-start mb-4">
-                  {[...Array(customerTestimonials[currentIndex].rating)].map((_, i) => (
-                    <Star key={i} className="h-4 w-4 sm:h-5 sm:w-5 text-auttus-orange fill-current" />
-                  ))}
-                </div>
+                {customerTestimonials[currentIndex].content && (
+                  <div className="flex justify-center md:justify-start mb-4">
+                    {[...Array(customerTestimonials[currentIndex].rating)].map((_, i) => (
+                      <Star key={i} className="h-4 w-4 sm:h-5 sm:w-5 text-auttus-orange fill-current" />
+                    ))}
+                  </div>
+                )}
                 
-                {/* Quote */}
-                <blockquote className="text-lg sm:text-xl md:text-2xl font-medium mb-4 sm:mb-6 leading-relaxed">
-                  "{customerTestimonials[currentIndex].content}"
-                </blockquote>
+                {/* Quote or Special Content */}
+                {customerTestimonials[currentIndex].content ? (
+                  <blockquote className="text-lg sm:text-xl md:text-2xl font-medium mb-4 sm:mb-6 leading-relaxed">
+                    "{customerTestimonials[currentIndex].content}"
+                  </blockquote>
+                ) : (
+                  <div className="text-center">
+                    <div className="text-4xl sm:text-5xl md:text-6xl font-bold text-auttus-orange mb-2">
+                      {customerTestimonials[currentIndex].name}
+                    </div>
+                    <div className="text-xl sm:text-2xl font-medium text-blue-200">
+                      {customerTestimonials[currentIndex].role}
+                    </div>
+                  </div>
+                )}
                 
-                {/* Author */}
-                <div>
-                  <div className="font-bold text-base sm:text-lg">{customerTestimonials[currentIndex].name}</div>
-                  <div className="text-blue-200 text-sm sm:text-base">{customerTestimonials[currentIndex].role}</div>
-                </div>
+                {/* Author (only for regular testimonials) */}
+                {customerTestimonials[currentIndex].content && (
+                  <div>
+                    <div className="font-bold text-base sm:text-lg">{customerTestimonials[currentIndex].name}</div>
+                    <div className="text-blue-200 text-sm sm:text-base">{customerTestimonials[currentIndex].role}</div>
+                  </div>
+                )}
               </div>
             </div>
           </div>
