@@ -1,3 +1,4 @@
+
 import { Users, Target, Bell, BarChart3, Calendar, Brain, Database, Zap, Plus } from "lucide-react";
 import { useState, useEffect } from "react";
 
@@ -274,7 +275,10 @@ export const CRMSection = () => {
               Com nosso CRM inteligente, você nunca mais vai esquecer de um follow-up 
               ou perder uma oportunidade de venda.
             </p>
-            <button className="bg-auttus-orange hover:bg-orange-600 text-white font-bold py-4 px-8 rounded-xl transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl">
+            <button 
+              className="bg-auttus-orange hover:bg-orange-600 text-white font-bold py-4 px-8 rounded-xl transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl"
+              onClick={() => window.open('https://wa.me/5567997160784?text=Ol%C3%A1,%20quero%20o%20CRM%20Inteligente%20da%20Auttus!!', '_blank')}
+            >
               Quero o CRM Inteligente
             </button>
           </div>
