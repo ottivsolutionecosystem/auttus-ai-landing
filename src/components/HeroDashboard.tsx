@@ -1,3 +1,4 @@
+
 import { useState, useEffect, useRef } from "react";
 import { ChatMessage } from "./ChatMessage";
 import { ChatTypingIndicator } from "./ChatTypingIndicator";
@@ -167,8 +168,8 @@ export const HeroDashboard = () => {
   }, [currentMessageIndex]);
 
   return (
-    <div className="w-full lg:w-1/2 relative lg:pl-4 xl:pl-8 flex-shrink-0">
-      <div className="relative bg-white rounded-xl sm:rounded-2xl shadow-xl p-3 sm:p-4 lg:p-6 xl:p-8 transition-shadow duration-300 max-w-sm sm:max-w-md lg:max-w-lg mx-auto lg:max-w-none h-[400px] sm:h-[450px] lg:h-[500px] xl:h-[600px]">
+    <div className="w-full lg:w-1/2 relative lg:pl-4 xl:pl-8 flex-shrink-0 flex justify-center lg:justify-start">
+      <div className="relative bg-white rounded-xl sm:rounded-2xl shadow-xl p-3 sm:p-4 lg:p-6 xl:p-8 transition-shadow duration-300 w-full max-w-[320px] sm:max-w-[360px] md:max-w-[400px] lg:max-w-[440px] xl:max-w-[480px] mx-auto lg:mx-0 h-[400px] sm:h-[450px] lg:h-[500px] xl:h-[600px]">
         <div className="bg-auttus-gray rounded-lg sm:rounded-xl p-3 sm:p-4 lg:p-6 h-full flex flex-col">
           <div className="bg-gradient-to-r from-auttus-orange to-orange-600 text-white p-3 sm:p-4 flex items-center justify-between rounded-t-lg sm:rounded-t-xl -m-3 sm:-m-4 lg:-m-6 mb-3 sm:mb-4 lg:mb-6">
             <div className="flex items-center space-x-2 sm:space-x-3">
