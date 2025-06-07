@@ -1,3 +1,4 @@
+
 import { useState, useEffect } from "react";
 import { ChevronLeft, ChevronRight, Star, Shield, Users, Rocket } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -14,7 +15,7 @@ const customerTestimonials = [
   {
     name: "Felipe",
     role: "Proprietário - Teca Automóveis",
-    image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-1.2.1&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80",
+    image: "/lovable-uploads/4b468059-9e2a-4b8a-b684-4ae7aeea9c2a.png",
     content: "A Auttus não só responde rápido, como também agenda os test drives e envia follow-ups. Nossa conversão aumentou significativamente.",
     rating: 5,
     badge: "Cliente"
