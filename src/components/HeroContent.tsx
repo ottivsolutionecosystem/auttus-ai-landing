@@ -77,7 +77,8 @@ export const HeroContent = () => {
         <Button 
           variant="outline"
           size="lg" 
-          className="border-2 border-white text-white hover:bg-white hover:text-auttus-blue font-semibold px-6 sm:px-8 lg:px-10 py-4 sm:py-5 text-base sm:text-lg lg:text-xl rounded-xl transition-all duration-300 backdrop-blur-sm hover:scale-[1.02] min-h-[60px] flex items-center justify-center group"
+          className="border-2 border-white hover:bg-white hover:text-auttus-blue font-semibold px-6 sm:px-8 lg:px-10 py-4 sm:py-5 text-base sm:text-lg lg:text-xl rounded-xl transition-all duration-300 backdrop-blur-sm hover:scale-[1.02] min-h-[60px] flex items-center justify-center group"
+          style={{ color: '#092341' }}
         >
           <Play className="mr-2 h-5 w-5 sm:h-6 sm:w-6 flex-shrink-0 group-hover:scale-110 transition-transform duration-300" />
           Ver demonstração
