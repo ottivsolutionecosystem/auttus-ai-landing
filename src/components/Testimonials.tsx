@@ -29,10 +29,10 @@ const customerTestimonials = [
     badge: "Cliente"
   },
   {
-    name: "Celio Grizoni",
-    role: "CEO, Grizoni Automóveis",
+    name: "Cristian",
+    role: "CEO, CNA Motors",
     image: "https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-1.2.1&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80",
-    content: "A automação da Auttus revolucionou nossa forma de atender clientes. Resultados impressionantes desde o primeiro mês.",
+    content: "Em 15 dias já vi o retorno do investimento. A garantia me deu confiança para testar.",
     rating: 5,
     badge: "Cliente"
   }
