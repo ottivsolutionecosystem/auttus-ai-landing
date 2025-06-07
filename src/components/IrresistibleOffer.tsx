@@ -93,7 +93,7 @@ export const IrresistibleOffer = () => {
                 <Star className="h-5 w-5 text-yellow-400 fill-current" />
               </div>
               <span className="text-sm sm:text-base">
-                <strong>98% de satisfação</strong> • Mais de 500 empresas atendidas
+                <strong>98% de satisfação</strong> • Mais de 100 empresas atendidas
               </span>
             </div>
           </div>
@@ -105,11 +105,11 @@ export const IrresistibleOffer = () => {
             </p>
             <div className="flex items-center justify-center space-x-3">
               <div className="w-10 h-10 bg-auttus-orange rounded-full flex items-center justify-center text-white font-bold">
-                M
+                C
               </div>
               <div className="text-left">
-                <div className="text-white font-semibold">Marina Silva</div>
-                <div className="text-blue-200 text-sm">CEO, TechFlow Solutions</div>
+                <div className="text-white font-semibold">Cristian</div>
+                <div className="text-blue-200 text-sm">CEO, CNA Motors</div>
               </div>
             </div>
           </div>
