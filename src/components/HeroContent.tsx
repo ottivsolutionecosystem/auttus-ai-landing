@@ -3,6 +3,13 @@ import { Button } from "@/components/ui/button";
 import { ArrowRight, Play, CheckCircle } from "lucide-react";
 
 export const HeroContent = () => {
+  const scrollToDemo = () => {
+    const demoSection = document.getElementById('demo-section');
+    if (demoSection) {
+      demoSection.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   return (
     <div className="w-full lg:w-1/2 mb-8 lg:mb-0 animate-fade-in text-center lg:text-left">
       {/* Logo & Status */}
@@ -69,6 +76,7 @@ export const HeroContent = () => {
         <Button 
           size="lg" 
           className="bg-auttus-orange hover:bg-orange-600 text-white font-semibold px-6 sm:px-8 lg:px-10 py-4 sm:py-5 text-base sm:text-lg lg:text-xl rounded-xl transition-all duration-300 shadow-xl hover:shadow-2xl hover:scale-[1.02] min-h-[60px] flex items-center justify-center group"
+          onClick={() => window.open('https://wa.me/5567997160784?text=Ol%C3%A1,%20gostaria%20de%20colocar%20a%20Auttus%20no%20meu%20neg%C3%B3cio!!', '_blank')}
         >
           <span>Começar agora</span>
           <ArrowRight className="ml-2 h-5 w-5 sm:h-6 sm:w-6 flex-shrink-0 group-hover:translate-x-1 transition-transform duration-300" />
@@ -79,6 +87,7 @@ export const HeroContent = () => {
           size="lg" 
           className="border-2 border-white hover:bg-white hover:text-auttus-blue font-semibold px-6 sm:px-8 lg:px-10 py-4 sm:py-5 text-base sm:text-lg lg:text-xl rounded-xl transition-all duration-300 backdrop-blur-sm hover:scale-[1.02] min-h-[60px] flex items-center justify-center group"
           style={{ color: '#092341' }}
+          onClick={scrollToDemo}
         >
           <Play className="mr-2 h-5 w-5 sm:h-6 sm:w-6 flex-shrink-0 group-hover:scale-110 transition-transform duration-300" />
           Ver demonstração

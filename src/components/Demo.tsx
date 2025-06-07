@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button";
 
 export const Demo = () => {
   return (
-    <section className="py-12 sm:py-16 lg:py-20 bg-auttus-gray">
+    <section id="demo-section" className="py-12 sm:py-16 lg:py-20 bg-auttus-gray">
       <div className="container mx-auto px-4 sm:px-6">
         <div className="text-center mb-12 sm:mb-16 animate-fade-in">
           <h2 className="text-3xl sm:text-4xl font-bold text-auttus-blue mb-4">
@@ -102,6 +102,7 @@ export const Demo = () => {
               <Button 
                 size="lg" 
                 className="w-full sm:w-auto bg-auttus-blue hover:bg-blue-800 text-white font-semibold px-6 sm:px-8 py-3 sm:py-4 rounded-lg transition-all duration-300 transform hover:scale-105"
+                onClick={() => window.open('https://wa.me/5567997160784?text=Ol%C3%A1,%20gostaria%20de%20colocar%20a%20Auttus%20no%20meu%20neg%C3%B3cio!!', '_blank')}
               >
                 Quero ver isso funcionando na minha loja
               </Button>

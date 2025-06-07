@@ -119,6 +119,7 @@ export const IrresistibleOffer = () => {
             <Button 
               size="lg" 
               className="w-full sm:w-auto bg-auttus-orange text-white hover:bg-orange-600 font-bold px-8 sm:px-12 py-4 sm:py-6 text-lg sm:text-xl rounded-xl shadow-2xl transform hover:scale-105 transition-all duration-300"
+              onClick={() => window.open('https://wa.me/5567997160784?text=Ol%C3%A1,%20quero%20iniciar%20com%2030%20dias%20de%20garantia!!', '_blank')}
             >
               🚀 TESTAR 30 DIAS SEM RISCO
               <ArrowRight className="ml-2 h-5 w-5 sm:h-6 sm:w-6" />
