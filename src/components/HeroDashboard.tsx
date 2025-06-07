@@ -110,27 +110,21 @@ export const HeroDashboard = () => {
     }
   ];
 
-  // Função de scroll isolada apenas para o container do chat
   const scrollChatToBottom = () => {
     if (chatContainerRef.current) {
       const container = chatContainerRef.current;
-      
-      // Scroll direto no container sem afetar a página
       container.scrollTop = container.scrollHeight;
     }
   };
 
-  // Effect para scroll quando novas mensagens aparecem
   useEffect(() => {
     if (visibleMessages.length > 0) {
-      // Pequeno delay para garantir que a mensagem foi renderizada
       requestAnimationFrame(() => {
         scrollChatToBottom();
       });
     }
   }, [visibleMessages.length]);
 
-  // Effect para scroll quando indicador de digitação aparece
   useEffect(() => {
     if (isTyping || isUserTyping) {
       requestAnimationFrame(() => {
@@ -145,16 +139,14 @@ export const HeroDashboard = () => {
         const currentMessage = chatFlow[currentMessageIndex];
         
         if (currentMessage.type === 'user') {
-          // Mostrar que João está digitando
           setIsUserTyping(true);
           
           setTimeout(() => {
             setVisibleMessages(prev => [...prev, currentMessage]);
             setCurrentMessageIndex(prev => prev + 1);
             setIsUserTyping(false);
-          }, 1500); // João digita por 1.5 segundos
+          }, 1500);
         } else {
-          // Mensagem do bot ou sistema
           setIsTyping(true);
           
           setTimeout(() => {
@@ -175,24 +167,24 @@ export const HeroDashboard = () => {
   }, [currentMessageIndex]);
 
   return (
-    <div className="w-full lg:w-1/2 relative lg:pl-8 xl:pl-12 flex-shrink-0 mt-8 lg:mt-0">
-      <div className="relative bg-white rounded-2xl shadow-xl p-4 sm:p-6 lg:p-8 transition-shadow duration-300 max-w-md sm:max-w-lg mx-auto lg:max-w-none h-[500px] lg:h-[600px]">
-        <div className="bg-auttus-gray rounded-xl p-4 sm:p-6 h-full flex flex-col">
-          <div className="bg-gradient-to-r from-auttus-orange to-orange-600 text-white p-4 flex items-center justify-between rounded-t-xl -m-4 sm:-m-6 mb-4 sm:mb-6">
-            <div className="flex items-center space-x-3">
-              <div className="w-10 h-10 bg-white bg-opacity-20 rounded-full flex items-center justify-center">
-                <span className="text-lg">🤖</span>
+    <div className="w-full lg:w-1/2 relative lg:pl-4 xl:pl-8 flex-shrink-0">
+      <div className="relative bg-white rounded-xl sm:rounded-2xl shadow-xl p-3 sm:p-4 lg:p-6 xl:p-8 transition-shadow duration-300 max-w-sm sm:max-w-md lg:max-w-lg mx-auto lg:max-w-none h-[400px] sm:h-[450px] lg:h-[500px] xl:h-[600px]">
+        <div className="bg-auttus-gray rounded-lg sm:rounded-xl p-3 sm:p-4 lg:p-6 h-full flex flex-col">
+          <div className="bg-gradient-to-r from-auttus-orange to-orange-600 text-white p-3 sm:p-4 flex items-center justify-between rounded-t-lg sm:rounded-t-xl -m-3 sm:-m-4 lg:-m-6 mb-3 sm:mb-4 lg:mb-6">
+            <div className="flex items-center space-x-2 sm:space-x-3">
+              <div className="w-8 h-8 sm:w-10 sm:h-10 bg-white bg-opacity-20 rounded-full flex items-center justify-center">
+                <span className="text-sm sm:text-lg">🤖</span>
               </div>
               <div>
-                <h3 className="font-semibold">Assistente Auttus</h3>
-                <p className="text-sm opacity-90">🟢 Online agora</p>
+                <h3 className="font-semibold text-sm sm:text-base">Assistente Auttus</h3>
+                <p className="text-xs sm:text-sm opacity-90">🟢 Online agora</p>
               </div>
             </div>
           </div>
           
           <div 
             ref={chatContainerRef}
-            className="flex-1 overflow-y-auto space-y-3 pb-4"
+            className="flex-1 overflow-y-auto space-y-2 sm:space-y-3 pb-3 sm:pb-4 isolated-scroll"
             style={{ 
               overscrollBehavior: 'contain',
               WebkitOverflowScrolling: 'touch'
