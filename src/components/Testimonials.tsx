@@ -1,4 +1,3 @@
-
 import { useState, useEffect } from "react";
 import { ChevronLeft, ChevronRight, Star, Shield, Users, Rocket } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -7,7 +6,7 @@ const customerTestimonials = [
   {
     name: "Marco",
     role: "Proprietário - Prestige Motors",
-    image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80",
+    image: "/lovable-uploads/42ce4d99-71ff-4276-95ba-2ebf2ad25d31.png",
     content: "Com a Auttus, nossa equipe triplicou o número de leads qualificados. A IA realmente entende como falar com clientes de veículos. Fantástico!",
     rating: 5,
     badge: "Cliente"
