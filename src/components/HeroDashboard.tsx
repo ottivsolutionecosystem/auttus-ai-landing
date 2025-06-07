@@ -1,4 +1,3 @@
-
 import { useState, useEffect, useRef } from "react";
 import { ChatMessage } from "./ChatMessage";
 import { ChatTypingIndicator } from "./ChatTypingIndicator";
@@ -168,24 +167,24 @@ export const HeroDashboard = () => {
   }, [currentMessageIndex]);
 
   return (
-    <div className="w-full lg:w-1/2 relative lg:pl-4 xl:pl-8 flex-shrink-0">
-      <div className="relative bg-white rounded-xl sm:rounded-2xl shadow-xl p-3 sm:p-4 lg:p-6 xl:p-8 transition-shadow duration-300 max-w-sm sm:max-w-md lg:max-w-lg mx-auto lg:max-w-none h-[400px] sm:h-[450px] lg:h-[500px] xl:h-[600px]">
-        <div className="bg-auttus-gray rounded-lg sm:rounded-xl p-3 sm:p-4 lg:p-6 h-full flex flex-col">
-          <div className="bg-gradient-to-r from-auttus-orange to-orange-600 text-white p-3 sm:p-4 flex items-center justify-between rounded-t-lg sm:rounded-t-xl -m-3 sm:-m-4 lg:-m-6 mb-3 sm:mb-4 lg:mb-6">
-            <div className="flex items-center space-x-2 sm:space-x-3">
-              <div className="w-8 h-8 sm:w-10 sm:h-10 bg-white bg-opacity-20 rounded-full flex items-center justify-center">
-                <span className="text-sm sm:text-lg">🤖</span>
+    <div className="w-full lg:w-1/2 relative flex justify-center lg:justify-end order-2 lg:order-2">
+      <div className="relative bg-white rounded-2xl shadow-xl p-4 lg:p-6 xl:p-8 transition-shadow duration-300 w-full max-w-md lg:max-w-lg xl:max-w-xl h-[500px] lg:h-[550px] xl:h-[600px]">
+        <div className="bg-auttus-gray rounded-xl p-4 lg:p-6 h-full flex flex-col">
+          <div className="bg-gradient-to-r from-auttus-orange to-orange-600 text-white p-4 flex items-center justify-between rounded-t-xl -m-4 lg:-m-6 mb-4 lg:mb-6">
+            <div className="flex items-center space-x-3">
+              <div className="w-10 h-10 bg-white bg-opacity-20 rounded-full flex items-center justify-center">
+                <span className="text-lg">🤖</span>
               </div>
               <div>
-                <h3 className="font-semibold text-sm sm:text-base">Assistente Auttus</h3>
-                <p className="text-xs sm:text-sm opacity-90">🟢 Online agora</p>
+                <h3 className="font-semibold text-base">Assistente Auttus</h3>
+                <p className="text-sm opacity-90">🟢 Online agora</p>
               </div>
             </div>
           </div>
           
           <div 
             ref={chatContainerRef}
-            className="flex-1 overflow-y-auto space-y-2 sm:space-y-3 pb-3 sm:pb-4 isolated-scroll"
+            className="flex-1 overflow-y-auto space-y-3 pb-4 isolated-scroll"
             style={{ 
               overscrollBehavior: 'contain',
               WebkitOverflowScrolling: 'touch'
