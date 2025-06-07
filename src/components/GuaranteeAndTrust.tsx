@@ -39,25 +39,20 @@ const trustIndicators = [
 
 const teamInfo = [
   {
-    name: "Dr. Ricardo Silva",
-    role: "CTO - PhD em IA",
-    experience: "15 anos em machine learning automotivo"
+    name: "Guilherme Sanches",
+    role: "CEO",
+    experience: "8 anos estruturando e escalando negócios"
   },
   {
-    name: "Ana Beatriz Costa",
-    role: "Head de Produto",
-    experience: "10 anos liderando vendas automotivas"
-  },
-  {
-    name: "Marcus Oliveira", 
-    role: "Lead Developer",
-    experience: "12 anos desenvolvendo chatbots empresariais"
+    name: "Adriano Dias",
+    role: "CTO",
+    experience: "25 anos como desenvolvedor de tecnologia"
   }
 ];
 
 const achievements = [
   {
-    number: "500+",
+    number: "100+",
     label: "Revendas atendidas"
   },
   {
@@ -104,10 +99,10 @@ export const GuaranteeAndTrust = () => {
         {/* Team Section */}
         <div className="mb-12 sm:mb-16">
           <h3 className="text-2xl sm:text-3xl font-bold text-auttus-blue text-center mb-8 sm:mb-12">
-            Equipe por trás da Auttus
+            Por trás da Auttus
           </h3>
           
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8 max-w-4xl mx-auto mb-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 max-w-3xl mx-auto mb-8">
             {teamInfo.map((member, index) => (
               <div 
                 key={index}
@@ -208,7 +203,7 @@ export const GuaranteeAndTrust = () => {
             </span>
           </div>
           <p className="text-gray-600 text-sm mt-4">
-            CNPJ: 45.123.456/0001-78 • Sede: São Paulo, SP • Fundada em 2020
+            CNPJ: 60.081.212/0001-72 • Sede: Campo Grande-MS • Fundada em 2020
           </p>
         </div>
       </div>

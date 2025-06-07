@@ -1,28 +1,27 @@
-
 import { useState, useEffect } from "react";
 import { ChevronLeft, ChevronRight, Star, Shield, Users, Rocket } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 const customerTestimonials = [
   {
-    name: "Carlos Mendes",
-    role: "Gerente de Vendas - AutoSul",
+    name: "Marco",
+    role: "Proprietário - Prestige Motors",
     image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80",
     content: "Com a Auttus, nossa equipe triplicou o número de leads qualificados. A IA realmente entende como falar com clientes de veículos. Fantástico!",
     rating: 5,
     badge: "Cliente"
   },
   {
-    name: "Ana Paula Silva",
-    role: "Proprietária - Silva Automóveis",
+    name: "Cristian",
+    role: "Proprietário - CNA Motors",
     image: "https://images.unsplash.com/photo-1494790108755-2616b612b786?ixlib=rb-1.2.1&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80",
-    content: "Desde que implementamos a Auttus, nunca mais perdemos um lead por demora na resposta. É como ter um vendedor trabalhando 24h por dia.",
+    content: "Em 15 dias já vi o retorno do investimento. A garantia me deu confiança para testar.",
     rating: 5,
     badge: "Cliente"
   },
   {
-    name: "Roberto Oliveira",
-    role: "Diretor Comercial - MegaAutos",
+    name: "Felipe",
+    role: "Proprietário - Teca Automóveis",
     image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-1.2.1&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80",
     content: "A Auttus não só responde rápido, como também agenda os test drives e envia follow-ups. Nossa conversão aumentou significativamente.",
     rating: 5,
