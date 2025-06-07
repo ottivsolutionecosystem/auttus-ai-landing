@@ -25,7 +25,7 @@ const companyCredentials = [
   {
     icon: Users,
     title: "Equipe Especializada",
-    description: "Time com 10+ anos em IA e vendas automotivas"
+    description: "Time com 10+ anos em tecnologia e vendas automotivas"
   },
   {
     icon: Shield,
