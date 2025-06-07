@@ -96,10 +96,50 @@ export const GuaranteeAndTrust = () => {
           ))}
         </div>
 
+        {/* OTTIV Company Section */}
+        <div className="mb-12 sm:mb-16">
+          <h3 className="text-2xl sm:text-3xl font-bold text-auttus-blue text-center mb-8 sm:mb-12">
+            Sobre a OTTIV
+          </h3>
+          
+          <div className="bg-gradient-to-br from-auttus-blue to-blue-700 rounded-2xl p-6 sm:p-8 text-white mb-8">
+            <div className="text-center max-w-4xl mx-auto">
+              <div className="flex items-center justify-center mb-6">
+                <div className="bg-white/20 rounded-full p-4">
+                  <Code className="h-8 w-8 text-white" />
+                </div>
+              </div>
+              <h4 className="text-xl sm:text-2xl font-bold mb-4">
+                Especialista em Tecnologia Comercial
+              </h4>
+              <p className="text-blue-100 leading-relaxed mb-6">
+                A OTTIV é uma empresa brasileira especializada em desenvolver soluções de automação 
+                com inteligência artificial para operações comerciais. Com foco no mercado automotivo, 
+                criamos tecnologias que transformam a forma como empresas interagem com seus clientes 
+                e gerenciam suas vendas.
+              </p>
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-4 text-center">
+                <div className="bg-white/10 rounded-lg p-4">
+                  <div className="text-auttus-orange font-bold text-lg mb-1">8+ anos</div>
+                  <div className="text-blue-200 text-sm">Experiência em automação</div>
+                </div>
+                <div className="bg-white/10 rounded-lg p-4">
+                  <div className="text-auttus-orange font-bold text-lg mb-1">100%</div>
+                  <div className="text-blue-200 text-sm">Focada no Brasil</div>
+                </div>
+                <div className="bg-white/10 rounded-lg p-4">
+                  <div className="text-auttus-orange font-bold text-lg mb-1">IA Própria</div>
+                  <div className="text-blue-200 text-sm">Desenvolvida internamente</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
         {/* Team Section */}
         <div className="mb-12 sm:mb-16">
           <h3 className="text-2xl sm:text-3xl font-bold text-auttus-blue text-center mb-8 sm:mb-12">
-            Por trás da Auttus
+            Liderança Experiente
           </h3>
           
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 max-w-3xl mx-auto mb-8">
@@ -121,7 +161,7 @@ export const GuaranteeAndTrust = () => {
 
           <div className="text-center">
             <p className="text-gray-600 bg-white rounded-lg p-4 max-w-2xl mx-auto">
-              <strong>Nossa missão:</strong> Ajudar revendas brasileiras a vender mais através de 
+              <strong>Nossa missão:</strong> Ajudar empresas brasileiras a vender mais através de 
               automação inteligente, permitindo que vendedores foquem no que fazem de melhor: fechar negócios.
             </p>
           </div>
@@ -199,11 +239,11 @@ export const GuaranteeAndTrust = () => {
           <div className="inline-flex items-center space-x-2 bg-white border-2 border-auttus-orange rounded-full px-4 sm:px-6 py-2 sm:py-3">
             <Shield className="h-5 w-5 text-auttus-orange" />
             <span className="text-auttus-blue font-semibold text-sm sm:text-base">
-              🇧🇷 Empresa brasileira, confiável e estabelecida
+              🇧🇷 OTTIV - Empresa brasileira de tecnologia comercial
             </span>
           </div>
           <p className="text-gray-600 text-sm mt-4">
-            CNPJ: 60.081.212/0001-72 • Sede: Campo Grande-MS
+            OTTIV LTDA • CNPJ: 60.081.212/0001-72 • Sede: Campo Grande-MS
           </p>
         </div>
       </div>

@@ -27,7 +27,7 @@ export const HeroContent = () => {
           </div>
         </div>
         <p className="text-auttus-orange font-medium text-sm sm:text-base lg:text-lg">
-          Líder em automação de vendas automotivas
+          Produto OTTIV - Líder em automação com inteligência artificial em operações comerciais
         </p>
       </div>
 

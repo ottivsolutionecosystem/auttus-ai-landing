@@ -39,10 +39,10 @@ export const Footer = () => {
         {/* Bottom Bar */}
         <div className="border-t border-blue-800 mt-8 sm:mt-12 pt-6 sm:pt-8 flex flex-col sm:flex-row justify-between items-center text-center sm:text-left">
           <p className="text-blue-200 text-xs sm:text-sm mb-4 sm:mb-0">
-            © 2025 Auttus. Todos os direitos reservados.
+            © 2025 Auttus by OTTIV. Todos os direitos reservados.
           </p>
           <p className="text-blue-200 text-xs sm:text-sm">
-            CNPJ: 60.081.212/0001-72
+            OTTIV LTDA • CNPJ: 60.081.212/0001-72 • Campo Grande-MS
           </p>
         </div>
       </div>
